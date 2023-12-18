@@ -1,12 +1,14 @@
 import Link from 'next/link'
 import { reader } from '../reader'
 import './styles.css'
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const socialLinks = await reader.singletons.socialLinks.read()
   return (
     <html lang="en">
       <body>
+        <SpeedInsights />
         <header>
           <nav>
             <Link href="/">Home</Link>

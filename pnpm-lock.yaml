@@ -11,6 +11,9 @@ dependencies:
   '@keystatic/next':
     specifier: ^2.0.0
     version: 2.0.1(@keystatic/core@0.2.9)(next@14.0.4)(react-dom@18.2.0)(react@18.2.0)
+  '@vercel/speed-insights':
+    specifier: ^1.0.2
+    version: 1.0.2
   next:
     specifier: ^14.0.0
     version: 14.0.4(react-dom@18.2.0)(react@18.2.0)
@@ -1980,6 +1983,11 @@ packages:
       wonka: 6.3.4
     transitivePeerDependencies:
       - graphql
+    dev: false
+
+  /@vercel/speed-insights@1.0.2:
+    resolution: {integrity: sha512-y5HWeB6RmlyVYxJAMrjiDEz8qAIy2cit0fhBq+MD78WaUwQvuBnQlX4+5MuwVTWi46bV3klaRMq83u9zUy1KOg==}
+    requiresBuild: true
     dev: false
 
   /ansi-styles@3.2.1:
