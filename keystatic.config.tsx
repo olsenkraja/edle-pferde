@@ -17,7 +17,6 @@ const localMode: LocalConfig['storage'] = {
 
 const remoteMode: GitHubConfig['storage'] = {
   kind: 'github',
-  pathPrefix: 'prod',
   repo: 'olsenkraja/edle-pferde'
 }
 
@@ -25,7 +24,7 @@ export default config({
   storage: isProd ? remoteMode : localMode,
   ui: {
     brand: {
-      name: 'Keystatic mini course',
+      name: 'Edle Pferde',
       mark: () => (
         <svg
           xmlns="http://www.w3.org/2000/svg"
