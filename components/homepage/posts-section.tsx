@@ -5,6 +5,19 @@ import Link from "next/link";
 export default async function PostsSection() {
   const posts = await reader.collections.posts.all()
 
+  function formatDate(input: string | number | Date) {
+    const date = new Date(input);
+    const germanDate = new Intl.DateTimeFormat('de-DE', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      weekday: 'long'
+    });
+
+    return germanDate.format(date);
+  }
+
+
   return (
     <div className="bg-noble-25">
       <div className="relative mx-auto max-w-screen-xl space-y-16 px-8 py-24">
@@ -22,7 +35,7 @@ export default async function PostsSection() {
             <div className="space-y-4 p-8 text-white">
               <div className="text-xl">{posts[0].entry.title}</div>
               <div className="h-1 w-12 bg-white"></div>
-              <div className="text-sm">{posts[0].entry.date}</div>
+              <div className="text-sm">{formatDate(posts[0].entry.date)}</div>
             </div>
           </Link>
           <div className="w-2/5 divide-y divide-noble-500">
@@ -31,7 +44,7 @@ export default async function PostsSection() {
                 <li key={post.slug} className="px-12 py-4 hover:bg-noble-200">
                   <Link href={`/posts/${post.slug}`}>
                     <div className="text-xl">{post.entry.title}</div>
-                    <div className="text-sm">{post.entry.date}</div>
+                    <div className="text-sm">{formatDate(post.entry.date)}</div>
                   </Link>
                 </li>
               ))}
