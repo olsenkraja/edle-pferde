@@ -154,45 +154,58 @@ export default config({
     }),
     horses: collection({
       label: 'Horses',
-      slugField: 'name',
+      slugField: 'nickname',
       path: 'content/horses/*',
-      format: {data: 'json'},
+      format: {contentField: 'content'},
       schema: {
-        name: fields.slug({name: {label: 'Name'}}),
-        showcase: fields.blocks(
-          {
-            link: {
-              label: 'Link',
-              schema: fields.object({
-                label: fields.text({
-                  label: 'Label',
+        nickname: fields.slug({name: {label: 'Nickname'}}),
+        full_name: fields.text({label: 'Full name'}),
+        profile_picture: fields.image({
+          label: 'Profile picture',
+          directory: 'public/images/horses',
+          publicPath: '/images/horses/',
+        }),
+        color: fields.text({label: 'Color'}),
+        bio: fields.text({label: 'Bio', multiline: true}),
+        content: fields.document({
+          label: 'Content',
+          formatting: true,
+          dividers: true,
+          links: true,
+          images: {
+            directory: 'public/images/horses',
+            publicPath: '/images/horses/',
+            schema: {
+              title: fields.text({
+                label: 'Caption',
+                description:
+                  'The text to display under the image in a caption.',
+              }),
+            },
+          },
+          componentBlocks: {
+            'youtube-video': component({
+              label: 'YouTube Video',
+              schema: {
+                youtubeVideoId: fields.text({
+                  label: 'YouTube Video ID',
+                  description: 'The ID of the YouTube video (not the full URL)',
                   validation: {
                     length: {
                       min: 1,
                     },
                   },
                 }),
-                url: fields.url({label: 'URL'}),
-              }),
-              itemLabel: (item) => 'Link: ' + item.fields.label.value,
-            },
-            youtubeVideoId: {
-              label: 'YouTube Video ID',
-              schema: fields.text({
-                label: 'YouTube Video ID',
-                validation: {
-                  length: {
-                    min: 1,
-                  },
-                },
-              }),
-              itemLabel: (item) => 'YouTube ID: ' + item.value,
-            },
+              },
+              preview: (props) =>
+                props.fields.youtubeVideoId.value ? (
+                  <ShowcaseYouTubeVideo videoId={props.fields.youtubeVideoId.value} />
+                ) : (
+                  <p>Please enter a YouTube video ID</p>
+                ),
+            }),
           },
-          {
-            label: 'Showcase',
-          }
-        ),
+        }),
       },
     }),
   },

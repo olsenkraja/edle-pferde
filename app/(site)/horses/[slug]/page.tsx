@@ -1,8 +1,9 @@
 import {notFound} from 'next/navigation'
 import {reader} from '../../../reader'
 import Link from 'next/link'
-import {ShowcaseLink} from '../../../../components/showcase-link'
-import {ShowcaseYouTubeVideo} from '../../../../components/showcase-youtube-video'
+import Image from "next/image";
+import {DocumentRenderer} from "@keystatic/core/renderer";
+import {ShowcaseYouTubeVideo} from "../../../../components/showcase-youtube-video";
 
 export default async function HorsePage({params}: { params: { slug: string } }) {
   const {slug} = params
@@ -14,29 +15,27 @@ export default async function HorsePage({params}: { params: { slug: string } }) 
   return (
     <div className="mx-auto max-w-screen-xl mt-12 mb-32 px-8">
       <div className="prose lg:prose-xl">
-        <h1>{horse.name}</h1>
-        {horse.showcase.length > 0 && (
-          <>
-            <hr />
-            <h2>Showcase</h2>
-            <ul>
-              {horse.showcase.map((item, index) => (
-                <li key={index}>
-                  {item.discriminant === 'link' && (
-                    <ShowcaseLink url={item.value.url} label={item.value.label} />
-                  )}
-                  {item.discriminant === 'youtubeVideoId' && (
-                    <ShowcaseYouTubeVideo videoId={item.value} />
-                  )}
-                </li>
-              ))}
-            </ul>
-          </>
-        )}
+        <h1>{horse.nickname}</h1>
+        <h2>{horse.full_name}</h2>
+        <div className="flex space-x-8">
+          <Image
+            alt=""
+            width="500"
+            height="500"
+            className="w-1/3 object-cover"
+            src={horse.profile_picture}
+          />
+          <p className="w-2/3">{horse.bio}</p>
+        </div>
+        <DocumentRenderer
+          document={await horse.content()}
+          componentBlocks={{
+            'youtube-video': (props) => <ShowcaseYouTubeVideo videoId={props.youtubeVideoId} />,
+          }}
+        />
         {horsePosts.length > 0 && (
           <>
-            <hr />
-            <h2>Posts über {horse.name}</h2>
+            <h2>Posts über {horse.nickname}</h2>
             <ul>
               {horsePosts.map((post) => (
                 <li key={post.slug}>

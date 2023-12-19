@@ -40,7 +40,7 @@ export default async function Post({params}: { params: { slug: string } }) {
                 <li key={horse.slug}>
                   <Link href={`/horses/${horse.slug}`} className="text-2xl flex items-center space-x-4 hover:underline">
                     <div className="w-12 h-12 bg-noble-500 shadow-lg rounded-full"></div>
-                    <span>{horse.name}</span>
+                    <span>{horse.nickname}</span>
                   </Link>
                 </li>
               ))}

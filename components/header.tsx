@@ -11,8 +11,8 @@ export async function Header() {
         <div className="hidden flex-1 lg:flex lg:gap-x-12">
           <Link href="/" className="font-semibold uppercase leading-6 text-white">Home</Link>
           <Link href={`/about`} className="font-semibold uppercase leading-6 text-white">Gestüt</Link>
-          <Link href="#" className="font-semibold uppercase leading-6 text-white">Pferde</Link>
-          <Link href="#" className="font-semibold uppercase leading-6 text-white">Gallery</Link>
+          <Link href={`/horses`} className="font-semibold uppercase leading-6 text-white">Pferde</Link>
+          <Link href={`/gallery`} className="font-semibold uppercase leading-6 text-white">Gallery</Link>
         </div>
         <div className="flex lg:hidden">
           <button type="button"
