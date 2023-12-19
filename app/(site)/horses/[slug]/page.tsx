@@ -40,7 +40,7 @@ export default async function HorsePage({params}: { params: { slug: string } }) 
             <ul>
               {horsePosts.map((post) => (
                 <li key={post.slug}>
-                  <Link href={`/${post.slug}`}>{post.entry.title}</Link>
+                  <Link href={`/posts/${post.slug}`}>{post.entry.title}</Link>
                 </li>
               ))}
             </ul>

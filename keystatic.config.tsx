@@ -1,12 +1,4 @@
-import {
-  collection,
-  component,
-  config,
-  fields,
-  GitHubConfig,
-  LocalConfig,
-  singleton,
-} from '@keystatic/core'
+import {collection, component, config, fields, GitHubConfig, LocalConfig, singleton,} from '@keystatic/core'
 import {ShowcaseYouTubeVideo} from './components/showcase-youtube-video'
 
 const isProd = process.env.NODE_ENV === 'production'
@@ -62,7 +54,17 @@ export default config({
           formatting: true,
           dividers: true,
           links: true,
-          images: true,
+          images: {
+            directory: 'public/images',
+            publicPath: '/images/',
+            schema: {
+              title: fields.text({
+                label: 'Caption',
+                description:
+                  'The text to display under the image in a caption.',
+              }),
+            },
+          },
           componentBlocks: {
             'youtube-video': component({
               label: 'YouTube Video',
