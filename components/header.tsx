@@ -10,7 +10,7 @@ export async function Header() {
            aria-label="Global">
         <div className="hidden flex-1 lg:flex lg:gap-x-12">
           <Link href="/" className="font-semibold uppercase leading-6 text-white">Home</Link>
-          <Link href={`about`} className="font-semibold uppercase leading-6 text-white">Gestüt</Link>
+          <Link href={`/about`} className="font-semibold uppercase leading-6 text-white">Gestüt</Link>
           <Link href="#" className="font-semibold uppercase leading-6 text-white">Pferde</Link>
           <Link href="#" className="font-semibold uppercase leading-6 text-white">Gallery</Link>
         </div>
