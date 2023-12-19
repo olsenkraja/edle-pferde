@@ -2,6 +2,9 @@
 module.exports = {
   reactStrictMode: false,
   images: {
-    domains: ['tstr09nnhnz3.keystatic.net'],
+    domains: ['www.edle-pferde.com', 'img.freepik.com'],
+  },
+  experimental: {
+    scrollRestoration: true,
   },
 }
