@@ -4,6 +4,7 @@ import {notFound} from 'next/navigation'
 import {reader} from '../../../reader'
 import Link from 'next/link'
 import {ShowcaseYouTubeVideo} from '../../../../components/showcase-youtube-video'
+import Image from "next/image";
 
 export default async function Post({params}: { params: { slug: string } }) {
   const {slug} = params
@@ -33,14 +34,23 @@ export default async function Post({params}: { params: { slug: string } }) {
             />
           </div>
         </div>
-        <div className="lg:ml-32">
+        <div className="lg:ml-20">
           {horses.length > 0 && (
             <ul className="space-y-4">
               {horses.map((horse) => (
                 <li key={horse.slug}>
                   <Link href={`/horses/${horse.slug}`} className="text-2xl flex items-center space-x-4 hover:underline">
-                    <div className="w-12 h-12 bg-noble-500 shadow-lg rounded-full"></div>
-                    <span>{horse.nickname}</span>
+                    <Image
+                      alt=""
+                      width="500"
+                      height="500"
+                      className="w-24 h-24 bg-noble-500 shadow-lg rounded-full"
+                      src={horse.profile_picture}
+                    />
+                    <div>
+                    <div>{horse.nickname}</div>
+                    <div className="text-sm line-clamp-2">{horse.full_name}</div>
+                    </div>
                   </Link>
                 </li>
               ))}

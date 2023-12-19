@@ -137,6 +137,9 @@ export default config({
             }),
           },
         }),
+        date: fields.date({
+          label: 'Event date and time',
+        }),
         horses: fields.array(
           fields.relationship({
             label: 'Horses',
