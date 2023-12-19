@@ -36,11 +36,60 @@ export default config({
       ),
     },
     navigation: {
-      writing: ['posts', 'horses'],
+      writing: ['pages', 'posts', 'horses'],
       'Footer links': ['socialLinks'],
     },
   },
   collections: {
+    pages: collection({
+      label: 'Pages',
+      entryLayout: 'content',
+      slugField: 'title',
+      path: 'content/pages/*',
+      format: {contentField: 'content'},
+      schema: {
+        title: fields.slug({name: {label: 'Title'}}),
+        content: fields.document({
+          label: 'Content',
+          formatting: true,
+          dividers: true,
+          links: true,
+          images: {
+            directory: 'public/images/pages',
+            publicPath: '/images/pages/',
+            schema: {
+              title: fields.text({
+                label: 'Caption',
+                description:
+                  'The text to display under the image in a caption.',
+              }),
+            },
+          },
+          componentBlocks: {
+            'youtube-video': component({
+              label: 'YouTube Video',
+              schema: {
+                youtubeVideoId: fields.text({
+                  label: 'YouTube Video ID',
+                  description: 'The ID of the YouTube video (not the full URL)',
+                  validation: {
+                    length: {
+                      min: 1,
+                    },
+                  },
+                }),
+              },
+              preview: (props) =>
+                props.fields.youtubeVideoId.value ? (
+                  <ShowcaseYouTubeVideo videoId={props.fields.youtubeVideoId.value} />
+                ) : (
+                  <p>Please enter a YouTube video ID</p>
+                ),
+            }),
+          },
+        }),
+      },
+    }),
     posts: collection({
       label: 'Posts',
       entryLayout: 'content',
