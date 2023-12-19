@@ -1,8 +1,8 @@
 import { Entry } from '@keystatic/core/reader'
 import keystaticConfig from '../keystatic.config'
 
-type Showcase = Entry<(typeof keystaticConfig)['collections']['horses']>['showcase']
-type ShowcaseLinkProps = Extract<Showcase[number], { discriminant: 'link' }>['value']
+type Showcase = Entry<(typeof keystaticConfig)['collections']['horses']>
+type ShowcaseLinkProps = Extract<Showcase, { discriminant: 'link' }>['value']
 
 export function ShowcaseLink({ url, label }: ShowcaseLinkProps) {
   return (
