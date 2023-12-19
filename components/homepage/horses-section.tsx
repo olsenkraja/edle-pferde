@@ -34,7 +34,7 @@ export default async function HorsesSection() {
                     width="500"
                     height="500"
                     className="h-64 w-full object-cover"
-                    src="https://www.edle-pferde.com/sites/default/files/2018-04/gwyneth10_.jpg"
+                    src={horse.entry.profile_picture}
                   />
                   <div className="absolute bottom-0 right-4">
                     <span className="bg-red-500 px-2 py-1 text-sm font-semibold uppercase text-white">
