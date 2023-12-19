@@ -3,7 +3,7 @@ import keystaticConfig from '../keystatic.config'
 
 type ShowcaseYouTubeVideoProps = {
   videoId: Extract<
-    Entry<(typeof keystaticConfig)['collections']['horses']>,
+    Entry<(typeof keystaticConfig)['collections']['horses']>['showcase'][number],
     { discriminant: 'youtubeVideoId' }
   >['value']
 }
