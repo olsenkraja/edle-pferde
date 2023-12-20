@@ -3,9 +3,9 @@ import {reader} from "../app/reader";
 export async function Footer() {
   return (
     <footer>
-      <div className="bg-noble-900">
-        <div className="relative mx-auto flex max-w-screen-xl flex-col space-y-6 px-8 py-24">
-          <div className="absolute top-0 flex w-full justify-center">
+      <div className="bg-gradient-to-br from-noble-900 to-noble-950">
+        <div className="relative mx-auto flex max-w-screen-xl flex-col space-y-6 px-8 pb-24">
+          <div className="flex justify-center">
             <img className="h-20 w-auto" src="https://www.edle-pferde.com/sites/default/files/flagge2.png" alt="" />
           </div>
           <div className="flex justify-center space-x-16">
