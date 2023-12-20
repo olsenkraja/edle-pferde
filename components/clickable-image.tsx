@@ -31,7 +31,10 @@ export function ClickableImage(props) {
               :
               null
             }
-            <button className="bg-white size-8 font-extrabold rounded-full absolute -top-4 -right-4 shadow-2xl border-2 border-black flex items-center justify-center">
+            <button
+              className="bg-white size-8 font-extrabold rounded-full absolute -top-4 -right-4 shadow-2xl border-2 border-black flex items-center justify-center"
+              onClick={() => setIsOpen(false)}
+            >
               <span className="text-xl mb-1">&times;</span>
             </button>
           </Dialog.Panel>
