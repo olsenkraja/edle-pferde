@@ -21,7 +21,7 @@ export function ClickableImage(props) {
       >
         <div className="fixed inset-0 bg-black/70" aria-hidden="true" />
         <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
-          <Dialog.Panel className="mx-auto max-w-sm rounded bg-white">
+          <Dialog.Panel className="mx-auto">
             <img src={props.src} alt={props.alt} />
           </Dialog.Panel>
         </div>
