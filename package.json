@@ -3,6 +3,7 @@
   "version": "0.0.15",
   "license": "MIT",
   "dependencies": {
+    "@headlessui/react": "^1.7.17",
     "@keystatic/core": "^0.2.0",
     "@keystatic/next": "^2.0.0",
     "@vercel/speed-insights": "^1.0.2",

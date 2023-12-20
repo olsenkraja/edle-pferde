@@ -1,4 +1,4 @@
-import Image from "next/image";
+import {ClickableImage} from "../clickable-image";
 
 export default async function GallerySection() {
   return (
@@ -25,38 +25,22 @@ export default async function GallerySection() {
           </div>
           <div
             className="columns-1 gap-5 sm:columns-2 sm:gap-8 md:columns-3 lg:columns-4 [&>img:not(:first-child)]:mt-8">
-            <Image alt="" width="500" height="500"
-                   src="https://www.edle-pferde.com/sites/default/files/2018-07/2.JPG" />
-            <Image alt="" width="500" height="500"
-                   src="https://www.edle-pferde.com/sites/default/files/2020-02/DSC_0772.JPG" />
-            <Image alt="" width="500" height="500"
-                   src="https://www.edle-pferde.com/sites/default/files/2018-07/3.JPG" />
-            <Image alt="" width="500" height="500"
-                   src="https://www.edle-pferde.com/sites/default/files/2018-07/7.jpg" />
-            <Image alt="" width="500" height="500"
-                   src="https://www.edle-pferde.com/sites/default/files/2018-07/32.jpg" />
-            <Image alt="" width="500" height="500"
-                   src="https://www.edle-pferde.com/sites/default/files/2018-07/5.JPG" />
-            <Image alt="" width="500" height="500"
-                   src="https://www.edle-pferde.com/sites/default/files/2018-07/11.jpg" />
-            <Image alt="" width="500" height="500"
-                   src="https://www.edle-pferde.com/sites/default/files/2018-07/14.jpg" />
-            <Image alt="" width="500" height="500"
-                   src="https://www.edle-pferde.com/sites/default/files/2018-07/19.jpg" />
-            <Image alt="" width="500" height="500"
-                   src="https://www.edle-pferde.com/sites/default/files/2018-07/28.JPG" />
-            <Image alt="" width="500" height="500"
-                   src="https://www.edle-pferde.com/sites/default/files/2018-04/gingerstand.jpg" />
-            <Image alt="" width="500" height="500"
-                   src="https://www.edle-pferde.com/sites/default/files/2019-04/goldwyn018.jpg" />
-            <Image alt="" width="500" height="500"
-                   src="https://www.edle-pferde.com/sites/default/files/2019-04/merelyn98.jpg" />
-            <Image alt="" width="500" height="500"
-                   src="https://www.edle-pferde.com/sites/default/files/2018-07/26.jpg" />
-            <Image alt="" width="500" height="500"
-                   src="https://www.edle-pferde.com/sites/default/files/2019-07/1945-2-3455_x.jpg" />
-            <Image alt="" width="500" height="500"
-                   src="https://www.edle-pferde.com/sites/default/files/2020-02/Gestuet1_0.jpg" />
+            <ClickableImage alt="" src="https://www.edle-pferde.com/sites/default/files/2018-07/2.JPG" />
+            <ClickableImage alt="" src="https://www.edle-pferde.com/sites/default/files/2020-02/DSC_0772.JPG" />
+            <ClickableImage alt="" src="https://www.edle-pferde.com/sites/default/files/2018-07/3.JPG" />
+            <ClickableImage alt="" src="https://www.edle-pferde.com/sites/default/files/2018-07/7.jpg" />
+            <ClickableImage alt="" src="https://www.edle-pferde.com/sites/default/files/2018-07/32.jpg" />
+            <ClickableImage alt="" src="https://www.edle-pferde.com/sites/default/files/2018-07/5.JPG" />
+            <ClickableImage alt="" src="https://www.edle-pferde.com/sites/default/files/2018-07/11.jpg" />
+            <ClickableImage alt="" src="https://www.edle-pferde.com/sites/default/files/2018-07/14.jpg" />
+            <ClickableImage alt="" src="https://www.edle-pferde.com/sites/default/files/2018-07/19.jpg" />
+            <ClickableImage alt="" src="https://www.edle-pferde.com/sites/default/files/2018-07/28.JPG" />
+            <ClickableImage alt="" src="https://www.edle-pferde.com/sites/default/files/2018-04/gingerstand.jpg" />
+            <ClickableImage alt="" src="https://www.edle-pferde.com/sites/default/files/2019-04/goldwyn018.jpg" />
+            <ClickableImage alt="" src="https://www.edle-pferde.com/sites/default/files/2019-04/merelyn98.jpg" />
+            <ClickableImage alt="" src="https://www.edle-pferde.com/sites/default/files/2018-07/26.jpg" />
+            <ClickableImage alt="" src="https://www.edle-pferde.com/sites/default/files/2019-07/1945-2-3455_x.jpg" />
+            <ClickableImage alt="" src="https://www.edle-pferde.com/sites/default/files/2020-02/Gestuet1_0.jpg" />
           </div>
         </div>
       </div>
