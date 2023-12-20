@@ -14,7 +14,6 @@ export function ClickableImage(props) {
         width={props.width || 360}
         height={props.height || 360}
         onClick={() => setIsOpen(true)}
-        className="cursor-pointer"
         alt={props.alt}
       />
       <Dialog

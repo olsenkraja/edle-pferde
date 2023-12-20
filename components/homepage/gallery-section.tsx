@@ -28,9 +28,7 @@ export default async function GallerySection() {
         <div
           className="columns-1 gap-5 sm:columns-2 sm:gap-8 md:columns-3 lg:columns-4 [&>img:not(:first-child)]:mt-8">
           {photos.map((photo) => (
-            <>
-              <ClickableImage alt={photo.alt} src={photo.src} />
-            </>
+            <ClickableImage alt={photo.alt} src={photo.src} className="transition cursor-pointer shadow-lg hover:scale-110" />
           ))}
         </div>
       </div>
