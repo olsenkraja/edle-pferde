@@ -25,7 +25,7 @@ export default async function GallerySection() {
           </div>
           <div
             className="columns-1 gap-5 sm:columns-2 sm:gap-8 md:columns-3 lg:columns-4 [&>img:not(:first-child)]:mt-8">
-            <ClickableImage alt="" src="https://www.edle-pferde.com/sites/default/files/2018-07/2.JPG" />
+            <ClickableImage alt="Lorem ipsum dolor" src="https://www.edle-pferde.com/sites/default/files/2018-07/2.JPG" />
             <ClickableImage alt="" src="https://www.edle-pferde.com/sites/default/files/2020-02/DSC_0772.JPG" />
             <ClickableImage alt="" src="https://www.edle-pferde.com/sites/default/files/2018-07/3.JPG" />
             <ClickableImage alt="" src="https://www.edle-pferde.com/sites/default/files/2018-07/7.jpg" />
