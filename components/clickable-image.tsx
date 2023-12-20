@@ -2,14 +2,17 @@
 
 import {useState} from 'react'
 import {Dialog} from '@headlessui/react'
+import Image from "next/image";
 
 export function ClickableImage(props) {
   let [isOpen, setIsOpen] = useState(false)
 
   return (
     <>
-      <img
+      <Image
         {...props}
+        width={props.width || 360}
+        height={props.height || 360}
         onClick={() => setIsOpen(true)}
         className="cursor-pointer"
         alt={props.alt}
