@@ -12,11 +12,35 @@ export default async function HorsePage({params}: { params: { slug: string } }) 
   if (!horse) notFound()
   const allPosts = await reader.collections.posts.all()
   const horsePosts = allPosts.filter((post) => post.entry.horses.includes(slug))
+
+  function getAge(birthdate) {
+    const [year, month, day] = birthdate.split('-').map(Number);
+    const birthDate = new Date(year, month - 1, day);
+    const currentDate = new Date();
+    const years = currentDate.getFullYear() - birthDate.getFullYear();
+    const months = currentDate.getMonth() - birthDate.getMonth();
+    const germanStrings = [];
+
+    if (years > 0) {
+      const germanYearString = years === 1 ? 'Jahr' : 'Jahre';
+      germanStrings.push(`${years} ${germanYearString}`);
+    }
+
+    if (months > 0) {
+      const germanMonthString = months === 1 ? 'Monat' : 'Monate';
+      germanStrings.push(`${months} ${germanMonthString}`);
+    }
+
+    return germanStrings.length > 0 ? germanStrings.join(' und ') + ' alt' : 'Neugeboren';
+
+  }
+
   return (
     <div className="mx-auto max-w-screen-xl mt-12 mb-32 px-8">
       <div className="prose lg:prose-xl">
         <h1>{horse.nickname}</h1>
         <h2>{horse.full_name}</h2>
+        <span>{horse.birthdate ? getAge(horse.birthdate) : null}</span>
         <div className="flex space-x-8">
           <Image
             alt=""

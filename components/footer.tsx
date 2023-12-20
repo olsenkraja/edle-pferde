@@ -1,5 +1,3 @@
-import {reader} from "../app/reader";
-
 export async function Footer() {
   return (
     <footer>

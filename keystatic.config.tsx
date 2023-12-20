@@ -168,6 +168,9 @@ export default config({
           directory: 'public/images/horses',
           publicPath: '/images/horses/',
         }),
+        birthdate: fields.date({
+          label: 'Birthdate',
+        }),
         color: fields.text({label: 'Color'}),
         bio: fields.text({label: 'Bio', multiline: true}),
         content: fields.document({
