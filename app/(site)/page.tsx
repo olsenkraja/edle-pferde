@@ -8,19 +8,12 @@ import ElementsSection from "../../components/homepage/elements-section";
 export default async function Homepage() {
   return (
     <div className="bg-white">
-
       <WelcomeSection />
-
       <ElementsSection />
-
       <PostsSection />
-
       <HorsesSection />
-
       <AboutSection />
-
       <GallerySection />
-
     </div>
   )
 }
