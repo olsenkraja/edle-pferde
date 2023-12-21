@@ -2,17 +2,20 @@ import {ClickableImage} from "../clickable-image";
 import {reader} from "../../app/reader";
 
 export default async function GallerySection() {
-  const albums = await reader.collections.albums.all()
+  let albums = await reader.collections.albums.all()
+  albums = albums.sort((a,b) => (a.entry.date < b.entry.date) ? 1 : ((b.entry.date < a.entry.date) ? -1 : 0))
+
   let photos = []
   albums.forEach(album => {
-    console.log(album.entry)
     album.entry.photos.forEach(photo => {
-      photos.unshift({
+      photos.push({
         alt: album.slug + ' ' + '(' + (album.entry.date).split('-').reverse().join('.') + ')',
         src: photo
       })
     })
   })
+
+  photos = photos.slice(0, 14)
 
   return (
     <div className="bg-noble-25">
