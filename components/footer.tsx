@@ -4,7 +4,7 @@ export async function Footer() {
       <div className="bg-gradient-to-br from-noble-900 to-noble-950">
         <div className="relative mx-auto flex max-w-screen-xl flex-col space-y-6 px-8 pb-24">
           <div className="flex justify-center">
-            <img className="h-20 w-auto" src="https://www.edle-pferde.com/sites/default/files/flagge2.png" alt="" />
+            <img className="h-20 w-auto" src="/logo.png" alt="" />
           </div>
           <div className="flex justify-center space-x-16">
             <div className="flex-1 space-y-4 text-white">

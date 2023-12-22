@@ -24,7 +24,7 @@ export async function Header() {
           width="200"
           height="200"
           className="h-36 w-auto z-50 absolute m-auto left-0 right-0 lg:flex-1 hidden lg:block"
-          src="https://www.edle-pferde.com/sites/default/files/flagge2.png"
+          src="/logo.png"
         />
         <div className="hidden space-x-6 lg:flex lg:flex-1 lg:justify-end">
           <span className="text-xs leading-6 text-noble">Social Networks:</span>
