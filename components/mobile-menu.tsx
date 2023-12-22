@@ -22,7 +22,7 @@ export default function MobileMenu() {
             alt=""
             width="200"
             height="200"
-            className="w-44 absolute z-20 top-0 left-1/2 transform -translate-x-1/2"
+            className="w-48 absolute z-20 top-0 left-1/2 transform -translate-x-1/2"
             src="/logo.png"
           />
         </Link>

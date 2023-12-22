@@ -23,7 +23,7 @@ export async function Header() {
           alt=""
           width="200"
           height="200"
-          className="h-36 w-auto z-50 absolute m-auto left-0 right-0 lg:flex-1 hidden lg:block"
+          className="w-48 absolute z-20 top-0 left-1/2 transform -translate-x-1/2"
           src="/logo.png"
         />
         <div className="hidden space-x-6 lg:flex lg:flex-1 lg:justify-end">
