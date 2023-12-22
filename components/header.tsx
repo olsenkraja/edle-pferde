@@ -1,40 +1,33 @@
 import Image from 'next/image'
 import Link from "next/link";
 import {reader} from "../app/reader";
+import MobileMenu from "./mobile-menu";
 
 export async function Header() {
   const socialLinks = await reader.singletons.socialLinks.read()
   return (
     <header className="bg-gradient-to-b from-noble-900 to-noble-950 shadow-2xl top-0 z-50">
-      <nav className="mx-auto flex max-w-screen-xl flex-1 items-center justify-between px-8 py-10"
+      <nav className="mx-auto flex max-w-screen-xl flex-1 items-center justify-between px-8"
            aria-label="Global">
-        <div className="hidden flex-1 lg:flex lg:gap-x-12">
-          <Link href="/" className="font-semibold uppercase leading-6 text-white">Home</Link>
-          <Link href={`/about`} className="font-semibold uppercase leading-6 text-white">Gestüt</Link>
-          <Link href={`/horses`} className="font-semibold uppercase leading-6 text-white">Pferde</Link>
-          <Link href={`/gallery`} className="font-semibold uppercase leading-6 text-white">Gallery</Link>
+        <div className="hidden flex-1 lg:flex lg:-ml-4">
+          <Link href="/"
+                className="transition font-semibold uppercase leading-6 text-white hover:bg-noble-700 px-4 py-10">Home</Link>
+          <Link href={`/about`}
+                className="transition font-semibold uppercase leading-6 text-white hover:bg-noble-700 px-4 py-10">Gestüt</Link>
+          <Link href={`/horses`}
+                className="transition font-semibold uppercase leading-6 text-white hover:bg-noble-700 px-4 py-10">Pferde</Link>
+          <Link href={`/gallery`}
+                className="transition font-semibold uppercase leading-6 text-white hover:bg-noble-700 px-4 py-10">Gallery</Link>
         </div>
-        <div className="flex lg:hidden">
-          <button type="button"
-                  className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
-            <span className="sr-only">Open main menu</span>
-            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"
-                 aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
-          </button>
-        </div>
-        <div className="hidden flex-1 lg:flex lg:gap-x-12">
-          <div className="relative flex justify-center lg:flex-1">
-            <Link href="#" className="absolute inset-0 -m-16 flex justify-center p-1.5">
-              <span className="sr-only">Your Company</span>
-              <Image alt="" width="500" height="500" className="h-36 w-auto z-50"
-                     src="https://www.edle-pferde.com/sites/default/files/flagge2.png" />
-            </Link>
-          </div>
-        </div>
-        <div className="hidden space-x-8 lg:flex lg:flex-1 lg:justify-end">
-          <Link href="#" className="text-sm font-semibold leading-6 text-white">Social Network</Link>
+        <Image
+          alt=""
+          width="200"
+          height="200"
+          className="h-36 w-auto z-50 absolute m-auto left-0 right-0 lg:flex-1 hidden lg:block"
+          src="https://www.edle-pferde.com/sites/default/files/flagge2.png"
+        />
+        <div className="hidden space-x-6 lg:flex lg:flex-1 lg:justify-end">
+          <span className="text-xs leading-6 text-noble">Social Networks:</span>
           <ul className="flex space-x-4">
             {socialLinks.facebook && (
               <li>
@@ -42,7 +35,7 @@ export async function Header() {
                   href={`https://facebook.com/${socialLinks.facebook}`}
                   rel="noopener noreferrer"
                   target="_blank"
-                  className="flex items-center space-x-1 text-white"
+                  className="flex items-center space-x-1 text-white hover:underline"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16">
                     <path fill="currentColor"
@@ -59,7 +52,7 @@ export async function Header() {
                   href={`https://instagram.com/${socialLinks.instagram}`}
                   rel="noopener noreferrer"
                   target="_blank"
-                  className="flex items-center space-x-1 text-white"
+                  className="flex items-center space-x-1 text-white hover:underline"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16">
                     <path fill="currentColor"
@@ -71,44 +64,8 @@ export async function Header() {
             )}
           </ul>
         </div>
+        <MobileMenu />
       </nav>
-      <div className="hidden" role="dialog" aria-modal="true">
-        <div className="fixed inset-0 z-50"></div>
-        <div
-          className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-          <div className="flex items-center justify-between">
-            <Link href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
-              <Image alt="" width="500" height="500" className="h-8 w-auto"
-                     src="https://www.edle-pferde.com/sites/default/files/flagge2.png" />
-            </Link>
-            <button type="button" className="-m-2.5 rounded-md p-2.5 text-gray-700">
-              <span className="sr-only">Close menu</span>
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"
-                   aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
-          <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-gray-500/10">
-              <div className="space-y-2 py-6">
-                <Link href="#"
-                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Product</Link>
-                <Link href="#"
-                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Features</Link>
-                <Link href="#"
-                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Marketplace</Link>
-              </div>
-              <div className="py-6">
-                <Link href="#"
-                      className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log
-                                                                                                                                      in</Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </header>
   )
 }
