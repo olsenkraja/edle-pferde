@@ -128,6 +128,14 @@ export default config({
             }),
           },
         }),
+        cover_image: fields.image({
+          label: 'Cover image',
+          directory: 'public/images/posts/cover_images',
+          publicPath: '/images/posts/cover_images/',
+          validation: {
+            isRequired: true,
+          },
+        }),
         date: fields.date({
           label: 'Event date and time',
         }),

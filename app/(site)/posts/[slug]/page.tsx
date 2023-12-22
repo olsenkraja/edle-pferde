@@ -25,6 +25,8 @@ export default async function Post({params}: { params: { slug: string } }) {
       <div className="block lg:flex">
         <div className="prose lg:prose-xl">
           <h1>{post.title}</h1>
+          <Image alt="" width="850" height="850" className="w-full object-cover"
+                 src={post.cover_image} />
           <div>
             <DocumentRenderer
               document={await post.content()}

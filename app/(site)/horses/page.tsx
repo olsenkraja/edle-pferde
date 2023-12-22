@@ -4,12 +4,13 @@ import Image from "next/image";
 
 export default async function HorsesPage({params}: { params: { slug: string } }) {
   const horses = await reader.collections.horses.all()
+
   return (
     <div className="mx-auto max-w-screen-xl my-20">
       <ul>
         {horses.map((horse) => (
           <Link href={`/horses/${horse.slug}`}>
-            <li key={horse.slug} className="p-4 hover:bg-noble-200">
+            <li key={horse.slug} className="p-8 hover:bg-noble-200">
               <div className="flex space-x-8">
                 <Image
                   alt=""

@@ -12,8 +12,8 @@ export async function Header() {
         <div className="hidden flex-1 lg:flex lg:-ml-4">
           <Link href="/"
                 className="transition font-semibold uppercase leading-6 text-white hover:bg-noble-700 px-4 py-10">Home</Link>
-          <Link href={`/about`}
-                className="transition font-semibold uppercase leading-6 text-white hover:bg-noble-700 px-4 py-10">Gestüt</Link>
+          <Link href={`/posts`}
+                className="transition font-semibold uppercase leading-6 text-white hover:bg-noble-700 px-4 py-10">Blog</Link>
           <Link href={`/horses`}
                 className="transition font-semibold uppercase leading-6 text-white hover:bg-noble-700 px-4 py-10">Pferde</Link>
           <Link href={`/gallery`}
