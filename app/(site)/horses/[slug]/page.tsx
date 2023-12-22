@@ -37,7 +37,7 @@ export default async function HorsePage({params}: { params: { slug: string } }) 
 
   return (
     <div className="mx-auto max-w-screen-xl mt-12 mb-32 px-8">
-      <div className="prose lg:prose-xl">
+      <div className="prose lg:prose-xl max-w-none">
         <h1>{horse.nickname}</h1>
         <h2>{horse.full_name}</h2>
         <span>{horse.birthdate ? getAge(horse.birthdate) : null}</span>
