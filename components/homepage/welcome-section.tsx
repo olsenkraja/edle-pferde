@@ -16,13 +16,13 @@ export default async function WelcomeSection() {
       <div className="relative z-50 mx-auto flex h-full max-w-screen-xl items-center px-8">
         <div className="lg:w-3/5 space-y-10 text-white">
           <div>
-            <div className="text-xl font-bold lg:text-2xl shadow-2xl stroke-2 whitespace-nowrap">
+            <div className="text-xl font-bold lg:text-2xl whitespace-nowrap">
               Willkommen beim
             </div>
-            <div className="text-3xl font-bold lg:text-6xl shadow-2xl stroke-2 whitespace-nowrap">
+            <div className="text-3xl font-bold lg:text-6xl whitespace-nowrap">
               Trakehner Gestüt Pichl
             </div>
-            <div className="text-2xl font-bold lg:text-4xl shadow-2xl stroke-2 whitespace-nowrap">
+            <div className="text-2xl font-bold lg:text-4xl whitespace-nowrap">
               Oberösterreich
             </div>
           </div>
