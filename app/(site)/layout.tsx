@@ -10,7 +10,7 @@ export default async function RootLayout({children}: { children: React.ReactNode
       <title>Edle Pferde</title>
       <meta property="og:title" content="Edle Pferde" key="title" />
     </head>
-    <body className="bg-noble-50">
+    <body>
     <SpeedInsights />
     <Header />
     {children}
