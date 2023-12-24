@@ -210,40 +210,7 @@ export default config({
                 ),
             }),
           },
-        }), showcase: fields.blocks(
-          {
-            link: {
-              label: 'Link',
-              schema: fields.object({
-                label: fields.text({
-                  label: 'Label',
-                  validation: {
-                    length: {
-                      min: 1,
-                    },
-                  },
-                }),
-                url: fields.url({label: 'URL'}),
-              }),
-              itemLabel: (item) => 'Link: ' + item.fields.label.value,
-            },
-            youtubeVideoId: {
-              label: 'YouTube Video ID',
-              schema: fields.text({
-                label: 'YouTube Video ID',
-                validation: {
-                  length: {
-                    min: 1,
-                  },
-                },
-              }),
-              itemLabel: (item) => 'YouTube ID: ' + item.value,
-            },
-          },
-          {
-            label: 'Showcase',
-          }
-        ),
+        }),
       },
     }),
     albums: collection({
