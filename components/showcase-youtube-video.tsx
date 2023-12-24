@@ -1,11 +1,5 @@
-import { Entry } from '@keystatic/core/reader'
-import keystaticConfig from '../keystatic.config'
-
 type ShowcaseYouTubeVideoProps = {
-  videoId: Extract<
-    Entry<(typeof keystaticConfig)['collections']['horses']>['showcase'][number],
-    { discriminant: 'youtubeVideoId' }
-  >['value']
+  videoId: String
 }
 
 export function ShowcaseYouTubeVideo({ videoId }: ShowcaseYouTubeVideoProps) {
