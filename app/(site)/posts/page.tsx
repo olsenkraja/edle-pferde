@@ -1,20 +1,9 @@
 import {reader} from '../../reader'
 import Link from "next/link";
 import Image from "next/image";
+import {formatDateLong} from "../../../composables/formatting";
 
 export default async function PostsPage({params}: { params: { slug: string } }) {
-  function formatDate(input: string | number | Date) {
-    const date = new Date(input);
-    const germanDate = new Intl.DateTimeFormat('de-DE', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-      weekday: 'long'
-    });
-
-    return germanDate.format(date);
-  }
-
   let posts = await reader.collections.posts.all()
   posts = posts.sort((a, b) => (a.entry.date < b.entry.date) ? 1 : ((b.entry.date < a.entry.date) ? -1 : 0))
 
@@ -34,7 +23,7 @@ export default async function PostsPage({params}: { params: { slug: string } }) 
                 />
                 <div className="space-y-4">
                   <h2 className="text-2xl font-bold line-clamp-1">{post.entry.title}</h2>
-                  <p className="text-lg">{formatDate(post.entry.date)}</p>
+                  <p className="text-lg">{formatDateLong(post.entry.date)}</p>
                 </div>
               </div>
             </li>

@@ -1,5 +1,6 @@
 import {ClickableImage} from "../clickable-image";
 import {reader} from "../../app/reader";
+import {formatDateShort} from "../../composables/formatting";
 
 export default async function GallerySection() {
   let albums = await reader.collections.albums.all()
@@ -9,7 +10,7 @@ export default async function GallerySection() {
   albums.forEach(album => {
     album.entry.photos.forEach(photo => {
       photos.push({
-        alt: album.slug + ' ' + '(' + (album.entry.date).split('-').reverse().join('.') + ')',
+        alt: album.slug + ' ' + '(' + formatDateShort(album.entry.date) + ')',
         src: photo
       })
     })

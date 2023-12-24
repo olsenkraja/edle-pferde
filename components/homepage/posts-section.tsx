@@ -1,23 +1,11 @@
 import {reader} from '../../app/reader'
 import Image from "next/image";
 import Link from "next/link";
+import {formatDateLong} from "../../composables/formatting";
 
 export default async function PostsSection() {
   let posts = await reader.collections.posts.all()
   posts = posts.sort((a, b) => (a.entry.date < b.entry.date) ? 1 : ((b.entry.date < a.entry.date) ? -1 : 0))
-
-  function formatDate(input: string | number | Date) {
-    const date = new Date(input);
-    const germanDate = new Intl.DateTimeFormat('de-DE', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-      weekday: 'long'
-    });
-
-    return germanDate.format(date);
-  }
-
 
   return (
     <div className="bg-noble-25">
@@ -36,7 +24,7 @@ export default async function PostsSection() {
             <div className="space-y-4 p-8 text-white">
               <div className="text-xl line-clamp-2">{posts[0].entry.title}</div>
               <div className="h-1 w-12 bg-white"></div>
-              <div className="text-sm">{formatDate(posts[0].entry.date)}</div>
+              <div className="text-sm">{formatDateLong(posts[0].entry.date)}</div>
             </div>
           </Link>
           <div className="w-2/5">
@@ -53,7 +41,7 @@ export default async function PostsSection() {
                     />
                     <div>
                       <div className="text-xl line-clamp-1">{post.entry.title}</div>
-                      <div className="text-sm">{formatDate(post.entry.date)}</div>
+                      <div className="text-sm">{formatDateLong(post.entry.date)}</div>
                     </div>
                   </Link>
                 </li>
