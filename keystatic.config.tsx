@@ -162,6 +162,7 @@ export default config({
       path: 'content/texts',
       schema: {
         about: getDocumentBlock('images/about', 'About'),
+        impressum: getDocumentBlock('images/impressum', 'Impressum'),
         footer: getDocumentBlock('images/footer', 'Footer'),
       }
     }),
