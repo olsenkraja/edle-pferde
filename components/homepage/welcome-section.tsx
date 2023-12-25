@@ -4,7 +4,9 @@ import {DocumentRenderer} from "@keystatic/core/renderer";
 import Link from "next/link";
 
 export default async function WelcomeSection() {
-  const aboutPage = await reader.collections.pages.read('about')
+  const texts = await reader.singletons.texts.read()
+  console.log('texts.about')
+  console.log(texts.about)
 
   return (
     <div className="relative z-10 pt-96 pb-24">
@@ -30,13 +32,13 @@ export default async function WelcomeSection() {
           <div className="mt-6 text-lg leading-8">
             <div className="text-sm lg:text-base p-4 -m-4 bg-black/50">
               <div className="line-clamp-5">
-              <DocumentRenderer document={await aboutPage.content()} />
+                <DocumentRenderer document={await texts.about()} />
               </div>
             </div>
           </div>
           <div className="">
             <Link href={`/about`}
-              className="flex items-center justify-center bg-noble-500 px-6 py-3 font-semibold uppercase leading-none text-noble-900 w-fit">
+                  className="flex items-center justify-center bg-noble-500 px-6 py-3 font-semibold uppercase leading-none text-noble-900 w-fit">
               Read more
             </Link>
           </div>

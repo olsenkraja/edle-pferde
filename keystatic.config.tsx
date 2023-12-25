@@ -12,6 +12,46 @@ const remoteMode: GitHubConfig['storage'] = {
   repo: 'olsenkraja/edle-pferde'
 }
 
+function getDocumentBlock(imagePath: string, label = 'Content') {
+  return fields.document({
+    label,
+    formatting: true,
+    dividers: true,
+    links: true,
+    images: {
+      directory: 'public/' + imagePath,
+      publicPath: imagePath,
+      schema: {
+        title: fields.text({
+          label: 'Caption',
+        }),
+      },
+    },
+    componentBlocks: {
+      'youtube-video': component({
+        label: 'YouTube Video',
+        schema: {
+          youtubeVideoId: fields.text({
+            label: 'YouTube Video ID',
+            description: 'The ID of the YouTube video (not the full URL)',
+            validation: {
+              length: {
+                min: 1,
+              },
+            },
+          }),
+        },
+        preview: (props) =>
+          props.fields.youtubeVideoId.value ? (
+            <ShowcaseYouTubeVideo videoId={props.fields.youtubeVideoId.value} />
+          ) : (
+            <p>Please enter a YouTube video ID</p>
+          ),
+      }),
+    },
+  })
+}
+
 export default config({
   storage: isProd ? remoteMode : localMode,
   ui: {
@@ -27,60 +67,11 @@ export default config({
       ),
     },
     navigation: {
-      writing: ['pages', 'posts', 'horses', 'albums'],
-      'Footer links': ['socialLinks'],
+      content: ['posts', 'horses', 'albums'],
+      defaults: ['texts', 'contact'],
     },
   },
   collections: {
-    pages: collection({
-      label: 'Pages',
-      entryLayout: 'content',
-      slugField: 'title',
-      path: 'content/pages/*',
-      format: {contentField: 'content'},
-      schema: {
-        title: fields.slug({name: {label: 'Title'}}),
-        content: fields.document({
-          label: 'Content',
-          formatting: true,
-          dividers: true,
-          links: true,
-          images: {
-            directory: 'public/images/pages',
-            publicPath: '/images/pages/',
-            schema: {
-              title: fields.text({
-                label: 'Caption',
-                description:
-                  'The text to display under the image in a caption.',
-              }),
-            },
-          },
-          componentBlocks: {
-            'youtube-video': component({
-              label: 'YouTube Video',
-              schema: {
-                youtubeVideoId: fields.text({
-                  label: 'YouTube Video ID',
-                  description: 'The ID of the YouTube video (not the full URL)',
-                  validation: {
-                    length: {
-                      min: 1,
-                    },
-                  },
-                }),
-              },
-              preview: (props) =>
-                props.fields.youtubeVideoId.value ? (
-                  <ShowcaseYouTubeVideo videoId={props.fields.youtubeVideoId.value} />
-                ) : (
-                  <p>Please enter a YouTube video ID</p>
-                ),
-            }),
-          },
-        }),
-      },
-    }),
     posts: collection({
       label: 'Posts',
       entryLayout: 'content',
@@ -89,45 +80,7 @@ export default config({
       format: {contentField: 'content'},
       schema: {
         title: fields.slug({name: {label: 'Title'}}),
-        content: fields.document({
-          label: 'Content',
-          formatting: true,
-          dividers: true,
-          links: true,
-          images: {
-            directory: 'public/images/posts',
-            publicPath: '/images/posts/',
-            schema: {
-              title: fields.text({
-                label: 'Caption',
-                description:
-                  'The text to display under the image in a caption.',
-              }),
-            },
-          },
-          componentBlocks: {
-            'youtube-video': component({
-              label: 'YouTube Video',
-              schema: {
-                youtubeVideoId: fields.text({
-                  label: 'YouTube Video ID',
-                  description: 'The ID of the YouTube video (not the full URL)',
-                  validation: {
-                    length: {
-                      min: 1,
-                    },
-                  },
-                }),
-              },
-              preview: (props) =>
-                props.fields.youtubeVideoId.value ? (
-                  <ShowcaseYouTubeVideo videoId={props.fields.youtubeVideoId.value} />
-                ) : (
-                  <p>Please enter a YouTube video ID</p>
-                ),
-            }),
-          },
-        }),
+        content: getDocumentBlock('images/posts'),
         cover_image: fields.image({
           label: 'Cover image',
           directory: 'public/images/posts/cover_images',
@@ -138,6 +91,10 @@ export default config({
         }),
         date: fields.date({
           label: 'Event date and time',
+          defaultValue: new Date().toISOString().split('T')[0],
+          validation: {
+            isRequired: true
+          },
         }),
         horses: fields.array(
           fields.relationship({
@@ -172,45 +129,7 @@ export default config({
         }),
         color: fields.text({label: 'Color'}),
         bio: fields.text({label: 'Bio', multiline: true}),
-        content: fields.document({
-          label: 'Content',
-          formatting: true,
-          dividers: true,
-          links: true,
-          images: {
-            directory: 'public/images/horses',
-            publicPath: '/images/horses/',
-            schema: {
-              title: fields.text({
-                label: 'Caption',
-                description:
-                  'The text to display under the image in a caption.',
-              }),
-            },
-          },
-          componentBlocks: {
-            'youtube-video': component({
-              label: 'YouTube Video',
-              schema: {
-                youtubeVideoId: fields.text({
-                  label: 'YouTube Video ID',
-                  description: 'The ID of the YouTube video (not the full URL)',
-                  validation: {
-                    length: {
-                      min: 1,
-                    },
-                  },
-                }),
-              },
-              preview: (props) =>
-                props.fields.youtubeVideoId.value ? (
-                  <ShowcaseYouTubeVideo videoId={props.fields.youtubeVideoId.value} />
-                ) : (
-                  <p>Please enter a YouTube video ID</p>
-                ),
-            }),
-          },
-        }),
+        content: getDocumentBlock('images/horses')
       },
     }),
     albums: collection({
@@ -224,6 +143,10 @@ export default config({
         }),
         date: fields.date({
           label: 'Event date and time',
+          defaultValue: new Date().toISOString().split('T')[0],
+          validation: {
+            isRequired: true
+          },
         }),
         photos: fields.array(fields.image({
           label: 'Photo',
@@ -234,10 +157,27 @@ export default config({
     })
   },
   singletons: {
-    socialLinks: singleton({
-      label: 'Social Links',
-      path: 'content/social-links',
+    texts: singleton({
+      label: 'Texts',
+      path: 'content/texts',
       schema: {
+        about: getDocumentBlock('images/about', 'About')
+      }
+    }),
+    contact: singleton({
+      label: 'Contact',
+      path: 'content/contact',
+      format: {data: 'json'},
+      schema: {
+        email_address: fields.text({
+          label: 'Email address',
+        }),
+        phone_number: fields.text({
+          label: 'Phone number',
+        }),
+        mobile_phone_number: fields.text({
+          label: 'Mobile phone number',
+        }),
         facebook: fields.text({
           label: 'Facebook',
           description: 'The Facebook handle (not full URL!)',

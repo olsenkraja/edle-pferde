@@ -4,7 +4,7 @@ import {reader} from "../app/reader";
 import MobileMenu from "./mobile-menu";
 
 export async function Header() {
-  const socialLinks = await reader.singletons.socialLinks.read()
+  const contact = await reader.singletons.contact.read()
   return (
     <header className="bg-gradient-to-b from-noble-900 to-noble-950 shadow-2xl top-0 z-50">
       <nav className="mx-auto flex max-w-screen-xl flex-1 items-center justify-between px-8"
@@ -29,10 +29,10 @@ export async function Header() {
         <div className="hidden space-x-6 lg:flex lg:flex-1 lg:justify-end">
           <span className="text-xs leading-6 text-noble">Social Networks:</span>
           <ul className="flex space-x-4">
-            {socialLinks.facebook && (
+            {contact.facebook && (
               <li>
                 <Link
-                  href={`https://facebook.com/${socialLinks.facebook}`}
+                  href={`https://facebook.com/${contact.facebook}`}
                   rel="noopener noreferrer"
                   target="_blank"
                   className="flex items-center space-x-1 text-white hover:underline"
@@ -46,10 +46,10 @@ export async function Header() {
               </li>
             )}
 
-            {socialLinks.instagram && (
+            {contact.instagram && (
               <li>
                 <Link
-                  href={`https://instagram.com/${socialLinks.instagram}`}
+                  href={`https://instagram.com/${contact.instagram}`}
                   rel="noopener noreferrer"
                   target="_blank"
                   className="flex items-center space-x-1 text-white hover:underline"

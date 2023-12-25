@@ -4,7 +4,7 @@ import {DocumentRenderer} from "@keystatic/core/renderer";
 import Link from "next/link";
 
 export default async function AboutSection() {
-  const aboutPage = await reader.collections.pages.read('about')
+  const texts = await reader.singletons.texts.read()
 
   return (
     <div className="bg-noble-25">
@@ -27,7 +27,7 @@ export default async function AboutSection() {
             </div>
           </div>
           <div className="line-clamp-5">
-            <DocumentRenderer document={await aboutPage.content()} />
+            {<DocumentRenderer document={await texts.about()} />}
           </div>
           <div>
             <Link

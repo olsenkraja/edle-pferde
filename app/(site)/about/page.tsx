@@ -3,13 +3,13 @@ import {DocumentRenderer} from "@keystatic/core/renderer";
 import {ShowcaseYouTubeVideo} from "../../../components/showcase-youtube-video";
 
 export default async function AboutPage() {
-  const aboutPage = await reader.collections.pages.read('about')
+  const texts = await reader.singletons.texts.read()
 
   return (
     <div className="mx-auto max-w-screen-xl my-20 px-8">
       <div className="prose lg:prose-xl w-full">
         <DocumentRenderer
-          document={await aboutPage.content()}
+          document={await texts.about()}
           componentBlocks={{
             'youtube-video': (props) => <ShowcaseYouTubeVideo videoId={props.youtubeVideoId} />,
           }}
