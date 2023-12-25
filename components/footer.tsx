@@ -1,33 +1,54 @@
+import {reader} from "../app/reader";
+import {DocumentRenderer} from "@keystatic/core/renderer";
+import Link from "next/link";
+import {DevicePhoneMobileIcon, EnvelopeIcon, HomeIcon, PhoneIcon} from "@heroicons/react/24/solid";
+
 export async function Footer() {
+  const currentYear = (new Date()).getFullYear()
+  const texts = await reader.singletons.texts.read()
+  const contact = await reader.singletons.contact.read()
+
   return (
     <footer>
       <div className="bg-gradient-to-br from-noble-900 to-noble-950">
-        <div className="relative mx-auto flex max-w-screen-xl flex-col space-y-6 px-8 pb-24">
+        <div className="relative mx-auto flex max-w-screen-xl flex-col space-y-12 px-8 pb-12">
           <div className="flex justify-center">
             <img className="h-20 w-auto" src="/logo.png" alt="" />
           </div>
           <div className="flex justify-center space-x-16">
-            <div className="flex-1 space-y-4 text-white">
-              <div className="text-xl font-semibold">Welcome to the Trakehner Gestüt Pichl in Upper Austria!</div>
-              <div>On our farm we breed Trakehner horses for the highest riding standards. If we have aroused your
-                   interest with our website, we look forward to your visit if you register in advance.
+            <div className="w-2/3 space-y-4 text-white flex flex-col">
+              <div className="flex-1 space-y-2">
+                <DocumentRenderer document={await texts.footer()} />
               </div>
-              <div className="flex-1 text-white">
-                <ul className="flex space-x-4">
-                  <li>About Us</li>
-                  <li>Gallery</li>
-                  <li>Hourse for Sale</li>
-                </ul>
-              </div>
+              <ul className="flex space-x-8">
+                <li><Link href={`/about`} className="hover:underline">Über uns</Link></li>
+                <li><Link href={`/impressum`} className="hover:underline">Impressum</Link></li>
+              </ul>
             </div>
-            <div className="flex flex-1 flex-col text-white">
-              <span>Pramendorfer family Pichl 11 A-4716 Hofkirchen ad Tr. </span>
-              <span>Tel.: +43 (0) 77 34 / 33 39</span>
-              <span>Mobile: +43 (0) 664 73 62 63 69</span>
-              <span>Email: gestuet@edle-pferde.com</span>
+            <div className="flex w-1/3 flex-col text-white space-y-4">
+              <li className="flex space-x-2">
+                <HomeIcon className="size-4 my-1" />
+                <pre className="font-sans">{contact.address}</pre>
+              </li>
+              <ul>
+                <li className="flex items-center space-x-2">
+                  <EnvelopeIcon className="size-4" />
+                  <span>{contact.email_address}</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <PhoneIcon className="size-4" />
+                  <span>{contact.phone_number}</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <DevicePhoneMobileIcon className="size-4" />
+                  <span>{contact.mobile_phone_number}</span>
+                </li>
+              </ul>
             </div>
           </div>
-          <div className="flex justify-center text-white">@2024 Edle-pferde</div>
+          <div className="flex justify-center text-noble-500">
+            &copy; {currentYear} Edle Pferde
+          </div>
         </div>
       </div>
     </footer>

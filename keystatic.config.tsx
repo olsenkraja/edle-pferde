@@ -161,7 +161,8 @@ export default config({
       label: 'Texts',
       path: 'content/texts',
       schema: {
-        about: getDocumentBlock('images/about', 'About')
+        about: getDocumentBlock('images/about', 'About'),
+        footer: getDocumentBlock('images/footer', 'Footer'),
       }
     }),
     contact: singleton({
@@ -169,6 +170,10 @@ export default config({
       path: 'content/contact',
       format: {data: 'json'},
       schema: {
+        address: fields.text({
+          label: 'Email address',
+          multiline: true,
+        }),
         email_address: fields.text({
           label: 'Email address',
         }),
