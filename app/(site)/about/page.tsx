@@ -7,7 +7,7 @@ export default async function AboutPage() {
 
   return (
     <div className="mx-auto max-w-screen-xl my-20 px-8">
-      <div className="prose lg:prose-xl w-full">
+      <div className="prose lg:prose-xl max-w-none">
         <DocumentRenderer
           document={await texts.about()}
           componentBlocks={{
