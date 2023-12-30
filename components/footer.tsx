@@ -1,7 +1,7 @@
-import {reader} from "../app/reader";
-import {DocumentRenderer} from "@keystatic/core/renderer";
+import { reader } from "../app/reader";
+import { DocumentRenderer } from "@keystatic/core/renderer";
 import Link from "next/link";
-import {DevicePhoneMobileIcon, EnvelopeIcon, HomeIcon, PhoneIcon} from "@heroicons/react/24/solid";
+import { DevicePhoneMobileIcon, EnvelopeIcon, HomeIcon, PhoneIcon } from "@heroicons/react/24/solid";
 
 export async function Footer() {
   const currentYear = (new Date()).getFullYear()
@@ -15,17 +15,17 @@ export async function Footer() {
           <div className="flex justify-center">
             <img className="h-20 w-auto" src="/logo.png" alt="" />
           </div>
-          <div className="flex justify-center space-x-16">
-            <div className="w-2/3 space-y-4 text-white flex flex-col">
-              <div className="flex-1 space-y-2">
+          <div className="flex flex-col md:flex-row justify-center space-y-16 md:space-y-0 md:space-x-16">
+            <div className="md:w-2/3 space-y-4 text-white flex flex-col">
+              <div className="flex-1 space-y-2 order-last md:order-first">
                 <DocumentRenderer document={await texts.footer()} />
               </div>
-              <ul className="flex space-x-8">
+              <ul className="flex space-x-8 justfy-center md:justify-start order-first md:order-last">
                 <li><Link href={`/about`} className="hover:underline">Über uns</Link></li>
                 <li><Link href={`/impressum`} className="hover:underline">Impressum</Link></li>
               </ul>
             </div>
-            <div className="flex w-1/3 flex-col text-white space-y-4">
+            <div className="flex md:w-1/3 flex-col text-white space-y-4">
               <li className="flex space-x-2">
                 <HomeIcon className="size-4 my-1" />
                 <pre className="font-sans">{contact.address}</pre>

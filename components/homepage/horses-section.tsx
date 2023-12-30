@@ -9,7 +9,7 @@ export default async function HorsesSection() {
     <div className="bg-noble-200">
       <div className="relative mx-auto flex max-w-screen-xl px-8 py-24">
         <div className="w-full space-y-12">
-          <div className="flex w-1/2 flex-col space-y-6">
+          <div className="flex md:w-1/2 flex-col space-y-6 bg-red-500">
             <div className="space-y-2">
               <div className="font-semibold uppercase leading-none text-noble-500">Horses Gallery</div>
               <div className="text-3xl font-semibold uppercase">Meet Our Magnificent Horses</div>
@@ -25,7 +25,7 @@ export default async function HorsesSection() {
               </button>
             </div>
           </div>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid md:grid-cols-3 gap-4">
             {horses.slice(0, 5).map((horse) => (
               <Link href={`/horses/${horse.slug}`} className="bg-white" key={horse.slug}>
                 <div className="relative p-4 pb-0">

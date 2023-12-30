@@ -9,7 +9,7 @@ export default function MobileMenu() {
 
   return (
     <div className="flex flex-col lg:hidden w-full text-white">
-      <div className="flex justify-between items-center my-8">
+      <div className="flex justify-between items-center my-4">
         <button onClick={() => setIsOpen(!isOpen)}>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
                stroke="currentColor" className="w-6 h-6">
@@ -22,7 +22,7 @@ export default function MobileMenu() {
             alt=""
             width="200"
             height="200"
-            className="w-48 absolute z-20 top-0 left-1/2 transform -translate-x-1/2"
+            className="w-32 md:w-48 absolute z-20 top-0 left-1/2 transform -translate-x-1/2"
             src="/logo.png"
           />
         </Link>

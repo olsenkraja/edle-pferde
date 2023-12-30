@@ -2,7 +2,7 @@ export default async function ElementsSection() {
 
   return (
     <div className="bg-noble-200">
-      <div className="relative mx-auto flex max-w-screen-xl divide-x divide-gray-800/20 px-8 py-8">
+      <div className="relative mx-auto grid grid-cols-2 md:grid-cols-4 max-w-screen-xl md:divide-x divide-x-0 divide-gray-800/20 px-8 py-8">
         <div className="relative flex h-52 flex-1 flex-col items-center justify-center space-y-2">
           <span>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"

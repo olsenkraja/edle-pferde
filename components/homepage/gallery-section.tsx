@@ -21,7 +21,7 @@ export default async function GallerySection() {
   return (
     <div className="bg-noble-25">
       <div className="relative mx-auto flex max-w-screen-xl flex-col space-y-16 px-8 py-28">
-        <div className="flex w-1/2 flex-col space-y-6">
+        <div className="flex md:w-1/2 flex-col space-y-6 bg-red-500">
           <div className="text-3xl font-semibold uppercase">Meet Our Magnificent Horses</div>
           <div className="h-1 w-28 bg-noble-500"></div>
           <div>
