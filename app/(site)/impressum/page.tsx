@@ -7,7 +7,7 @@ export default async function ImpressumPage() {
 
   return (
     <div className="mx-auto max-w-screen-xl my-20 px-8">
-      <div className="prose lg:prose-xl max-w-none">
+      <div className="prose-sm lg:prose w-full !max-w-none">
         <DocumentRenderer
           document={await texts.impressum()}
           componentBlocks={{

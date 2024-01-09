@@ -172,7 +172,7 @@ export default config({
       format: {data: 'json'},
       schema: {
         address: fields.text({
-          label: 'Email address',
+          label: 'Address',
           multiline: true,
         }),
         email_address: fields.text({
