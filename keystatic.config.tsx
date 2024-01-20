@@ -52,6 +52,21 @@ function getDocumentBlock(imagePath: string, label = 'Content') {
   })
 }
 
+function getHorseInput(label: string) {
+  return fields.conditional(
+    fields.checkbox({ label: 'Is ' + label + ' our horse?' }),
+    {
+      true: fields.relationship({
+        label: label,
+        collection: 'horses'
+      }),
+      false: fields.text({
+        label: label
+      }),
+    }
+  )
+}
+
 export default config({
   storage: isProd ? remoteMode : localMode,
   ui: {
@@ -129,7 +144,23 @@ export default config({
         }),
         color: fields.text({label: 'Color'}),
         bio: fields.text({label: 'Bio', multiline: true}),
-        content: getDocumentBlock('images/horses')
+        content: getDocumentBlock('images/horses'),
+        father: getHorseInput('Father'),
+        mother: getHorseInput('Mother'),
+        fathers_father: getHorseInput('Father\'s Father'),
+        fathers_mother: getHorseInput('Father\'s Mother'),
+        mothers_father: getHorseInput('Mother\'s Father'),
+        mothers_mother: getHorseInput('Mother\'s Mother'),
+        children: fields.array(
+          fields.relationship({
+            label: 'Children',
+            collection: 'horses'
+          }),
+          {
+            label: 'Children',
+            itemLabel: (item) => item.value || 'Please select an horse',
+          }
+        ),
       },
     }),
     albums: collection({
