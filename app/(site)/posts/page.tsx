@@ -12,7 +12,7 @@ export default async function PostsPage({params}: { params: { slug: string } }) 
       <ul>
         {posts.map((post) => (
           <Link href={`/posts/${post.slug}`}>
-            <li key={post.slug} className="p-8 hover:bg-noble-200">
+            <li key={post.slug} className="p-8 hover:bg-noble-200 transition">
               <div className="flex space-x-8">
                 <Image
                   alt=""

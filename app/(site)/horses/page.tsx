@@ -10,7 +10,7 @@ export default async function HorsesPage({params}: { params: { slug: string } })
       <ul>
         {horses.map((horse) => (
           <Link href={`/horses/${horse.slug}`}>
-            <li key={horse.slug} className="p-8 hover:bg-noble-200">
+            <li key={horse.slug} className="p-8 hover:bg-noble-200 transition">
               <div className="flex space-x-8">
                 <Image
                   alt=""
@@ -20,7 +20,14 @@ export default async function HorsesPage({params}: { params: { slug: string } })
                   src={horse.entry.profile_picture}
                 />
                 <div className="space-y-4">
-                  <h2 className="text-2xl font-bold">{horse.entry.nickname}</h2>
+                  <div className="flex space-x-2">
+                    <h2 className="text-2xl font-bold">{horse.entry.nickname}</h2>
+                    {horse.entry.status === 'for-sale' && (
+                      <span className="bg-red-500 px-2 py-1 text-sm font-semibold uppercase text-white">
+                        For Sale
+                      </span>
+                    )}
+                  </div>
                   <p className="text-lg line-clamp-3">{horse.entry.bio}</p>
                 </div>
               </div>

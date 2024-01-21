@@ -139,6 +139,15 @@ export default config({
           directory: 'public/images/horses',
           publicPath: '/images/horses/',
         }),
+        status: fields.select({
+          label: 'Status',
+          options: [
+            { label: 'Active', value: 'active' },
+            { label: 'Inactive', value: 'inactive' },
+            { label: 'Fro sale', value: 'for-sale' },
+          ],
+          defaultValue: 'active'
+        }),
         birthdate: fields.date({
           label: 'Birthdate',
         }),

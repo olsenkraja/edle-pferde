@@ -19,7 +19,7 @@ export default async function HorsePage({params}: { params: { slug: string } }) 
     return allHorses.find(h => h.slug === slug).entry.full_name
   }
 
-  function getAge(birthdate) {
+  function getAge(birthdate: string) {
     const [year, month, day] = birthdate.split('-').map(Number);
     const birthDate = new Date(year, month - 1, day);
     const currentDate = new Date();
@@ -47,15 +47,15 @@ export default async function HorsePage({params}: { params: { slug: string } }) 
         <h1>{horse.nickname}</h1>
         <h2>{horse.full_name}</h2>
         <span>{horse.birthdate ? getAge(horse.birthdate) : null}</span>
-        <div className="flex space-x-8">
+        <div className="md:flex md:space-x-8">
           <Image
             alt=""
             width="500"
             height="500"
-            className="w-1/3 object-cover"
+            className="md:w-1/3 object-cover aspect-square"
             src={horse.profile_picture}
           />
-          <p className="w-2/3">{horse.bio}</p>
+          <div className="md:w-2/3">{horse.bio}</div>
         </div>
         <div className="grid grid-cols-2 gap-0.5">
           <div className="col-span-1 row-span-2 bg-noble-200 flex items-center p-4">
@@ -131,21 +131,17 @@ export default async function HorsePage({params}: { params: { slug: string } }) 
             </div>
           </div>
         </div>
-
-
-
-
-
-
-
         {horseChildren.length > 0 && (
-          <ul>
-            {horseChildren.map((child) => (
-              <li key={child.slug}>
-                <Link href={`/horses/${child.slug}`}>{child.entry.nickname}</Link>
-              </li>
-            ))}
-          </ul>
+          <>
+            <h3>Nachkommen</h3>
+            <ul>
+              {horseChildren.map((child) => (
+                <li key={child.slug}>
+                  <Link href={`/horses/${child.slug}`}>{child.entry.nickname}</Link>
+                </li>
+              ))}
+            </ul>
+          </>
         )}
         <DocumentRenderer
           document={await horse.content()}

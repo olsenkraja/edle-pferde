@@ -36,11 +36,13 @@ export default async function HorsesSection() {
                     className="h-64 w-full object-cover"
                     src={horse.entry.profile_picture}
                   />
-                  <div className="absolute bottom-0 right-4">
-                    <span className="bg-red-500 px-2 py-1 text-sm font-semibold uppercase text-white">
-                      For Sale
-                    </span>
-                  </div>
+                  {horse.entry.status === 'for-sale' && (
+                    <div className="absolute bottom-0 right-4">
+                      <span className="bg-red-500 px-2 py-1 text-sm font-semibold uppercase text-white">
+                        For Sale
+                      </span>
+                    </div>
+                  )}
                 </div>
                 <div className="flex flex-col p-4">
                   <span className="text-xl font-semibold">{horse.entry.nickname}</span>

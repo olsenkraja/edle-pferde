@@ -30,7 +30,7 @@ export default async function PostsSection() {
           <div className="md:w-2/5">
             <ul className='md:pt-0 pt-4'>
               {posts.slice(1, 5).map((post) => (
-                <li key={post.slug} className="py-4 md:px-8 hover:bg-noble-200 cursor-pointer">
+                <li key={post.slug} className="py-4 md:px-8 transition hover:bg-noble-200 cursor-pointer">
                   <Link href={`/posts/${post.slug}`} className="flex items-center space-x-4">
                     <Image
                       alt=""
