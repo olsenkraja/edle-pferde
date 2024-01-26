@@ -14,7 +14,7 @@ export default async function AboutPage() {
             <h2 className="text-2xl font-semibold">{album.slug}</h2>
             <span className="text-sm opacity-50">{formatDateLong(album.entry.date)}</span>
           </div>
-          <div className="md:grid md:grid-cols-6 flex space-x-4 md:space-x-0 overflow-x-scroll md:overflow-x-auto gap-2 px-8 snap-x snap-mandatory">
+          <div className="md:grid md:grid-cols-6 flex space-x-4 md:space-x-0 overflow-x-scroll md:overflow-x-auto gap-2 px-8 snap-x snap-mandatory md:overflow-hidden">
             {album.entry.photos.map(photo => (
               <ClickableImage
                 alt=""
