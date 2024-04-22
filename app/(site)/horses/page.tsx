@@ -21,7 +21,14 @@ export default async function HorsesPage({params}: { params: { slug: string } })
                 />
                 <div className="space-y-4">
                   <div className="flex flex-wrap">
-                    <h2 className="text-2xl font-bold mr-4">{horse.entry.nickname}</h2>
+                    <h2 className="mr-4 space-x-4">
+                      <span className="text-2xl font-bold">
+                        {horse.entry.full_name}
+                      </span>
+                      <span>
+                        ({horse.entry.birth_year})
+                      </span>
+                    </h2>
                     {horse.entry.status === 'for-sale' && (
                       <span className="bg-red-500 px-2 py-1 text-sm font-semibold uppercase text-white">
                         For Sale
