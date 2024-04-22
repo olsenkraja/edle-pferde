@@ -148,9 +148,11 @@ export default config({
           ],
           defaultValue: 'active'
         }),
-        birthdate: fields.date({
-          label: 'Birthdate',
+        birth_year: fields.text({
+          label: 'Birth year',
         }),
+        breed: fields.text({label: 'Breed'}),
+        size: fields.text({label: 'Size'}),
         color: fields.text({label: 'Color'}),
         bio: fields.text({label: 'Bio', multiline: true}),
         content: getDocumentBlock('images/horses'),
