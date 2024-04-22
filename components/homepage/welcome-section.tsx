@@ -11,8 +11,12 @@ export default async function WelcomeSection() {
   return (
     <div className="relative z-10 pt-96 pb-24">
       <div className="absolute inset-0" aria-hidden="true">
-        <Image alt="" width="1024" height="1024" className="h-full w-full object-cover"
-               src="https://img.freepik.com/free-photo/elegant-horse-silhouette-against-dawn-sky_23-2149367202.jpg?w=2000&t=st=1701443508~exp=1701444108~hmac=27e9e3959dbf43401f2509277b4fdcee15da43b61590807a9935123b2d824006"
+        <Image
+          alt=""
+          width="1024"
+          height="1024"
+          className="h-full w-full object-cover"
+          src="/header.jpg"
         />
       </div>
       <div className="relative z-50 mx-auto flex h-full max-w-screen-xl items-center px-8">
