@@ -2,7 +2,11 @@
 module.exports = {
   reactStrictMode: false,
   images: {
-    domains: ['www.edle-pferde.com'],
+    remotePatterns: [
+      {
+        hostname: 'www.edle-pferde.com'
+      }
+    ],
   },
   experimental: {
     scrollRestoration: true,
