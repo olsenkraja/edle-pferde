@@ -23,6 +23,7 @@ export default async function HorsePage({params}: { params: { slug: string } }) 
     <div className="mx-auto max-w-screen-xl mt-12 mb-32 px-8">
       <div className="prose lg:prose-xl max-w-none">
         <h1>{horse.full_name}</h1>
+        {horse.birth_year &&
         <div className="text-xl font-semibold flex space-x-4 items-center">
           <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
             <path fill="currentColor"
@@ -30,6 +31,8 @@ export default async function HorsePage({params}: { params: { slug: string } }) 
           </svg>
           <span>{horse.birth_year}</span>
         </div>
+        }
+        {horse.breed &&
         <div className="text-xl font-semibold flex space-x-4 items-center">
           <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 512 512">
             <path fill="currentColor"
@@ -37,13 +40,17 @@ export default async function HorsePage({params}: { params: { slug: string } }) 
           </svg>
           <span>{horse.breed}</span>
         </div>
-        <div className="text-xl font-semibold flex space-x-4 items-center">
-          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 256">
-            <path fill="currentColor"
-                  d="m235.32 73.37l-52.69-52.68a16 16 0 0 0-22.63 0L20.68 160a16 16 0 0 0 0 22.63l52.69 52.68a16 16 0 0 0 22.63 0L235.32 96a16 16 0 0 0 0-22.63M84.68 224L32 171.31l32-32l26.34 26.35a8 8 0 0 0 11.32-11.32L75.31 128L96 107.31l26.34 26.35a8 8 0 0 0 11.32-11.32L107.31 96L128 75.31l26.34 26.35a8 8 0 0 0 11.32-11.32L139.31 64l32-32L224 84.69Z" />
-          </svg>
-          <span>{horse.size}</span>
-        </div>
+        }
+        {horse.size &&
+          <div className="text-xl font-semibold flex space-x-4 items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 256">
+              <path fill="currentColor"
+                    d="m235.32 73.37l-52.69-52.68a16 16 0 0 0-22.63 0L20.68 160a16 16 0 0 0 0 22.63l52.69 52.68a16 16 0 0 0 22.63 0L235.32 96a16 16 0 0 0 0-22.63M84.68 224L32 171.31l32-32l26.34 26.35a8 8 0 0 0 11.32-11.32L75.31 128L96 107.31l26.34 26.35a8 8 0 0 0 11.32-11.32L107.31 96L128 75.31l26.34 26.35a8 8 0 0 0 11.32-11.32L139.31 64l32-32L224 84.69Z" />
+            </svg>
+            <span>{horse.size}</span>
+          </div>
+        }
+        {horse.color &&
         <div className="text-xl font-semibold flex space-x-4 items-center">
           <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16">
             <path fill="currentColor"
@@ -51,6 +58,7 @@ export default async function HorsePage({params}: { params: { slug: string } }) 
           </svg>
           <span>{horse.color}</span>
         </div>
+        }
         <div className="md:flex md:space-x-8">
           <Image
             alt=""
@@ -67,7 +75,7 @@ export default async function HorsePage({params}: { params: { slug: string } }) 
               {horse.father.discriminant
                 ?
                 <Link href={`/horses/${horse.father.value}`}>
-                {getHorse(horse.father.value)}
+                  {getHorse(horse.father.value)}
                 </Link>
                 :
                 horse.father.value
