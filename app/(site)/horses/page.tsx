@@ -30,7 +30,7 @@ export default async function HorsesPage({params}: { params: { slug: string } })
                         </h2>
                         {horse.entry.status === 'for-sale' && (
                           <span
-                            className="bg-red-500 text-red-100 px-2 py-1 text-sm font-semibold uppercase shadow rounded-full">
+                            className="bg-red-500 text-red-100 px-2 py-1 text-xs font-semibold uppercase shadow rounded-full">
                             For Sale
                           </span>
                         )}
