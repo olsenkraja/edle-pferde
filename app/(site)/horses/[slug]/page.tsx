@@ -141,7 +141,7 @@ export default async function HorsePage({params}: { params: { slug: string } }) 
             <ul>
               {horseChildren.map((child) => (
                 <li key={child.slug}>
-                  <Link href={`/horses/${child.slug}`}>{child.entry.nickname}</Link>
+                  <Link href={`/horses/${child.slug}`}>{child.entry.full_name}</Link>
                 </li>
               ))}
             </ul>
@@ -155,7 +155,7 @@ export default async function HorsePage({params}: { params: { slug: string } }) 
         />
         {horsePosts.length > 0 && (
           <>
-            <h2>Posts über {horse.nickname}</h2>
+            <h2>Posts über {horse.full_name}</h2>
             <ul>
               {horsePosts.map((post) => (
                 <li key={post.slug}>

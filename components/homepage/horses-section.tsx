@@ -45,7 +45,7 @@ export default async function HorsesSection() {
                   )}
                 </div>
                 <div className="flex flex-col p-4">
-                  <span className="text-xl font-semibold">{horse.entry.nickname}</span>
+                  <span className="text-xl font-semibold">{horse.entry.full_name}</span>
                   <span className="text-gray-500">{horse.entry.full_name}</span>
                 </div>
               </Link>

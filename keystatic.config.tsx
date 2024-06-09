@@ -128,12 +128,11 @@ export default config({
     }),
     horses: collection({
       label: 'Horses',
-      slugField: 'nickname',
+      slugField: 'full_name',
       path: 'content/horses/*',
       format: {contentField: 'content'},
       schema: {
-        nickname: fields.slug({name: {label: 'Nickname'}}),
-        full_name: fields.text({label: 'Full name'}),
+        full_name: fields.slug({name: {label: 'Full name'}}),
         profile_picture: fields.image({
           label: 'Profile picture',
           directory: 'public/images/horses',

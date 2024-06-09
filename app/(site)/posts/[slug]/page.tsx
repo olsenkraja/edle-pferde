@@ -50,7 +50,7 @@ export default async function Post({params}: { params: { slug: string } }) {
                       src={horse.profile_picture}
                     />
                     <div>
-                    <div>{horse.nickname}</div>
+                    <div>{horse.full_name}</div>
                     <div className="text-sm line-clamp-2">{horse.full_name}</div>
                     </div>
                   </Link>
