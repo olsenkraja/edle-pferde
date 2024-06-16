@@ -5,8 +5,6 @@ import Link from "next/link";
 
 export default async function WelcomeSection() {
   const texts = await reader.singletons.texts.read()
-  console.log('texts.about')
-  console.log(texts.about)
 
   return (
     <div className="relative z-10 pt-96 pb-24">
@@ -23,27 +21,27 @@ export default async function WelcomeSection() {
         <div className="lg:w-3/5 space-y-10 text-white">
           <div>
             <div className="text-xl font-bold lg:text-2xl whitespace-nowrap">
-              Willkommen beim
+              <span className="drop-shadow-md">Willkommen beim</span>
             </div>
             <div className="text-3xl font-bold lg:text-6xl whitespace-nowrap">
-              Trakehner Gestüt Pichl
+              <span className="drop-shadow-md">Trakehner Gestüt Pichl</span>
             </div>
             <div className="text-2xl font-bold lg:text-4xl whitespace-nowrap">
-              Oberösterreich
+              <span className="drop-shadow-md">Oberösterreich</span>
             </div>
           </div>
           <div className="h-1 w-28 bg-noble-500"></div>
           <div className="mt-6 text-lg leading-8">
-            <div className="text-sm lg:text-base p-4 -m-4 bg-black/50">
+            <div className="text-sm lg:text-base p-8 bg-black/50">
               <div className="line-clamp-5">
-                <DocumentRenderer document={await texts.about()} />
+                {texts.homepage_about_text}
               </div>
             </div>
           </div>
           <div className="">
             <Link href={`/about`}
                   className="flex items-center justify-center bg-noble-500 px-6 py-3 font-semibold uppercase leading-none text-noble-900 w-fit">
-              Read more
+              Mehr lesen
             </Link>
           </div>
         </div>

@@ -202,9 +202,37 @@ export default config({
       label: 'Texts',
       path: 'content/texts',
       schema: {
-        about: getDocumentBlock('images/about', 'About'),
-        impressum: getDocumentBlock('images/impressum', 'Impressum'),
-        footer: getDocumentBlock('images/footer', 'Footer'),
+        homepage_about_text: fields.text({
+          label: 'Homepage: About text',
+          multiline: true,
+        }),
+        homepage_horses_headline: fields.text({
+          label: 'Homepage: Horses headline',
+        }),
+        homepage_horses_description: fields.text({
+          label: 'Homepage: Horses description',
+          multiline: true,
+        }),
+        homepage_about_headline: fields.text({
+          label: 'Homepage: About headline',
+        }),
+        homepage_about_description: fields.text({
+          label: 'Homepage: About description',
+          multiline: true,
+        }),
+        homepage_gallery_headline: fields.text({
+          label: 'Homepage: Gallery headline',
+        }),
+        homepage_gallery_description: fields.text({
+          label: 'Homepage: Gallery description',
+          multiline: true,
+        }),
+        footer: fields.text({
+          label: 'Footer',
+          multiline: true,
+        }),
+        about_page: getDocumentBlock('images/about_page', 'About page'),
+        impressum_page: getDocumentBlock('images/impressum_page', 'Impressum page'),
       }
     }),
     contact: singleton({

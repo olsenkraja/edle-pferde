@@ -13,7 +13,7 @@ module.exports = {
       colors: {
         'noble': {
           DEFAULT: '#BA9E76',
-          25: '#FFFBEF',
+          // 25: '#FFFBEF',
           50: '#F7F4F0',
           100: '#F1EBE3',
           200: '#E3D8C7',

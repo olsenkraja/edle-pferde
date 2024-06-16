@@ -9,7 +9,7 @@ export default async function AboutPage() {
     <div className="mx-auto max-w-screen-xl my-20 px-8">
       <div className="prose lg:prose-xl max-w-none">
         <DocumentRenderer
-          document={await texts.about()}
+          document={await texts.about_page()}
           componentBlocks={{
             'youtube-video': (props) => <ShowcaseYouTubeVideo videoId={props.youtubeVideoId} />,
           }}

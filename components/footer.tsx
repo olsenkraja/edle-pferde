@@ -18,7 +18,7 @@ export async function Footer() {
           <div className="flex flex-col md:flex-row justify-center space-y-16 md:space-y-0 md:space-x-16">
             <div className="md:w-2/3 space-y-4 text-white flex flex-col">
               <div className="flex-1 space-y-2 order-last md:order-first">
-                <DocumentRenderer document={await texts.footer()} />
+                {texts.footer}
               </div>
               <ul className="flex space-x-8 justfy-center md:justify-start order-first md:order-last">
                 <li><Link href={`/about`} className="hover:underline">Über uns</Link></li>

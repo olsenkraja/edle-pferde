@@ -4,19 +4,20 @@ import Link from "next/link";
 
 export default async function HorsesSection() {
   const horses = await reader.collections.horses.all()
+  const texts = await reader.singletons.texts.read()
 
   return (
     <div className="bg-noble-200">
       <div className="relative mx-auto flex max-w-screen-xl px-8 py-24">
         <div className="w-full space-y-12">
-          <div className="flex md:w-1/2 flex-col space-y-6 bg-red-500">
+          <div className="flex md:w-1/2 flex-col space-y-6">
             <div className="space-y-2">
-              <div className="font-semibold uppercase leading-none text-noble-500">Horses Gallery</div>
-              <div className="text-3xl font-semibold uppercase">Meet Our Magnificent Horses</div>
+              <div className="font-semibold uppercase leading-none text-noble-500">Unsere Pferde</div>
+              <div className="text-3xl font-semibold uppercase">{texts.homepage_horses_headline}</div>
             </div>
             <div className="h-1 w-28 bg-noble-500"></div>
-            <div>Welcome to our horse haven, where you can explore the stories of our active horses, reminisce about
-                 past companions, and find exceptional horses for sale.
+            <div>
+              {texts.homepage_horses_description}
             </div>
             <div>
               <button

@@ -9,7 +9,7 @@ export default async function ImpressumPage() {
     <div className="mx-auto max-w-screen-xl my-20 px-8">
       <div className="prose-sm lg:prose w-full !max-w-none">
         <DocumentRenderer
-          document={await texts.impressum()}
+          document={await texts.impressum_page()}
           componentBlocks={{
             'youtube-video': (props) => <ShowcaseYouTubeVideo videoId={props.youtubeVideoId} />,
           }}
