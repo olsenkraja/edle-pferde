@@ -19,14 +19,14 @@ export default async function WelcomeSection() {
       </div>
       <div className="relative z-50 mx-auto flex h-full max-w-screen-xl items-center px-8">
         <div className="lg:w-3/5 space-y-10 text-white">
-          <div>
-            <div className="text-xl font-bold lg:text-2xl whitespace-nowrap">
+          <div className="space-y-1">
+            <div className="text-xl font-extrabold lg:text-3xl whitespace-nowrap text-noble-50">
               <span className="drop-shadow-md">Willkommen beim</span>
             </div>
-            <div className="text-3xl font-bold lg:text-6xl whitespace-nowrap">
+            <div className="text-3xl font-extrabold lg:text-5xl whitespace-nowrap text-noble-200">
               <span className="drop-shadow-md">Trakehner Gestüt Pichl</span>
             </div>
-            <div className="text-2xl font-bold lg:text-4xl whitespace-nowrap">
+            <div className="text-xl font-extrabold lg:text-3xl whitespace-nowrap text-noble-50">
               <span className="drop-shadow-md">Oberösterreich</span>
             </div>
           </div>
