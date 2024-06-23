@@ -6,18 +6,18 @@ import MobileMenu from "./mobile-menu";
 export async function Header() {
   const contact = await reader.singletons.contact.read()
   return (
-    <header className="bg-gradient-to-b from-noble-900 to-noble-950 shadow-2xl top-0 z-50">
+    <header className="bg-gradient-to-b from-noble-100 to-noble-200 shadow-2xl top-0 z-50">
       <nav className="mx-auto flex max-w-screen-xl flex-1 items-center justify-between px-8"
            aria-label="Global">
         <div className="hidden flex-1 lg:flex lg:-ml-4">
           <Link href="/"
-                className="transition font-semibold uppercase leading-6 text-white hover:bg-noble-700 px-4 py-10">Home</Link>
+                className="transition font-semibold uppercase leading-6 text-green-900 hover:bg-noble-200 px-4 py-10">Home</Link>
           <Link href={`/posts`}
-                className="transition font-semibold uppercase leading-6 text-white hover:bg-noble-700 px-4 py-10">Blog</Link>
+                className="transition font-semibold uppercase leading-6 text-green-900 hover:bg-noble-200 px-4 py-10">Blog</Link>
           <Link href={`/horses`}
-                className="transition font-semibold uppercase leading-6 text-white hover:bg-noble-700 px-4 py-10">Pferde</Link>
+                className="transition font-semibold uppercase leading-6 text-green-900 hover:bg-noble-200 px-4 py-10">Pferde</Link>
           <Link href={`/gallery`}
-                className="transition font-semibold uppercase leading-6 text-white hover:bg-noble-700 px-4 py-10">Gallery</Link>
+                className="transition font-semibold uppercase leading-6 text-green-900 hover:bg-noble-200 px-4 py-10">Gallery</Link>
         </div>
         <Image
           alt=""
@@ -27,7 +27,7 @@ export async function Header() {
           src="/logo.png"
         />
         <div className="hidden space-x-6 lg:flex lg:flex-1 lg:justify-end">
-          <span className="text-xs leading-6 text-noble">Social Networks:</span>
+          <span className="text-xs leading-6 text-noble-900">Social Networks:</span>
           <ul className="flex space-x-4">
             {contact.facebook && (
               <li>
@@ -35,7 +35,7 @@ export async function Header() {
                   href={`https://facebook.com/${contact.facebook}`}
                   rel="noopener noreferrer"
                   target="_blank"
-                  className="flex items-center space-x-1 text-white hover:underline"
+                  className="flex items-center space-x-1 text-green-900 hover:underline"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16">
                     <path fill="currentColor"
@@ -52,7 +52,7 @@ export async function Header() {
                   href={`https://instagram.com/${contact.instagram}`}
                   rel="noopener noreferrer"
                   target="_blank"
-                  className="flex items-center space-x-1 text-white hover:underline"
+                  className="flex items-center space-x-1 text-green-900 hover:underline"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16">
                     <path fill="currentColor"

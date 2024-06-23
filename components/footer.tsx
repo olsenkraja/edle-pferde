@@ -1,5 +1,4 @@
 import { reader } from "../app/reader";
-import { DocumentRenderer } from "@keystatic/core/renderer";
 import Link from "next/link";
 import { DevicePhoneMobileIcon, EnvelopeIcon, HomeIcon, PhoneIcon } from "@heroicons/react/24/solid";
 
@@ -10,10 +9,10 @@ export async function Footer() {
 
   return (
     <footer>
-      <div className="bg-gradient-to-br from-noble-900 to-noble-950">
+      <div className="bg-gradient-to-br from-green-800 to-green-950">
         <div className="relative mx-auto flex max-w-screen-xl flex-col space-y-12 px-8 pb-12">
           <div className="flex justify-center">
-            <img className="h-20 w-auto" src="/logo.png" alt="" />
+            <img className="h-32 w-auto -mt-16 drop-shadow-xl" src="/logo.png" alt="" />
           </div>
           <div className="flex flex-col md:flex-row justify-center space-y-16 md:space-y-0 md:space-x-16">
             <div className="md:w-2/3 space-y-4 text-white flex flex-col">
@@ -46,7 +45,7 @@ export async function Footer() {
               </ul>
             </div>
           </div>
-          <div className="flex justify-center text-noble-500">
+          <div className="flex justify-center text-green-700">
             &copy; {currentYear} Edle Pferde
           </div>
         </div>
