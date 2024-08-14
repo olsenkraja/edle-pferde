@@ -26,7 +26,7 @@ export default async function ElementsSection() {
               className="h-12 w-12"
               xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"
             >
-              <g fill="none" stroke="currentColor" stroke-width="1.5">
+              <g fill="none" stroke="currentColor" strokeWidth="1.5">
                 <path
                   d="M17 8V6c0-1.886 0-2.828-.586-3.414C15.828 2 14.886 2 13 2h-2c-1.886 0-2.828 0-3.414.586C7 3.172 7 4.114 7 6v2" />
                 <path
@@ -48,7 +48,7 @@ export default async function ElementsSection() {
               className="h-12 w-12"
               xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"
             >
-              <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+              <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" strokeWidth="2">
                 <path d="M12 13a3 3 0 1 0 0-6a3 3 0 0 0 0 6" />
                 <path
                   d="M17.8 13.938h-.011a7 7 0 1 0-11.464.144h-.016l.14.171q.15.19.3.371L12 21l5.13-6.248q.291-.314.54-.659z" />
@@ -68,7 +68,7 @@ export default async function ElementsSection() {
               xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 512 512"
             >
               <rect width="416" height="384" x="48" y="80" fill="none" stroke="currentColor" stroke-linejoin="round"
-                    stroke-width="32" rx="48" />
+                    strokeWidth="32" rx="48" />
               <circle cx="296" cy="232" r="24" fill="currentColor" />
               <circle cx="376" cy="232" r="24" fill="currentColor" />
               <circle cx="296" cy="312" r="24" fill="currentColor" />
@@ -78,9 +78,9 @@ export default async function ElementsSection() {
               <circle cx="136" cy="392" r="24" fill="currentColor" />
               <circle cx="216" cy="392" r="24" fill="currentColor" />
               <circle cx="296" cy="392" r="24" fill="currentColor" />
-              <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"
+              <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" strokeWidth="32"
                     d="M128 48v32m256-32v32" />
-              <path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32" d="M464 160H48" />
+              <path fill="none" stroke="currentColor" stroke-linejoin="round" strokeWidth="32" d="M464 160H48" />
             </svg>
           </span>
           <span className="uppercase text-center">
