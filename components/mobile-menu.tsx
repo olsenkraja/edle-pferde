@@ -29,14 +29,34 @@ export default function MobileMenu() {
         <div className="w-6" />
       </div>
       <div className={'transition flex-col uppercase font-semibold mb-4 ' + (isOpen ? 'flex' : 'hidden')}>
-        <Link href="/" className="hover:bg-noble-700 hover:text-white px-8 py-4 -mx-8"
-              onClick={() => setIsOpen(false)}>Home</Link>
-        <Link href={`/about`} className="hover:bg-noble-700 hover:text-white px-8 py-4 -mx-8"
-              onClick={() => setIsOpen(false)}>Gestüt</Link>
-        <Link href={`/horses`} className="hover:bg-noble-700 hover:text-white px-8 py-4 -mx-8"
-              onClick={() => setIsOpen(false)}>Pferde</Link>
-        <Link href={`/gallery`} className="hover:bg-noble-700 hover:text-white px-8 py-4 -mx-8"
-              onClick={() => setIsOpen(false)}>Gallery</Link>
+        <Link
+          href="/"
+          className="hover:bg-noble-700 hover:text-white px-8 py-4 -mx-8"
+          onClick={() => setIsOpen(false)}
+        >
+          Home
+        </Link>
+        <Link
+          href={`/posts`}
+          className="hover:bg-noble-700 hover:text-white px-8 py-4 -mx-8"
+          onClick={() => setIsOpen(false)}
+        >
+          Blog
+        </Link>
+        <Link
+          href={`/horses`}
+          className="hover:bg-noble-700 hover:text-white px-8 py-4 -mx-8"
+          onClick={() => setIsOpen(false)}
+        >
+          Pferde
+        </Link>
+        <Link
+          href={`/gallery`}
+          className="hover:bg-noble-700 hover:text-white px-8 py-4 -mx-8"
+          onClick={() => setIsOpen(false)}
+        >
+          Gallery
+        </Link>
       </div>
     </div>
   )
