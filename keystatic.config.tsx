@@ -1,5 +1,4 @@
-import {collection, component, config, fields, GitHubConfig, LocalConfig, singleton,} from '@keystatic/core'
-import {ShowcaseYouTubeVideo} from './components/showcase-youtube-video'
+import {collection, config, fields, GitHubConfig, LocalConfig, singleton,} from '@keystatic/core'
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -13,42 +12,43 @@ const remoteMode: GitHubConfig['storage'] = {
 }
 
 function getDocumentBlock(imagePath: string, label = 'Content') {
-  return fields.document({
+  return fields.mdx({
     label,
-    formatting: true,
-    dividers: true,
-    links: true,
-    images: {
-      directory: 'public/' + imagePath,
-      publicPath: imagePath,
-      schema: {
-        title: fields.text({
-          label: 'Caption',
-        }),
-      },
-    },
-    componentBlocks: {
-      'youtube-video': component({
-        label: 'YouTube Video',
+    options: {
+      divider: true,
+      link: true,
+      image: {
+        directory: 'public/' + imagePath,
+        publicPath: imagePath,
         schema: {
-          youtubeVideoId: fields.text({
-            label: 'YouTube Video ID',
-            description: 'The ID of the YouTube video (not the full URL)',
-            validation: {
-              length: {
-                min: 1,
-              },
-            },
+          title: fields.text({
+            label: 'Caption',
           }),
         },
-        preview: (props) =>
-          props.fields.youtubeVideoId.value ? (
-            <ShowcaseYouTubeVideo videoId={props.fields.youtubeVideoId.value} />
-          ) : (
-            <p>Please enter a YouTube video ID</p>
-          ),
-      }),
+      },
     },
+    // components: {
+    //   'youtube-video': component({
+    //     label: 'YouTube Video',
+    //     schema: {
+    //       youtubeVideoId: fields.text({
+    //         label: 'YouTube Video ID',
+    //         description: 'The ID of the YouTube video (not the full URL)',
+    //         validation: {
+    //           length: {
+    //             min: 1,
+    //           },
+    //         },
+    //       }),
+    //     },
+    //     preview: (props) =>
+    //       props.fields.youtubeVideoId.value ? (
+    //         <ShowcaseYouTubeVideo videoId={props.fields.youtubeVideoId.value} />
+    //       ) : (
+    //         <p>Please enter a YouTube video ID</p>
+    //       ),
+    //   }),
+    // },
   })
 }
 

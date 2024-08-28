@@ -1,7 +1,6 @@
 import {reader} from '../../app/reader'
-import Image from "next/image";
-import {DocumentRenderer} from "@keystatic/core/renderer";
-import Link from "next/link";
+import Image from "next/image"
+import Link from "next/link"
 
 export default async function WelcomeSection() {
   const texts = await reader.singletons.texts.read()

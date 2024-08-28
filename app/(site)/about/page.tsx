@@ -1,20 +1,17 @@
 import {reader} from "../../reader";
-import {DocumentRenderer} from "@keystatic/core/renderer";
-import {ShowcaseYouTubeVideo} from "../../../components/showcase-youtube-video";
+import {MDX} from "../../../components/mdx";
 
 export default async function AboutPage() {
   const texts = await reader.singletons.texts.read()
+  const aboutPage = await texts.about_page()
 
   return (
     <div className="mx-auto max-w-screen-xl my-20 px-8">
       <div className="prose lg:prose-xl max-w-none">
-        <DocumentRenderer
-          document={await texts.about_page()}
-          componentBlocks={{
-            'youtube-video': (props) => <ShowcaseYouTubeVideo videoId={props.youtubeVideoId} />,
-          }}
-        />
+        <article>
+          <MDX source={aboutPage} />
+        </article>
       </div>
     </div>
-  )
+)
 }

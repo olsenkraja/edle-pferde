@@ -8,7 +8,7 @@ export default function MobileMenu() {
   let [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className="flex flex-col lg:hidden w-full text-white">
+    <div className="flex flex-col lg:hidden w-full text-gray-900">
       <div className="flex justify-between items-center my-4">
         <button onClick={() => setIsOpen(!isOpen)}>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
@@ -17,7 +17,7 @@ export default function MobileMenu() {
                   d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
           </svg>
         </button>
-        <Link href="/" className="hover:bg-noble-700 px-8 py-4 -mx-8" onClick={() => setIsOpen(false)}>
+        <Link href="/" className="hover:bg-noble-700 hover:text-white px-8 py-4 -mx-8" onClick={() => setIsOpen(false)}>
           <Image
             alt=""
             width="200"
@@ -28,14 +28,14 @@ export default function MobileMenu() {
         </Link>
         <div className="w-6" />
       </div>
-      <div className={'transition flex-col uppercase font-semibold text-white mb-4 ' + (isOpen ? 'flex' : 'hidden')}>
-        <Link href="/" className="hover:bg-noble-700 px-8 py-4 -mx-8"
+      <div className={'transition flex-col uppercase font-semibold mb-4 ' + (isOpen ? 'flex' : 'hidden')}>
+        <Link href="/" className="hover:bg-noble-700 hover:text-white px-8 py-4 -mx-8"
               onClick={() => setIsOpen(false)}>Home</Link>
-        <Link href={`/about`} className="hover:bg-noble-700 px-8 py-4 -mx-8"
+        <Link href={`/about`} className="hover:bg-noble-700 hover:text-white px-8 py-4 -mx-8"
               onClick={() => setIsOpen(false)}>Gestüt</Link>
-        <Link href={`/horses`} className="hover:bg-noble-700 px-8 py-4 -mx-8"
+        <Link href={`/horses`} className="hover:bg-noble-700 hover:text-white px-8 py-4 -mx-8"
               onClick={() => setIsOpen(false)}>Pferde</Link>
-        <Link href={`/gallery`} className="hover:bg-noble-700 px-8 py-4 -mx-8"
+        <Link href={`/gallery`} className="hover:bg-noble-700 hover:text-white px-8 py-4 -mx-8"
               onClick={() => setIsOpen(false)}>Gallery</Link>
       </div>
     </div>

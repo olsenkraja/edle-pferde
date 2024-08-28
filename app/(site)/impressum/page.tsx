@@ -1,19 +1,16 @@
-import {reader} from "../../reader";
-import {DocumentRenderer} from "@keystatic/core/renderer";
-import {ShowcaseYouTubeVideo} from "../../../components/showcase-youtube-video";
+import {reader} from "../../reader"
+import {MDX} from "../../../components/mdx"
 
 export default async function ImpressumPage() {
   const texts = await reader.singletons.texts.read()
+  const impressumPage = await texts.impressum_page()
 
   return (
     <div className="mx-auto max-w-screen-xl my-20 px-8">
       <div className="prose-sm lg:prose w-full !max-w-none">
-        <DocumentRenderer
-          document={await texts.impressum_page()}
-          componentBlocks={{
-            'youtube-video': (props) => <ShowcaseYouTubeVideo videoId={props.youtubeVideoId} />,
-          }}
-        />
+        <article>
+          <MDX source={impressumPage} />
+        </article>
       </div>
     </div>
   )
