@@ -10,14 +10,30 @@ export async function Header() {
       <nav className="mx-auto flex max-w-screen-xl flex-1 items-center justify-between px-8"
            aria-label="Global">
         <div className="hidden flex-1 lg:flex lg:-ml-4">
-          <Link href="/"
-                className="transition font-semibold uppercase leading-6 text-green-900 hover:bg-noble-200 px-4 py-10">Home</Link>
-          <Link href={`/posts`}
-                className="transition font-semibold uppercase leading-6 text-green-900 hover:bg-noble-200 px-4 py-10">Blog</Link>
-          <Link href={`/horses`}
-                className="transition font-semibold uppercase leading-6 text-green-900 hover:bg-noble-200 px-4 py-10">Pferde</Link>
-          <Link href={`/gallery`}
-                className="transition font-semibold uppercase leading-6 text-green-900 hover:bg-noble-200 px-4 py-10">Gallery</Link>
+          <Link
+            href="/"
+            className="transition font-semibold uppercase leading-6 text-green-900 hover:bg-noble-200 px-4 py-10"
+          >
+            Home
+          </Link>
+          <Link
+            href={`/posts`}
+            className="transition font-semibold uppercase leading-6 text-green-900 hover:bg-noble-200 px-4 py-10"
+          >
+            Blog
+          </Link>
+          <Link
+            href={`/horses`}
+            className="transition font-semibold uppercase leading-6 text-green-900 hover:bg-noble-200 px-4 py-10"
+          >
+            Pferde
+          </Link>
+          <Link
+            href={`/gallery`}
+            className="transition font-semibold uppercase leading-6 text-green-900 hover:bg-noble-200 px-4 py-10"
+          >
+            Gallery
+          </Link>
         </div>
         <Image
           alt=""

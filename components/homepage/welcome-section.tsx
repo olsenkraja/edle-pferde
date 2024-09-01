@@ -10,8 +10,9 @@ export default async function WelcomeSection() {
       <div className="absolute inset-0" aria-hidden="true">
         <Image
           alt=""
-          width="1024"
-          height="1024"
+          width={0}
+          height={0}
+          sizes="100vw"
           className="h-full w-full object-cover"
           src="/header.jpg"
         />
