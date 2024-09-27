@@ -13,7 +13,7 @@ export default async function PostsPage({params}: { params: { slug: string } }) 
         {posts.map((post) => (
           <Link href={`/posts/${post.slug}`} key={post.slug}>
             <li key={post.slug} className="p-8 hover:bg-noble-200 transition">
-              <div className="flex space-x-8">
+              <div className="flex flex-col sm:flex-row sm:space-x-8 space-y-4 sm:space-y-0">
                 <Image
                   alt=""
                   width="100"
@@ -22,7 +22,7 @@ export default async function PostsPage({params}: { params: { slug: string } }) 
                   src={post.entry.cover_image}
                 />
                 <div className="space-y-4">
-                  <h2 className="text-2xl font-bold line-clamp-1">{post.entry.title}</h2>
+                  <h2 className="text-2xl font-bold sm:line-clamp-1">{post.entry.title}</h2>
                   <p className="text-lg">{formatDateLong(post.entry.date)}</p>
                 </div>
               </div>
