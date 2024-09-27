@@ -21,9 +21,9 @@ export default async function WelcomeSection() {
         <div className="lg:w-3/5 space-y-10 text-white">
           <div className="space-y-1">
             <div className="text-3xl font-extrabold lg:text-5xl whitespace-nowrap text-white">
-              <span className="drop-shadow-md">Trakehner Gestüt Pichl</span>
+              <h1 className="drop-shadow-md">Trakehner Gestüt Pichl</h1>
             </div>
-            <div className="text-xl font-bold lg:text-3xl whitespace-nowrap text-noble-50">
+            <div className="text-xl font-semibold lg:text-xl whitespace-nowrap text-noble-50">
               <span className="drop-shadow-md">Oberösterreich</span>
             </div>
           </div>

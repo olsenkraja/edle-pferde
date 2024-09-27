@@ -13,7 +13,7 @@ export default async function HorsesSection() {
           <div className="flex md:w-1/2 flex-col space-y-6">
             <div className="space-y-2">
               <div className="font-semibold uppercase leading-none text-noble-500">Unsere Verkaufspferde</div>
-              <div className="text-3xl font-semibold uppercase">{texts.homepage_horses_headline}</div>
+              <h1 className="text-3xl font-semibold uppercase">{texts.homepage_horses_headline}</h1>
             </div>
             <div className="h-1 w-28 bg-noble-500"></div>
             <div>

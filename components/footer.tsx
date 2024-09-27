@@ -1,6 +1,7 @@
 import { reader } from "../app/reader";
 import Link from "next/link";
 import { DevicePhoneMobileIcon, EnvelopeIcon, HomeIcon, PhoneIcon } from "@heroicons/react/24/solid";
+import {MDX} from "./mdx";
 
 export async function Footer() {
   const currentYear = (new Date()).getFullYear()
@@ -27,7 +28,13 @@ export async function Footer() {
             <div className="flex md:w-1/3 flex-col space-y-4">
               <li className="flex space-x-2">
                 <HomeIcon className="size-4 my-1" />
-                <pre className="font-sans">{contact.address}</pre>
+                <p>
+                  Familie Pramendorfer
+                  <br/>
+                  Pichl 11
+                  <br/>
+                  A-4716 Hofkirchen an der Trattnach
+                </p>
               </li>
               <ul>
                 <li className="flex items-center space-x-2">

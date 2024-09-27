@@ -240,10 +240,6 @@ export default config({
       path: 'content/contact',
       format: {data: 'json'},
       schema: {
-        address: fields.text({
-          label: 'Address',
-          multiline: true,
-        }),
         email_address: fields.text({
           label: 'Email address',
         }),

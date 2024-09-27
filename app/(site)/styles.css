@@ -1,7 +1,14 @@
+@import url(https://fonts.bunny.net/css?family=dm-sans:100,200,300,400,500,600,700,800,900|red-hat-text:300,400,500,600,700);
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
+    font-family: 'Red Hat Text', sans-serif;
     background-color: theme('colors.noble.50');
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'DM Sans', sans-serif;
 }

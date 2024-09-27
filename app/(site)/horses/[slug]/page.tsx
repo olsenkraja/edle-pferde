@@ -23,7 +23,7 @@ export default async function HorsePage({params}: { params: { slug: string } }) 
 
   return (
     <div className="mx-auto max-w-screen-xl mt-12 mb-32 px-8">
-      <div className="prose lg:prose-xl max-w-none">
+      <div className="prose lg:prose-lg max-w-none">
         <h1>{horse.full_name}</h1>
         {horse.birth_year &&
           <div className="text-xl font-semibold flex space-x-4 items-center">

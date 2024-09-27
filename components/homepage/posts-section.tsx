@@ -13,7 +13,7 @@ export default async function PostsSection() {
         <div className="flex flex-col md:items-center space-y-6">
           <div className="flex flex-col md:items-center space-y-2">
             <div className="font-semibold uppercase leading-none text-noble-500">News</div>
-            <div className="text-3xl font-semibold uppercase">Neues aus Pichl</div>
+            <h1 className="text-3xl font-semibold uppercase">Neues aus Pichl</h1>
           </div>
           <div className="h-1 w-28 bg-noble-500"></div>
         </div>

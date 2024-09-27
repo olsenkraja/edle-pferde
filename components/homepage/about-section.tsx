@@ -21,7 +21,7 @@ export default async function AboutSection() {
         <div className="flex flex-1 flex-col space-y-6 lg:w-2/5">
           <div className="space-y-2">
             <div className="font-semibold uppercase leading-none text-noble-500">Über uns</div>
-            <div className="text-3xl font-semibold uppercase">{texts.homepage_about_headline}</div>
+            <h1 className="text-3xl font-semibold uppercase">{texts.homepage_about_headline}</h1>
           </div>
           <div className="h-1 w-28 bg-noble-500"></div>
           <div>
