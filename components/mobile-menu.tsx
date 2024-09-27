@@ -41,7 +41,7 @@ export default function MobileMenu() {
           className="hover:bg-noble-700 hover:text-white px-8 py-4 -mx-8"
           onClick={() => setIsOpen(false)}
         >
-          Blog
+          News
         </Link>
         <Link
           href={`/horses`}
@@ -55,7 +55,14 @@ export default function MobileMenu() {
           className="hover:bg-noble-700 hover:text-white px-8 py-4 -mx-8"
           onClick={() => setIsOpen(false)}
         >
-          Gallery
+          Galerie
+        </Link>
+        <Link
+          href={`/about`}
+          className="hover:bg-noble-700 hover:text-white px-8 py-4 -mx-8"
+          onClick={() => setIsOpen(false)}
+        >
+          Über uns
         </Link>
       </div>
     </div>

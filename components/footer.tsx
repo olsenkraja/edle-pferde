@@ -9,13 +9,13 @@ export async function Footer() {
 
   return (
     <footer>
-      <div className="bg-gradient-to-br from-green-800 to-green-950">
+      <div className="bg-gradient-to-br bg-noble-200">
         <div className="relative mx-auto flex max-w-screen-xl flex-col space-y-12 px-8 pb-12">
           <div className="flex justify-center">
             <img className="h-32 w-auto -mt-16 drop-shadow-xl" src="/logo.png" alt="" />
           </div>
           <div className="flex flex-col md:flex-row justify-center space-y-16 md:space-y-0 md:space-x-16">
-            <div className="md:w-2/3 space-y-4 text-white flex flex-col">
+            <div className="md:w-2/3 space-y-4 flex flex-col">
               <div className="flex-1 space-y-2 order-last md:order-first">
                 {texts.footer}
               </div>
@@ -24,7 +24,7 @@ export async function Footer() {
                 <li><Link href={`/impressum`} className="hover:underline">Impressum</Link></li>
               </ul>
             </div>
-            <div className="flex md:w-1/3 flex-col text-white space-y-4">
+            <div className="flex md:w-1/3 flex-col space-y-4">
               <li className="flex space-x-2">
                 <HomeIcon className="size-4 my-1" />
                 <pre className="font-sans">{contact.address}</pre>

@@ -12,7 +12,7 @@ export default async function HorsesSection() {
         <div className="w-full space-y-12">
           <div className="flex md:w-1/2 flex-col space-y-6">
             <div className="space-y-2">
-              <div className="font-semibold uppercase leading-none text-noble-500">Unsere Pferde</div>
+              <div className="font-semibold uppercase leading-none text-noble-500">Unsere Verkaufspferde</div>
               <div className="text-3xl font-semibold uppercase">{texts.homepage_horses_headline}</div>
             </div>
             <div className="h-1 w-28 bg-noble-500"></div>
@@ -21,20 +21,21 @@ export default async function HorsesSection() {
             </div>
             <div>
               <button
-                className="flex items-center justify-center bg-noble-900 px-6 py-3 font-semibold uppercase leading-none text-white">
-                Explore our horses
+                className="flex items-center justify-center bg-noble-500 text-white px-8 py-4 text-lg font-semibold uppercase leading-none w-fit rounded-full"
+              >
+                Jetzt entdecken
               </button>
             </div>
           </div>
           <div className="grid md:grid-cols-3 gap-4">
             {horses.slice(0, 5).map((horse) => (
-              <Link href={`/horses/${horse.slug}`} className="bg-white" key={horse.slug}>
+              <Link href={`/horses/${horse.slug}`} className="bg-white rounded-2xl shadow-xl" key={horse.slug}>
                 <div className="relative p-4 pb-0">
                   <Image
                     alt=""
                     width="500"
                     height="500"
-                    className="h-64 w-full object-cover"
+                    className="h-[360px] w-full object-cover rounded-xl"
                     src={horse.entry.profile_picture}
                   />
                   {horse.entry.status === 'for-sale' && (
