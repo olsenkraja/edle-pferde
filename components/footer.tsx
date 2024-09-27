@@ -1,7 +1,6 @@
-import { reader } from "../app/reader";
+import {reader} from "../app/reader";
 import Link from "next/link";
-import { DevicePhoneMobileIcon, EnvelopeIcon, HomeIcon, PhoneIcon } from "@heroicons/react/24/solid";
-import {MDX} from "./mdx";
+import {DevicePhoneMobileIcon, EnvelopeIcon, HomeIcon, PhoneIcon} from "@heroicons/react/24/solid";
 
 export async function Footer() {
   const currentYear = (new Date()).getFullYear()
@@ -20,9 +19,17 @@ export async function Footer() {
               <div className="flex-1 space-y-2 order-last md:order-first">
                 {texts.footer}
               </div>
-              <ul className="flex space-x-8 justfy-center md:justify-start order-first md:order-last">
-                <li><Link href={`/about`} className="hover:underline">Über uns</Link></li>
-                <li><Link href={`/impressum`} className="hover:underline">Impressum</Link></li>
+              <ul className="flex space-x-8 justfy-center md:justify-start order-first md:order-last sm:pb-0 pb-4">
+                <li>
+                  <Link href={`/about`} className="hover:underline border-b border-noble-300">
+                    Über uns
+                  </Link>
+                </li>
+                <li>
+                  <Link href={`/impressum`} className="hover:underline border-b border-noble-300">
+                    Impressum
+                  </Link>
+                </li>
               </ul>
             </div>
             <div className="flex md:w-1/3 flex-col space-y-4">
