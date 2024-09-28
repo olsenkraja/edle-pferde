@@ -15,3 +15,14 @@ export default async function Homepage() {
     </div>
   )
 }
+
+import type { Metadata } from 'next'
+export const metadata: Metadata = {
+  title: 'Edle Pferde',
+  description: 'Trakehner Gestüt Pichl',
+  openGraph: {
+    title: 'Edle Pferde',
+    description: 'Trakehner Gestüt Pichl',
+    images: '/public/logo.png',
+  }
+}

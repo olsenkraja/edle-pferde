@@ -4,10 +4,29 @@ import Link from 'next/link'
 import Image from "next/image";
 import {MDX} from "../../../../components/mdx";
 
+const seoTags = {
+  title: '',
+  description: '',
+  image: '',
+  openGraph: {
+    title: '',
+    description: '',
+    image: '',
+    card: "summary_large_image"
+  }
+}
+
 export default async function HorsePage({params}: { params: { slug: string } }) {
   const {slug} = params
   if (!slug) notFound()
   const horse = await reader.collections.horses.read(slug)
+
+  seoTags.title = horse.full_name
+  seoTags.openGraph.title = horse.full_name
+  seoTags.description = horse.birth_year + ', ' + horse.breed
+  seoTags.openGraph.description = horse.birth_year + ', ' + horse.breed
+  seoTags.image = horse.profile_picture
+  seoTags.openGraph.image = horse.profile_picture
 
   if (!horse) notFound()
   const content = await horse.content()
@@ -181,3 +200,6 @@ export async function generateStaticParams() {
   const horseSlugs = await reader.collections.horses.list()
   return horseSlugs.map((horseSlug) => ({slug: horseSlug}))
 }
+
+import type { Metadata } from 'next'
+export const metadata: Metadata = seoTags
