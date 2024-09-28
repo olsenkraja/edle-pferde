@@ -5,14 +5,12 @@ import Image from "next/image";
 import {MDX} from "../../../../components/mdx";
 
 const seoTags = {
-  title: '',
-  description: '',
-  image: '',
+  title: 'Edle Pferde',
+  description: 'Trakehner Gestüt Pichl',
   openGraph: {
-    title: '',
-    description: '',
-    image: '',
-    card: "summary_large_image"
+    title: 'Edle Pferde',
+    description: 'Trakehner Gestüt Pichl',
+    images: '/public/logo.png',
   }
 }
 
@@ -25,8 +23,7 @@ export default async function HorsePage({params}: { params: { slug: string } }) 
   seoTags.openGraph.title = horse.full_name
   seoTags.description = horse.birth_year + ', ' + horse.breed
   seoTags.openGraph.description = horse.birth_year + ', ' + horse.breed
-  seoTags.image = horse.profile_picture
-  seoTags.openGraph.image = horse.profile_picture
+  seoTags.openGraph.images = horse.profile_picture
 
   if (!horse) notFound()
   const content = await horse.content()
