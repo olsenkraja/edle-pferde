@@ -198,5 +198,18 @@ export async function generateStaticParams() {
   return horseSlugs.map((horseSlug) => ({slug: horseSlug}))
 }
 
-import type { Metadata } from 'next'
-export const metadata: Metadata = seoTags
+export async function generateMetadata({params}: { params: { slug: string } }) {
+  const {slug} = params
+  if (!slug) notFound()
+  const horse = await reader.collections.horses.read(slug)
+
+  return {
+    title: horse.full_name,
+    description: horse.birth_year + ', ' + horse.breed,
+    openGraph: {
+      title: horse.full_name,
+      description: horse.birth_year + ', ' + horse.breed,
+      images: horse.profile_picture,
+    }
+  }
+}
