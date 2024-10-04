@@ -88,6 +88,7 @@ export default config({
   },
   collections: {
     posts: collection({
+      columns: ['title', 'date'],
       label: 'Posts',
       entryLayout: 'content',
       slugField: 'title',
@@ -127,6 +128,7 @@ export default config({
       },
     }),
     horses: collection({
+      columns: ['full_name', 'birth_year'],
       label: 'Horses',
       slugField: 'full_name',
       path: 'content/horses/*',
