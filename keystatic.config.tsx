@@ -150,6 +150,7 @@ export default config({
           directory: 'public/images/horses',
           publicPath: '/images/horses/',
         }),
+        profile_picture_alt_text: fields.text({label: 'Profile picture / Alt text'}),
         status: fields.select({
           label: 'Status',
           options: [

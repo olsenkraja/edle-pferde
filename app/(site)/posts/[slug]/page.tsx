@@ -38,11 +38,11 @@ export default async function Post({params}: { params: { slug: string } }) {
                 <li key={horse.slug}>
                   <Link href={`/horses/${horse.slug}`} className="text-lg flex items-center space-x-4 hover:underline">
                     <Image
-                      alt=""
                       width="100"
                       height="100"
                       className="size-24 bg-noble-500 shadow-2xl rounded-full min-w-24 outline outline-1 outline-gray-500"
                       src={horse.profile_picture}
+                      alt={horse.profile_picture_alt_text}
                     />
                     <span>{horse.full_name}</span>
                   </Link>

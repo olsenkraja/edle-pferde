@@ -106,11 +106,11 @@ export default async function HorsePage({params}: { params: { slug: string } }) 
         }
         <div className="md:flex md:space-x-8">
           <Image
-            alt=""
             width="500"
             height="500"
             className="md:w-1/3 object-cover aspect-square"
             src={horse.profile_picture}
+            alt={horse.profile_picture_alt_text}
           />
           <div className="md:w-2/3">{horse.bio}</div>
         </div>

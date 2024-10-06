@@ -13,11 +13,11 @@ export default async function HorsesPage({params}: { params: { slug: string } })
             <li key={horse.slug} className="p-8 hover:bg-noble-200 transition">
               <div className="flex space-x-8">
                 <Image
-                  alt=""
                   width="500"
                   height="500"
                   className="aspect-square size-40 object-cover"
                   src={horse.entry.profile_picture}
+                  alt={horse.entry.profile_picture_alt_text}
                 />
                 <div className="space-y-4">
                   <div className="flex flex-wrap">

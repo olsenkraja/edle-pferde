@@ -32,11 +32,11 @@ export default async function HorsesSection() {
               <Link href={`/horses/${horse.slug}`} className="bg-white rounded-2xl shadow-xl" key={horse.slug}>
                 <div className="relative p-4 pb-0">
                   <Image
-                    alt=""
                     width="500"
                     height="500"
                     className="h-[360px] w-full object-cover rounded-xl"
                     src={horse.entry.profile_picture}
+                    alt={horse.entry.profile_picture_alt_text}
                   />
                   {horse.entry.status === 'for-sale' && (
                     <div className="absolute bottom-0 right-4">
