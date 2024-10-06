@@ -149,6 +149,9 @@ export default config({
           label: 'Profile picture',
           directory: 'public/images/horses',
           publicPath: '/images/horses/',
+          validation: {
+            isRequired: true
+          },
         }),
         profile_picture_alt_text: fields.text({label: 'Profile picture / Alt text'}),
         status: fields.select({
