@@ -135,6 +135,7 @@ export default config({
       format: {contentField: 'content'},
       schema: {
         full_name: fields.slug({name: {label: 'Full name'}}),
+        family: fields.text({label: 'Family'}),
         gender: fields.select({
           label: 'Gender',
           options: [
