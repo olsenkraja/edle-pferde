@@ -135,6 +135,15 @@ export default config({
       format: {contentField: 'content'},
       schema: {
         full_name: fields.slug({name: {label: 'Full name'}}),
+        gender: fields.select({
+          label: 'Gender',
+          options: [
+            { label: 'Hengst', value: 'Hengst' },
+            { label: 'Wallach', value: 'Wallach' },
+            { label: 'Stute', value: 'Stute' },
+          ],
+          defaultValue: 'Hengst'
+        }),
         profile_picture: fields.image({
           label: 'Profile picture',
           directory: 'public/images/horses',

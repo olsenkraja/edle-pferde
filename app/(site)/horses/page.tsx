@@ -16,7 +16,7 @@ export default async function HorsesPage({params}: { params: { slug: string } })
                   alt=""
                   width="500"
                   height="500"
-                  className="aspect-square h-40 object-cover"
+                  className="aspect-square size-40 object-cover"
                   src={horse.entry.profile_picture}
                 />
                 <div className="space-y-4">
