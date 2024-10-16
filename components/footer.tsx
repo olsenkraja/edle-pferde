@@ -59,7 +59,7 @@ export async function Footer() {
               </ul>
             </div>
           </div>
-          <div className="flex justify-center text-green-700">
+          <div className="flex justify-center text-siam-700">
             &copy; {currentYear} Edle Pferde
           </div>
         </div>

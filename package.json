@@ -3,12 +3,13 @@
   "version": "0.0.15",
   "license": "MIT",
   "dependencies": {
-    "@headlessui/react": "^2.1.8",
+    "@headlessui/react": "^2.1.10",
     "@heroicons/react": "^2.1.5",
-    "@keystatic/core": "0.5.36",
+    "@keystatic/core": "0.5.38",
     "@keystatic/next": "5.0.1",
     "@vercel/speed-insights": "^1.0.12",
-    "next": "^14.2.13",
+    "framer-motion": "^11.11.9",
+    "next": "^14.2.15",
     "next-mdx-remote": "^5.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -16,16 +17,17 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.15",
-    "@types/node": "22.7.3",
-    "@types/react": "^18.3.9",
+    "@types/node": "22.7.5",
+    "@types/react": "^18.3.11",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.47",
-    "tailwindcss": "^3.4.13",
-    "typescript": "^5.6.2"
+    "tailwindcss": "^3.4.14",
+    "typescript": "^5.6.3"
   },
   "scripts": {
     "build": "next build",
     "dev": "next dev",
     "start": "next start"
-  }
+  },
+  "packageManager": "pnpm@8.8.0+sha512.798e6b322669ce63c8da856bd62ad1f7b6f36f4dfaa0ac025af2bdd700d09dd5dca943e5cad3edac5d1b3baebc4b2c3fb80fbb8537f936733c32be2ec7805144"
 }

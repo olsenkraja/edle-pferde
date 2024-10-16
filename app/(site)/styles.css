@@ -1,14 +1,18 @@
-@import url(https://fonts.bunny.net/css?family=dm-sans:100,200,300,400,500,600,700,800,900|red-hat-text:300,400,500,600,700);
+@import url(https://fonts.bunny.net/css?family=dm-sans:100,200,300,400,500,600,700,800,900|montserrat:300,400,500,600,700|marcellus-sc:400);
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-    font-family: 'Red Hat Text', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     background-color: theme('colors.noble.50');
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'DM Sans', sans-serif;
+}
+
+.marcellus-font {
+    font-family: 'Marcellus SC', serif;
 }

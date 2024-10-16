@@ -34,7 +34,7 @@ export default async function HorsePage({params}: { params: { slug: string } }) 
   const horseChildren = horse.children.map(child => allHorses.find(h => h.slug === child))
 
   function getHorse(slug: string) {
-    return allHorses.find(h => h.slug === slug).entry.full_name
+    return allHorses.find(h => h.slug === slug)?.entry.full_name
   }
 
   return (

@@ -12,19 +12,19 @@ export async function Header() {
         <div className="hidden flex-1 lg:flex lg:-ml-4">
           <Link
             href="/"
-            className="transition font-semibold uppercase leading-6 text-green-900 hover:bg-noble-200 px-4 py-10"
+            className="transition font-semibold uppercase leading-6 text-siam-900 hover:bg-noble-200 px-4 py-10"
           >
             Home
           </Link>
           <Link
             href={`/posts`}
-            className="transition font-semibold uppercase leading-6 text-green-900 hover:bg-noble-200 px-4 py-10"
+            className="transition font-semibold uppercase leading-6 text-siam-900 hover:bg-noble-200 px-4 py-10"
           >
             News
           </Link>
           <Link
             href={`/horses`}
-            className="transition font-semibold uppercase leading-6 text-green-900 hover:bg-noble-200 px-4 py-10"
+            className="transition font-semibold uppercase leading-6 text-siam-900 hover:bg-noble-200 px-4 py-10"
           >
             Pferde
           </Link>
@@ -39,13 +39,13 @@ export async function Header() {
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <Link
             href={`/gallery`}
-            className="transition font-semibold uppercase leading-6 text-green-900 hover:bg-noble-200 px-4 py-10"
+            className="transition font-semibold uppercase leading-6 text-siam-900 hover:bg-noble-200 px-4 py-10"
           >
             Galerie
           </Link>
           <Link
             href={`/about`}
-            className="transition font-semibold uppercase leading-6 text-green-900 hover:bg-noble-200 px-4 py-10"
+            className="transition font-semibold uppercase leading-6 text-siam-900 hover:bg-noble-200 px-4 py-10"
           >
             Über uns
           </Link>
@@ -54,7 +54,7 @@ export async function Header() {
                   href={`https://facebook.com/${contact.facebook}`}
                   rel="noopener noreferrer"
                   target="_blank"
-                  className="transition font-semibold uppercase leading-6 text-green-900 hover:bg-noble-200 px-4 py-10"
+                  className="transition font-semibold uppercase leading-6 text-siam-900 hover:bg-noble-200 px-4 py-10"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16">
                     <path fill="currentColor"
@@ -68,7 +68,7 @@ export async function Header() {
                   href={`https://instagram.com/${contact.instagram}`}
                   rel="noopener noreferrer"
                   target="_blank"
-                  className="transition font-semibold uppercase leading-6 text-green-900 hover:bg-noble-200 px-4 py-10"
+                  className="transition font-semibold uppercase leading-6 text-siam-900 hover:bg-noble-200 px-4 py-10"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16">
                     <path fill="currentColor"
