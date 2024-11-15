@@ -1,5 +1,16 @@
 import {reader} from "../../reader";
 import {MDX} from "../../../components/mdx";
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Über Uns | Edle Pferde',
+  description: 'Erfahren Sie mehr über Edle Pferde und unsere Mission.',
+  openGraph: {
+    title: 'Über Uns | Edle Pferde',
+    description: 'Erfahren Sie mehr über Edle Pferde und unsere Mission.',
+    images: '/public/logo.png',
+  },
+}
 
 export default async function AboutPage() {
   const texts = await reader.singletons.texts.read()

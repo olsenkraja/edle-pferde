@@ -11,7 +11,9 @@ export const metadata: Metadata = {
     title: 'Edle Pferde | News',
     description: 'Trakehner Gestüt Pichl',
     images: '/public/logo.png',
-  }
+  },
+  keywords: 'Trakehner, Pferde, News, Gestüt Pichl',
+  robots: 'index, follow',
 }
 
 export default async function PostsPage() {

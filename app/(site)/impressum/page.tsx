@@ -1,5 +1,16 @@
 import {reader} from "../../reader"
 import {MDX} from "../../../components/mdx"
+import type {Metadata} from 'next'
+
+export const metadata: Metadata = {
+  title: 'Impressum | Edle Pferde',
+  description: 'Rechtliche Informationen über Edle Pferde.',
+  openGraph: {
+    title: 'Impressum | Edle Pferde',
+    description: 'Rechtliche Informationen über Edle Pferde.',
+    images: '/public/logo.png',
+  },
+}
 
 export default async function ImpressumPage() {
   const texts = await reader.singletons.texts.read()
