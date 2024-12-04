@@ -10,7 +10,7 @@ export function ClickableImage(props: {
   className?: string;
   width?: number;
   height?: number;
-  photos?: string[];
+  photos?: readonly string[];
   currentIndex?: number;
 }) {
   let [isOpen, setIsOpen] = useState(false)
