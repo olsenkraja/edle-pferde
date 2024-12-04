@@ -4,12 +4,12 @@
   "license": "MIT",
   "dependencies": {
     "@headlessui/react": "^2.2.0",
-    "@heroicons/react": "^2.1.5",
+    "@heroicons/react": "^2.2.0",
     "@keystatic/core": "0.5.38",
     "@keystatic/next": "5.0.1",
     "@vercel/speed-insights": "^1.1.0",
-    "framer-motion": "^11.11.17",
-    "next": "^14.2.15",
+    "framer-motion": "^11.13.1",
+    "next": "^14.2.19",
     "next-mdx-remote": "^5.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -21,8 +21,8 @@
     "@types/react": "^18.3.12",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",
-    "tailwindcss": "^3.4.15",
-    "typescript": "^5.6.3"
+    "tailwindcss": "^3.4.16",
+    "typescript": "^5.7.2"
   },
   "scripts": {
     "build": "next build",
