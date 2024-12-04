@@ -26,11 +26,13 @@ export default async function GalleryPage() {
             <span className="text-sm opacity-50">{formatDateLong(album.entry.date)}</span>
           </div>
           <div className="md:grid md:grid-cols-6 flex space-x-4 md:space-x-0 overflow-x-scroll md:overflow-x-auto gap-2 px-8 snap-x snap-mandatory md:overflow-hidden">
-            {album.entry.photos.map(photo => (
+            {album.entry.photos.map((photo, index) => (
               <ClickableImage
                 key={photo}
                 alt=""
                 src={photo}
+                photos={album.entry.photos}
+                currentIndex={index}
                 className="transition cursor-pointer shadow-lg md:hover:scale-110 aspect-square object-cover snap-center"
               />
             ))}
