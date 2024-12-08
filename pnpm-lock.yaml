@@ -20,6 +20,9 @@ importers:
       '@keystatic/next':
         specifier: 5.0.1
         version: 5.0.1(@keystatic/core@0.5.42(next@14.2.19(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(next@14.2.19(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@vercel/functions':
+        specifier: ^1.5.1
+        version: 1.5.1
       '@vercel/speed-insights':
         specifier: ^1.1.0
         version: 1.1.0(next@14.2.19(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
@@ -1096,6 +1099,15 @@ packages:
     resolution: {integrity: sha512-gI3i5uA9K/f0z5VLqKL5SGJpTrPjsN+BOMvAGJj13Bg4JUmJCaqYYHKetay27q4K2GDZIMGDoeytR7XkpP5ftg==}
     peerDependencies:
       '@urql/core': ^5.0.0
+
+  '@vercel/functions@1.5.1':
+    resolution: {integrity: sha512-cCdrWa4sUkNE8WjZu9ODA4Q3d92Y333bCL3zebvQ8XCOH0MCy37q3rQ02sJU93mn7BuZyEk5hWBnEtfOb6Sr2Q==}
+    engines: {node: '>= 16'}
+    peerDependencies:
+      '@aws-sdk/credential-provider-web-identity': '*'
+    peerDependenciesMeta:
+      '@aws-sdk/credential-provider-web-identity':
+        optional: true
 
   '@vercel/speed-insights@1.1.0':
     resolution: {integrity: sha512-rAXxuhhO4mlRGC9noa5F7HLMtGg8YF1zAN6Pjd1Ny4pII4cerhtwSG4vympbCl+pWkH7nBS9kVXRD4FAn54dlg==}
@@ -3963,6 +3975,8 @@ snapshots:
     dependencies:
       '@urql/core': 5.0.8(graphql@16.9.0)
       wonka: 6.3.4
+
+  '@vercel/functions@1.5.1': {}
 
   '@vercel/speed-insights@1.1.0(next@14.2.19(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)':
     optionalDependencies:

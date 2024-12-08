@@ -1,36 +1,27 @@
 import {NextResponse} from "next/server";
 import {reader} from "../../reader";
 
-function sleep(ms: number) {
-    return new Promise(resolve => setTimeout(resolve, ms))
-}
-
 export async function GET(request: Request, {params}) {
     try {
         const { collectionName } = params;
 
         const slugs = await reader.collections[collectionName].list()
-        await sleep(200)
 
-        let items = []
-
-        for (const slug of slugs) {
-            const item = await reader.collections[collectionName].read(slug)
-            const content = await item.content()
-
-            items.push({...item, content})
-        }
-        console.log(items)
-
-        // const url = new URL(request.url);
-        // const queryParams = Object.fromEntries(url.searchParams.entries());
+        // Use Promise.all to handle concurrent async operations
+        const items = await Promise.all(
+            slugs.map(async (slug: string) => {
+                const item = await reader.collections[collectionName].read(slug)
+                const content = await item.content()
+                return {...item, content}
+            })
+        )
 
         return NextResponse.json(items)
     } catch (error) {
-        throw error
-        // return NextResponse.json(
-        //     error,
-        //     {status: 500}
-        // );
+        console.error(error)
+        return NextResponse.json(
+            { error: error.message },
+            { status: 500 }
+        )
     }
 }
