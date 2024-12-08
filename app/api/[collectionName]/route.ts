@@ -1,15 +1,16 @@
 import {NextResponse} from "next/server";
 import {reader} from "../../reader";
 
+function sleep(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms))
+}
+
 export async function GET(request: Request, {params}) {
     try {
         const { collectionName } = params;
-        console.log(collectionName)
 
         const slugs = await reader.collections[collectionName].list()
-        console.log(slugs)
-
-        return NextResponse.json(slugs)
+        await sleep(200)
 
         let items = []
 
