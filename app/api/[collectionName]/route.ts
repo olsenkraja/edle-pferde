@@ -6,6 +6,10 @@ export async function GET(request: Request, {params}) {
         const { collectionName } = params;
         console.log(collectionName)
 
+        if (collectionName) {
+            return NextResponse.json(collectionName)
+        }
+
         const slugs = await reader.collections[collectionName].list()
         console.log(slugs)
 
