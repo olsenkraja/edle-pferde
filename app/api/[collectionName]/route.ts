@@ -4,7 +4,10 @@ import {reader} from "../../reader";
 export async function GET(request: Request, {params}) {
     try {
         const { collectionName } = params;
+        console.log(collectionName)
+
         const slugs = await reader.collections[collectionName].list()
+        console.log(slugs)
 
         let items = []
 
@@ -14,15 +17,17 @@ export async function GET(request: Request, {params}) {
 
             items.push({...item, content})
         }
+        console.log(items)
 
         // const url = new URL(request.url);
         // const queryParams = Object.fromEntries(url.searchParams.entries());
 
         return NextResponse.json(items)
     } catch (error) {
-        return NextResponse.json(
-            error,
-            {status: 500}
-        );
+        throw error
+        // return NextResponse.json(
+        //     error,
+        //     {status: 500}
+        // );
     }
 }
