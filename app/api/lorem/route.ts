@@ -1,6 +1,8 @@
-export const dynamic = 'force-dynamic'; // static by default, unless reading the request
-export const runtime = 'nodejs';
+import {waitUntil} from '@vercel/functions';
 
 export function GET(request: Request) {
-    return new Response(`Hello from ${process.env.VERCEL_REGION}`);
+    const country = request.headers.get('x-vercel-ip-country');
+    // Returns a response immediately while keeping the function alive
+    waitUntil(fetch(`https://api.vercel.app/countries/?incr=${country}`));
+    return new Response(`You're visiting from beautiful ${country}`);
 }
