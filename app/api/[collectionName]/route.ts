@@ -1,9 +1,7 @@
+'use server'
+
 import {NextResponse} from "next/server";
 import {reader} from "../../reader";
-
-export const runtime = 'nodejs'; // Explicitly set Node.js runtime
-export const dynamic = 'force-dynamic'; // Keep your existing dynamic configuration
-export const maxDuration = 30; // Set maximum execution time to 30 seconds
 
 export async function GET(request: Request, {params}) {
     try {
