@@ -1,7 +1,6 @@
-import {NextResponse} from "next/server";
+export const dynamic = 'force-dynamic'; // static by default, unless reading the request
+export const runtime = 'nodejs';
 
-export async function GET() {
-    return NextResponse.json({
-        ipsum: 'dolor'
-    })
+export function GET(request: Request) {
+    return new Response(`Hello from ${process.env.VERCEL_REGION}`);
 }

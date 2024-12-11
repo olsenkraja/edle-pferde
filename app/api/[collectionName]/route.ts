@@ -1,7 +1,9 @@
 import {NextResponse} from "next/server";
 import {reader} from "../../reader";
 
-export const dynamic = 'force-dynamic'
+export const runtime = 'nodejs'; // Explicitly set Node.js runtime
+export const dynamic = 'force-dynamic'; // Keep your existing dynamic configuration
+export const maxDuration = 30; // Set maximum execution time to 30 seconds
 
 export async function GET(request: Request, {params}) {
     try {
@@ -21,10 +23,11 @@ export async function GET(request: Request, {params}) {
                 try {
                     const item = await reader.collections[collectionName].read(slug)
 
-                    // Temporarily simplified to help diagnose
+                    const content = await item.content()
+
                     return {
                         ...item,
-                        // Removed content() for debugging
+                        content
                     }
                 } catch (itemError) {
                     console.error(`Detailed error for slug ${slug}:`, {
