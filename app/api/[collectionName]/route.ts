@@ -1,7 +1,10 @@
-'use server'
-
+import { waitUntil } from '@vercel/functions';
 import {NextResponse} from "next/server";
 import {reader} from "../../reader";
+
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
+export const maxDuration = 30;
 
 export async function GET(request: Request, {params}) {
     try {
@@ -16,7 +19,7 @@ export async function GET(request: Request, {params}) {
 
         const slugs = await reader.collections[collectionName].list()
 
-        const items = await Promise.all(
+        const itemsPromise = Promise.all(
             slugs.map(async (slug) => {
                 try {
                     const item = await reader.collections[collectionName].read(slug)
@@ -38,6 +41,10 @@ export async function GET(request: Request, {params}) {
             })
         )
 
+        // Use waitUntil to keep the function alive while processing
+        waitUntil(itemsPromise);
+
+        const items = await itemsPromise;
         const filteredItems = items.filter(item => item !== null);
 
         return NextResponse.json(filteredItems)
