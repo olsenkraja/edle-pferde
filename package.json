@@ -1,6 +1,9 @@
 {
   "name": "@keystatic/templates-nextjs",
   "version": "0.0.15",
+  "engines": {
+    "node": ">=22.11.0"
+  },
   "license": "MIT",
   "dependencies": {
     "@headlessui/react": "^2.2.0",
