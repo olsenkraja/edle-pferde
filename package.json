@@ -8,7 +8,7 @@
   "dependencies": {
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.2.0",
-    "@keystatic/core": "0.5.42",
+    "@keystatic/core": "^0.5.45",
     "@keystatic/next": "5.0.1",
     "@vercel/functions": "^1.6.0",
     "@vercel/speed-insights": "^1.2.0",

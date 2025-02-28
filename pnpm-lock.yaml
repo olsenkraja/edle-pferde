@@ -12,11 +12,11 @@ dependencies:
     specifier: ^2.2.0
     version: 2.2.0(react@18.3.1)
   '@keystatic/core':
-    specifier: 0.5.42
-    version: 0.5.42(next@14.2.24)(react-dom@18.3.1)(react@18.3.1)
+    specifier: ^0.5.45
+    version: 0.5.45(next@14.2.24)(react-dom@18.3.1)(react@18.3.1)
   '@keystatic/next':
     specifier: 5.0.1
-    version: 5.0.1(@keystatic/core@0.5.42)(next@14.2.24)(react-dom@18.3.1)(react@18.3.1)
+    version: 5.0.1(@keystatic/core@0.5.45)(next@14.2.24)(react-dom@18.3.1)(react@18.3.1)
   '@vercel/functions':
     specifier: ^1.6.0
     version: 1.6.0
@@ -732,20 +732,19 @@ packages:
       - supports-color
     dev: false
 
-  /@keystatic/core@0.5.42(next@14.2.24)(react-dom@18.3.1)(react@18.3.1):
-    resolution: {integrity: sha512-RPsJt+sEoLD30qItCNi9O0cIVkqwBnNgPSp2eA6Oj6FEBKKehXwbf5iTEd8DuOse9/3fuz+tsAlhYMkuS/XzCA==}
+  /@keystatic/core@0.5.45(next@14.2.24)(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-vqYY/ByMUhbkquJ/hxDDEevlkrHPo9gP7UjuuZJj9YoEj4U66W3SqxOw+wORsN8B28PIMGXfh2Q61k3X9p93+Q==}
     peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
+      react: ^18.2.0 || ^19.0.0
+      react-dom: ^18.2.0 || ^19.0.0
     dependencies:
       '@babel/runtime': 7.26.9
       '@braintree/sanitize-url': 6.0.4
-      '@emotion/css': 11.13.5
       '@emotion/weak-memoize': 0.3.1
       '@floating-ui/react': 0.24.8(react-dom@18.3.1)(react@18.3.1)
       '@internationalized/string': 3.2.5
       '@keystar/ui': 0.7.18(next@14.2.24)(react-dom@18.3.1)(react@18.3.1)
-      '@markdoc/markdoc': 0.4.0(@types/react@18.3.18)(react@18.3.1)
+      '@markdoc/markdoc': 0.4.0(@types/react@19.0.10)(react@18.3.1)
       '@react-aria/focus': 3.19.1(react-dom@18.3.1)(react@18.3.1)
       '@react-aria/i18n': 3.12.5(react-dom@18.3.1)(react@18.3.1)
       '@react-aria/interactions': 3.23.0(react-dom@18.3.1)(react@18.3.1)
@@ -762,7 +761,7 @@ packages:
       '@sindresorhus/slugify': 1.1.2
       '@toeverything/y-indexeddb': 0.10.0-canary.9(yjs@13.6.23)
       '@ts-gql/tag': 0.7.3(graphql@16.10.0)
-      '@types/react': 18.3.18
+      '@types/react': 19.0.10
       '@urql/core': 5.1.0(graphql@16.10.0)
       '@urql/exchange-auth': 2.2.0(@urql/core@5.1.0)
       '@urql/exchange-graphcache': 7.2.2(@urql/core@5.1.0)(graphql@16.10.0)
@@ -816,7 +815,7 @@ packages:
       - supports-color
     dev: false
 
-  /@keystatic/next@5.0.1(@keystatic/core@0.5.42)(next@14.2.24)(react-dom@18.3.1)(react@18.3.1):
+  /@keystatic/next@5.0.1(@keystatic/core@0.5.45)(next@14.2.24)(react-dom@18.3.1)(react@18.3.1):
     resolution: {integrity: sha512-KxlwYU54zAgsroZurDQdfvaquJX5s/7jWJMZrlu10JyAWDDpbJe8wT9z7ig3UYQYizlihM9LY7YKrfwjWti0nw==}
     peerDependencies:
       '@keystatic/core': '*'
@@ -825,7 +824,7 @@ packages:
       react-dom: ^18.2.0
     dependencies:
       '@babel/runtime': 7.26.9
-      '@keystatic/core': 0.5.42(next@14.2.24)(react-dom@18.3.1)(react@18.3.1)
+      '@keystatic/core': 0.5.45(next@14.2.24)(react-dom@18.3.1)(react@18.3.1)
       '@types/react': 18.3.18
       chokidar: 3.6.0
       next: 14.2.24(react-dom@18.3.1)(react@18.3.1)
@@ -834,7 +833,7 @@ packages:
       server-only: 0.0.1
     dev: false
 
-  /@markdoc/markdoc@0.4.0(@types/react@18.3.18)(react@18.3.1):
+  /@markdoc/markdoc@0.4.0(@types/react@19.0.10)(react@18.3.1):
     resolution: {integrity: sha512-fSh4P3Y4E7oaKYc2oNzSIJVPDto7SMzAuQN1Iyx53UxzleA6QzRdNWRxmiPqtVDaDi5dELd2yICoG91csrGrAw==}
     engines: {node: '>=14.7.0'}
     peerDependencies:
@@ -846,7 +845,7 @@ packages:
       react:
         optional: true
     dependencies:
-      '@types/react': 18.3.18
+      '@types/react': 19.0.10
       react: 18.3.1
     optionalDependencies:
       '@types/markdown-it': 12.2.3
