@@ -1,23 +1,61 @@
 "use client"
 
 import Link from "next/link";
-import {useState} from "react";
+import { useState } from "react";
 import Image from "next/image";
 
+interface MobileNavLinkProps {
+  href: string;
+  children: React.ReactNode;
+  onClick: () => void;
+}
+
+const MobileNavLink = ({ href, children, onClick }: MobileNavLinkProps) => (
+  <Link
+    href={href}
+    className="hover:bg-noble-700 hover:text-white px-8 py-4 -mx-8"
+    onClick={onClick}
+  >
+    {children}
+  </Link>
+);
+
 export default function MobileMenu() {
-  let [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  
+  const handleClose = () => setIsOpen(false);
+  
+  const navItems = [
+    { href: "/", label: "Home" },
+    { href: "/posts", label: "News" },
+    { href: "/horses", label: "Pferde" },
+    { href: "/gallery", label: "Galerie" },
+    { href: "/about", label: "Über uns" },
+  ];
 
   return (
     <div className="flex flex-col lg:hidden w-full text-gray-900">
       <div className="flex justify-between items-center my-4">
-        <button onClick={() => setIsOpen(!isOpen)}>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
-               stroke="currentColor" className="w-6 h-6">
-            <path strokeLinecap="round" strokeLinejoin="round"
-                  d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
+        <button 
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label={isOpen ? "Close menu" : "Open menu"}
+        >
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            fill="none" 
+            viewBox="0 0 24 24" 
+            strokeWidth="1.5"
+            stroke="currentColor" 
+            className="w-6 h-6"
+          >
+            <path 
+              strokeLinecap="round" 
+              strokeLinejoin="round"
+              d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" 
+            />
           </svg>
         </button>
-        <Link href="/" className="hover:bg-noble-700 hover:text-white px-8 py-4 -mx-8" onClick={() => setIsOpen(false)}>
+        <Link href="/" className="hover:bg-noble-700 hover:text-white px-8 py-4 -mx-8" onClick={handleClose}>
           <Image
             alt=""
             width="200"
@@ -29,41 +67,15 @@ export default function MobileMenu() {
         <div className="w-6" />
       </div>
       <div className={'transition flex-col uppercase font-semibold mb-4 ' + (isOpen ? 'flex' : 'hidden')}>
-        <Link
-          href="/"
-          className="hover:bg-noble-700 hover:text-white px-8 py-4 -mx-8"
-          onClick={() => setIsOpen(false)}
-        >
-          Home
-        </Link>
-        <Link
-          href={`/posts`}
-          className="hover:bg-noble-700 hover:text-white px-8 py-4 -mx-8"
-          onClick={() => setIsOpen(false)}
-        >
-          News
-        </Link>
-        <Link
-          href={`/horses`}
-          className="hover:bg-noble-700 hover:text-white px-8 py-4 -mx-8"
-          onClick={() => setIsOpen(false)}
-        >
-          Pferde
-        </Link>
-        <Link
-          href={`/gallery`}
-          className="hover:bg-noble-700 hover:text-white px-8 py-4 -mx-8"
-          onClick={() => setIsOpen(false)}
-        >
-          Galerie
-        </Link>
-        <Link
-          href={`/about`}
-          className="hover:bg-noble-700 hover:text-white px-8 py-4 -mx-8"
-          onClick={() => setIsOpen(false)}
-        >
-          Über uns
-        </Link>
+        {navItems.map(item => (
+          <MobileNavLink 
+            key={item.href} 
+            href={item.href} 
+            onClick={handleClose}
+          >
+            {item.label}
+          </MobileNavLink>
+        ))}
       </div>
     </div>
   )

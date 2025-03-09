@@ -1,11 +1,42 @@
 import {reader} from "../app/reader";
 import Link from "next/link";
 import {DevicePhoneMobileIcon, EnvelopeIcon, HomeIcon, PhoneIcon} from "@heroicons/react/24/solid";
+import { ReactNode } from "react";
+
+interface FooterLinkProps {
+  href: string;
+  children: ReactNode;
+}
+
+const FooterLink = ({ href, children }: FooterLinkProps) => (
+  <li>
+    <Link href={href} className="hover:underline border-b border-noble-300">
+      {children}
+    </Link>
+  </li>
+);
+
+interface ContactItemProps {
+  icon: ReactNode;
+  children: ReactNode;
+}
+
+const ContactItem = ({ icon, children }: ContactItemProps) => (
+  <li className="flex items-center space-x-2">
+    {icon}
+    <span>{children}</span>
+  </li>
+);
 
 export async function Footer() {
-  const currentYear = (new Date()).getFullYear()
-  const texts = await reader.singletons.texts.read()
-  const contact = await reader.singletons.contact.read()
+  const currentYear = (new Date()).getFullYear();
+  const texts = await reader.singletons.texts.read();
+  const contact = await reader.singletons.contact.read();
+
+  const footerLinks = [
+    { href: "/about", label: "Über uns" },
+    { href: "/impressum", label: "Impressum" },
+  ];
 
   return (
     <footer>
@@ -20,42 +51,33 @@ export async function Footer() {
                 {texts.footer}
               </div>
               <ul className="flex space-x-8 justfy-center md:justify-start order-first md:order-last sm:pb-0 pb-4">
-                <li>
-                  <Link href={`/about`} className="hover:underline border-b border-noble-300">
-                    Über uns
-                  </Link>
-                </li>
-                <li>
-                  <Link href={`/impressum`} className="hover:underline border-b border-noble-300">
-                    Impressum
-                  </Link>
-                </li>
+                {footerLinks.map(link => (
+                  <FooterLink key={link.href} href={link.href}>
+                    {link.label}
+                  </FooterLink>
+                ))}
               </ul>
             </div>
             <div className="flex md:w-1/3 flex-col space-y-4">
-              <li className="flex space-x-2">
-                <HomeIcon className="size-4 my-1" />
-                <p>
+              <ContactItem icon={<HomeIcon className="size-4 my-1" />}>
+                <>
                   Familie Pramendorfer
                   <br/>
                   Pichl 11
                   <br/>
                   A-4716 Hofkirchen an der Trattnach
-                </p>
-              </li>
+                </>
+              </ContactItem>
               <ul>
-                <li className="flex items-center space-x-2">
-                  <EnvelopeIcon className="size-4" />
-                  <span>{contact.email_address}</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <PhoneIcon className="size-4" />
-                  <span>{contact.phone_number}</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <DevicePhoneMobileIcon className="size-4" />
-                  <span>{contact.mobile_phone_number}</span>
-                </li>
+                <ContactItem icon={<EnvelopeIcon className="size-4" />}>
+                  {contact.email_address}
+                </ContactItem>
+                <ContactItem icon={<PhoneIcon className="size-4" />}>
+                  {contact.phone_number}
+                </ContactItem>
+                <ContactItem icon={<DevicePhoneMobileIcon className="size-4" />}>
+                  {contact.mobile_phone_number}
+                </ContactItem>
               </ul>
             </div>
           </div>
@@ -65,5 +87,5 @@ export async function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
