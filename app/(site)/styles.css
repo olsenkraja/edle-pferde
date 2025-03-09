@@ -1,12 +1,10 @@
 @import url(https://fonts.bunny.net/css?family=dm-sans:100,200,300,400,500,600,700,800,900|montserrat:300,400,500,600,700|marcellus-sc:400);
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: theme('colors.noble.50');
+    background-color: #FCFCFC;
 }
 
 h1, h2, h3, h4, h5, h6 {
