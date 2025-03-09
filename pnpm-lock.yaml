@@ -17,9 +17,6 @@ dependencies:
   '@keystatic/next':
     specifier: 5.0.1
     version: 5.0.1(@keystatic/core@0.5.46)(next@14.2.24)(react-dom@18.3.1)(react@18.3.1)
-  '@vercel/functions':
-    specifier: ^1.6.0
-    version: 1.6.0
   '@vercel/speed-insights':
     specifier: ^1.2.0
     version: 1.2.0(next@14.2.24)(react@18.3.1)
@@ -2586,16 +2583,6 @@ packages:
     dependencies:
       '@urql/core': 5.1.1(graphql@16.10.0)
       wonka: 6.3.5
-    dev: false
-
-  /@vercel/functions@1.6.0:
-    resolution: {integrity: sha512-R6FKQrYT5MZs5IE1SqeCJWxMuBdHawFcCZboKKw8p7s+6/mcd55Gx6tWmyKnQTyrSEA04NH73Tc9CbqpEle8RA==}
-    engines: {node: '>= 16'}
-    peerDependencies:
-      '@aws-sdk/credential-provider-web-identity': '*'
-    peerDependenciesMeta:
-      '@aws-sdk/credential-provider-web-identity':
-        optional: true
     dev: false
 
   /@vercel/speed-insights@1.2.0(next@14.2.24)(react@18.3.1):
