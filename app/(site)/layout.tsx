@@ -6,12 +6,12 @@ import {Footer} from "../../components/footer";
 export default async function RootLayout({children}: { children: React.ReactNode }) {
   return (
     <html lang="en">
-    <body>
-    <SpeedInsights />
-    <Header />
+    <body style={{backgroundColor: 'rgb(242 243 241 / var(--tw-bg-opacity, 1))'}}>
+    <SpeedInsights/>
+    <Header/>
     {children}
-    <hr />
-    <Footer />
+    <hr/>
+    <Footer/>
     </body>
     </html>
   )

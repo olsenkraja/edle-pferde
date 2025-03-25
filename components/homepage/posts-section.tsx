@@ -8,34 +8,36 @@ export default async function PostsSection() {
   posts = posts.sort((a, b) => (a.entry.date < b.entry.date) ? 1 : ((b.entry.date < a.entry.date) ? -1 : 0))
 
   return (
-    <div>
+    <div className="max-w-7xl mx-auto">
       <div className="relative mx-auto max-w-screen-xl space-y-16 px-8 py-24">
         <div className="flex flex-col md:items-center space-y-6">
           <div className="flex flex-col md:items-center space-y-2">
             <div className="font-semibold uppercase leading-none text-noble-500">News</div>
             <h1 className="text-3xl font-semibold uppercase">Neues aus Pichl</h1>
           </div>
-          <div className="h-1 w-28 bg-noble-500"></div>
-        </div>
-        <div className="flex md:flex-row flex-col rounded-2xl overflow-auto sm:h-[480px] shadow-xl">
-          <Link href={`/posts/${posts[0].slug}`} className="md:w-3/5 bg-noble-500">
-            <Image alt="" width="500" height="500" className="h-[350px] w-full flex-1 object-cover"
-              src={posts[0].entry.cover_image} />
-            <div className="space-y-4 p-8 text-white">
+          <Link href={`/posts/${posts[0].slug}`} className="w-full px-32">
+            <Image
+              alt=""
+              width="500"
+              height="500"
+              className="aspect-[3/2] rounded-xl w-full flex-1 object-cover"
+              src={posts[0].entry.cover_image}
+            />
+            <div className="space-y-4 py-8">
               <div className="text-xl line-clamp-2">{posts[0].entry.title}</div>
               <div className="text-sm">{formatDateLong(posts[0].entry.date)}</div>
             </div>
           </Link>
-          <div className="md:w-2/5">
-            <ul className="md:pt-0 sm:pt-4 sm:overflow-y-scroll overflow-y-hidden sm:h-[480px] h-[336px]">
-              {posts.slice(1, 10).map((post) => (
-                <li key={post.slug} className="py-4 md:px-8 transition bg-noble-100 hover:bg-noble-200 cursor-pointer">
-                  <Link href={`/posts/${post.slug}`} className="flex items-center space-x-4">
+          <div className="overflow-x-auto whitespace-nowrap">
+            <ul className="inline-flex space-x-4">
+              {posts.slice(1, 5).map((post) => (
+                <li key={post.slug} className="cursor-pointer w-64 flex-shrink-0 overflow-hidden">
+                  <Link href={`/posts/${post.slug}`} className="">
                     <Image
                       alt=""
-                      width="100"
-                      height="100"
-                      className="aspect-square size-20 object-cover rounded-xl"
+                      width="300"
+                      height="300"
+                      className="aspect-square object-cover rounded-xl"
                       src={post.entry.cover_image}
                     />
                     <div>
