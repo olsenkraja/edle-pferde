@@ -8,10 +8,10 @@ export default async function PostsSection() {
   posts = posts.sort((a, b) => (a.entry.date < b.entry.date) ? 1 : ((b.entry.date < a.entry.date) ? -1 : 0))
 
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-7xl mx-auto mt-[500px]">
       <div className="relative mx-auto max-w-screen-xl space-y-16 px-8 py-24">
-        <div className="flex flex-col md:items-center space-y-6">
-          <div className="flex flex-col md:items-center space-y-2">
+        <div className="flex flex-col md:items-center space-y-6 bg-white py-16 rounded-3xl">
+          <div className="flex flex-col md:items-center space-y-2 -mt-[500px]">
             <div className="font-semibold uppercase leading-none text-noble-500">News</div>
             <h1 className="text-3xl font-semibold uppercase">Neues aus Pichl</h1>
           </div>
