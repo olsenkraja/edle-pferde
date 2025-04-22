@@ -1,0 +1,24 @@
+---
+import {getCollection} from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import Cover from "../components/Cover.astro";
+import News from "../components/News.astro";
+import ForSale from "../components/ForSale.astro";
+import AboutUs from "../components/AboutUs.astro";
+import Footer from "../components/Footer.astro";
+
+let articles = await getCollection('articles');
+articles = articles.sort((a, b) => (a.data.created_at < b.data.created_at) ? 1 : ((b.data.created_at < a.data.created_at) ? -1 : 0))
+---
+
+<Layout title="Keystatic & Astro's Content Collections">
+    <div class="flex flex-col items-start space-y-32 relative bg-[#f9f6ef]">
+        <header class="flex flex-col w-full">
+            <Cover/>
+        </header>
+        <News articles={articles}/>
+        <ForSale/>
+        <AboutUs/>
+        <Footer/>
+    </div>
+</Layout>

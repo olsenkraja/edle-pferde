@@ -1,0 +1,38 @@
+---
+import {getCollection, getEntry} from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import coverImageImporter from "../../composables/imageImporter";
+import Image from 'astro/components/Image.astro';
+import Lightbox from '../../components/Lightbox.astro';
+
+const {slug} = Astro.params;
+if (!slug) throw new Error('Slug not found');
+const article = await getEntry('articles', slug);
+
+if (!article) throw new Error('No article found for this slug');
+const {Content} = await article.render();
+
+// Generate static pages
+export async function getStaticPaths() {
+  const articles = await getCollection('articles');
+  return articles.map(article => ({params: {slug: article.slug}}));
+}
+
+const imageImport = coverImageImporter('articles', slug)
+---
+
+<Layout title={article.data.title}>
+    <div class="max-w-5xl mx-auto space-y-16">
+        <Image src={imageImport()} alt={`Cover image for ${slug}`} width={1024} class="aspect-video object-cover"/>
+        <div class="flex space-x-16">
+            <div class="prose">
+                <h1>{article.data.title}</h1>
+                <Content/>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto commodi, consequuntur, cumque
+                debitis deserunt dolores eos exercitationem labore laboriosam minus molestiae nobis obcaecati, officia
+                quam tempora ut vitae. Iste, totam.</p>
+        </div>
+        <Lightbox images={[imageImport]}/>
+    </div>
+</Layout>
