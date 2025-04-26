@@ -1,0 +1,13 @@
+---
+import {getCollection} from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+let horses = await getCollection('horses');
+// horses = horses.sort((a, b) => (a.data.birth_year < b.data.birth_year) ? 1 : ((b.data.birth_year < a.data.birth_year) ? -1 : 0))
+---
+
+<Layout title="Keystatic & Astro's Content Collections">
+    <div class="flex flex-col items-start space-y-32 relative bg-[#f9f6ef]">
+        {JSON.stringify(horses)}
+    </div>
+</Layout>
