@@ -1,3 +1,32 @@
 ---
-
+import IconCalendar from "./icons/IconCalendar.astro";
+import IconFaceId from "./icons/IconFaceId.astro";
+import IconRuler from "./icons/IconRuler.astro";
+import IconColorPalette from "./icons/IconColorPalette.astro";
+import HorseCard from "./homepage/for-sale/HorseCard.astro";
 ---
+<div class="flex flex-col items-center justify-center gap-2.5 relative self-stretch w-full flex-[0_0_auto]">
+    <div class="flex flex-col w-[1024px] items-center justify-center gap-8 relative flex-[0_0_auto]">
+        <div class="inline-flex flex-col items-center justify-center gap-4 relative flex-[0_0_auto]">
+            <div class="relative w-fit mt-[-1.00px] font-normal text-[#04482c] text-[32px] text-center tracking-[0] leading-[27.8px] whitespace-nowrap">
+                Verkauf
+            </div>
+
+            <p class="relative w-fit font-normal text-[#04482c] text-base text-center tracking-[0] leading-[25.1px] whitespace-nowrap">
+                Folgende Pferde stehen zum Verkauf
+            </p>
+
+          {/*<img*/}
+          {/*  class="relative w-[95.89px] h-0.5 mb-[-2.00px]"*/}
+          {/*  alt="Line"*/}
+          {/*  src={line12}*/}
+          {/*/>*/}
+        </div>
+
+        <div class="flex flex-col items-start gap-16 relative self-stretch w-full flex-[0_0_auto]">
+            <HorseCard />
+            <HorseCard />
+            <HorseCard />
+        </div>
+    </div>
+</div>
