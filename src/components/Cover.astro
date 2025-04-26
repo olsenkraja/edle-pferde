@@ -1,23 +1,15 @@
 ---
-
-import IconMapPin from "./icons/IconMapPin.astro";
-import IconMedal from "./icons/IconMedal.astro";
-import IconUserHeart from "./icons/IconUserHeart.astro";
-import IconHorse from "./icons/IconHorse.astro";---
+import {IconHorse, IconUserHeart, IconMedal, IconMapPin} from "@tabler/icons-react";
+---
 <div class="flex flex-col items-start relative self-stretch w-full flex-[0_0_auto] z-0 -mt-16">
     <div class="w-full h-[680px] bg-[#9747FF]"/>
-  {/*<img*/}
-  {/*  class="relative self-stretch w-full h-[680px] object-cover"*/}
-  {/*  alt="Cover"*/}
-  {/*  src={cover}*/}
-  {/*/>*/}
 
     <div class="flex flex-col items-center justify-center relative self-stretch w-full flex-[0_0_auto] mt-[-100px]">
         <div class="flex w-[1024px] h-[200px] items-center justify-center relative bg-white rounded-2xl shadow-[0px_14px_30px_#0000001a,0px_54px_54px_#00000017,0px_122px_73px_#0000000d,0px_217px_87px_#00000003,0px_339px_95px_transparent]">
             <div class="flex flex-col w-64 items-start gap-2.5 relative">
                 <div class="flex flex-col items-center justify-center gap-3 relative self-stretch w-full flex-[0_0_auto] border-r [border-right-style:solid] border-[#b1b1b1]">
-                    <IconHorse stroke={2} class="text-[#B47913] size-12"/>
-                    <div class="relative w-fit font-normal text-[#04482c] text-base text-center tracking-[0] leading-[21.8px]">
+                    <IconHorse className="text-primary-600 size-10"/>
+                    <div class="relative w-fit font-normal text-brand text-base text-center tracking-[0] leading-[21.8px]">
                         Familiäre
                         <br/>
                         Pferdezucht
@@ -27,9 +19,9 @@ import IconHorse from "./icons/IconHorse.astro";---
 
             <div class="flex flex-col w-64 items-start gap-2.5 relative">
                 <div class="flex flex-col items-center justify-center gap-3 relative self-stretch w-full flex-[0_0_auto] border-r [border-right-style:solid] border-[#b1b1b1]">
-                    <IconUserHeart stroke={2} class="text-[#B47913] size-12"/>
+                    <IconUserHeart className="text-primary-600 size-10"/>
 
-                    <div class="relative w-fit font-normal text-[#04482c] text-base text-center tracking-[0] leading-[21.8px]">
+                    <div class="relative w-fit font-normal text-brand text-base text-center tracking-[0] leading-[21.8px]">
                         Über 30 Jahren
                         <br/>
                         Erfahrung
@@ -39,8 +31,8 @@ import IconHorse from "./icons/IconHorse.astro";---
 
             <div class="flex flex-col w-64 items-start gap-2.5 relative">
                 <div class="flex flex-col items-center justify-center gap-3 relative self-stretch w-full flex-[0_0_auto] border-r [border-right-style:solid] border-[#b1b1b1]">
-                    <IconMedal stroke={2} class="text-[#B47913] size-12"/>
-                    <div class="relative w-fit font-normal text-[#04482c] text-base text-center tracking-[0] leading-[21.8px]">
+                    <IconMedal className="fill-primary-600 size-10 stroke-primary-600"/>
+                    <div class="relative w-fit font-normal text-brand text-base text-center tracking-[0] leading-[21.8px]">
                         Individuelle
                         <br/>
                         Ausbildung
@@ -50,8 +42,8 @@ import IconHorse from "./icons/IconHorse.astro";---
 
             <div class="flex flex-col w-64 items-start gap-2.5 relative">
                 <div class="flex flex-col items-center justify-center gap-3 relative self-stretch w-full flex-[0_0_auto]">
-                    <IconMapPin stroke={2} class="text-[#B47913] size-12"/>
-                    <div class="relative w-fit font-normal text-[#04482c] text-base text-center tracking-[0] leading-[21.8px]">
+                    <IconMapPin className="text-primary-600 size-10"/>
+                    <div class="relative w-fit font-normal text-brand text-base text-center tracking-[0] leading-[21.8px]">
                         Im Herzen
                         <br/>
                         des Hausruckviertels

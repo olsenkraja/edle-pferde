@@ -1,7 +1,5 @@
 ---
-import IconMail from "./icons/IconMail.astro";
-import IconPhone from "./icons/IconPhone.astro";
-import IconMobile from "./icons/IconMobile.astro";
+import {IconMail, IconPhone, IconDeviceMobile} from '@tabler/icons-react'
 ---
 <footer class="flex flex-col items-start relative self-stretch w-full flex-[0_0_auto] bg-transparent">
     <div class="flex flex-col items-center justify-center self-stretch w-full relative flex-[0_0_auto]">
@@ -14,18 +12,18 @@ import IconMobile from "./icons/IconMobile.astro";
         <div class="flex flex-col items-center justify-center pt-20 pb-8 px-0 relative self-stretch w-full flex-[0_0_auto] -mt-16 z-0 bg-white">
             <div class="inline-flex flex-col items-center gap-6 relative flex-[0_0_auto]">
                 <div class="inline-flex flex-col items-center gap-2 relative flex-[0_0_auto]">
-                    <div class="relative w-fit mt-[-1.00px] [font-family:'Marcellus_SC-Regular',Helvetica] font-normal text-[#04482c] text-[32px] text-center tracking-[0] leading-[27.8px] whitespace-nowrap">
+                    <div class="relative w-fit mt-[-1.00px] [font-family:'Marcellus_SC-Regular',Helvetica] font-normal text-brand text-[32px] text-center tracking-[0] leading-[27.8px] whitespace-nowrap">
                         Familie Pramendorfer
                     </div>
 
-                    <p class="relative w-fit [font-family:'Montserrat-Regular',Helvetica] font-normal text-[#04482c] text-[13px] tracking-[0] leading-[21.8px] whitespace-nowrap">
+                    <p class="relative w-fit [font-family:'Montserrat-Regular',Helvetica] font-normal text-brand text-[13px] tracking-[0] leading-[21.8px] whitespace-nowrap">
                         Pichl
                         11&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;A-4716
                         Hofkirchen an der Trattnach
                     </p>
                 </div>
 
-                <p class="relative w-[789.18px] [font-family:'Montserrat-Regular',Helvetica] font-normal text-[#04482c] text-[13px] text-center tracking-[0] leading-[20.4px]">
+                <p class="relative w-[789.18px] [font-family:'Montserrat-Regular',Helvetica] font-normal text-brand text-[13px] text-center tracking-[0] leading-[20.4px]">
                     Auf unserem Hof züchten wir Trakehnerpferde für höchste
                     reiterliche Ansprüche.
                     <br/>
@@ -33,31 +31,21 @@ import IconMobile from "./icons/IconMobile.astro";
                     freuen wir uns nach Voranmeldung über Ihren Besuch.
                 </p>
 
-                <div class="inline-flex flex-col items-start gap-1 relative flex-[0_0_auto]">
-                    <div class="inline-flex gap-2 flex-[0_0_auto] items-center justify-center relative">
-                        <IconMail/>
-
-                        <div class="relative w-[174.17px] mt-[-1.00px] [font-family:'Montserrat-Regular',Helvetica] font-normal text-[#04482c] text-[13px] tracking-[0] leading-[28.5px]">
-                            email@example.com
-                        </div>
+                <div class="flex flex-col space-y-2">
+                    <div class="flex items-center space-x-2">
+                        <IconMail className='text-primary-600'/>
+                        <div class="text-brand text-sm">email@example.com</div>
                     </div>
-
-                    <div class="inline-flex gap-2 flex-[0_0_auto] items-center justify-center relative">
-                        <IconPhone/>
-
-                        <p class="relative w-[174.17px] mt-[-1.00px] [font-family:'Montserrat-Regular',Helvetica] font-normal text-[#04482c] text-[13px] tracking-[0] leading-[28.5px]">
-                            +43 (0) 00 00 / 00 00
-                        </p>
+                    <div class="flex items-center space-x-2">
+                        <IconPhone className='text-primary-600'/>
+                        <div class="text-brand text-sm">+43 (0) 00 00 / 00 00</div>
                     </div>
-
-                    <div class="inline-flex gap-2 flex-[0_0_auto] items-center justify-center relative">
-                        <IconMobile/>
-
-                        <p class="relative w-[174.17px] mt-[-1.00px] [font-family:'Montserrat-Regular',Helvetica] font-normal text-[#04482c] text-[13px] tracking-[0] leading-[28.5px]">
-                            +43 (0) 000 0000 0000
-                        </p>
+                    <div class="flex items-center space-x-2">
+                        <IconDeviceMobile className='text-primary-600'/>
+                        <div class="text-brand text-sm">+43 (0) 000 0000 0000</div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
@@ -67,7 +55,7 @@ import IconMobile from "./icons/IconMobile.astro";
             Über Uns
         </div>
 
-        <div class="relative w-fit mt-[-1.00px] [font-family:'Montserrat-Regular',Helvetica] font-normal text-[#04482c] text-[13px] text-center tracking-[0] leading-[20.4px] whitespace-nowrap">
+        <div class="relative w-fit mt-[-1.00px] [font-family:'Montserrat-Regular',Helvetica] font-normal text-brand text-[13px] text-center tracking-[0] leading-[20.4px] whitespace-nowrap">
             © 2024 Edle Pferde
         </div>
 
