@@ -58,8 +58,8 @@ export default config({
         }),
         profile_picture: fields.image({
           label: 'Profile picture',
-          directory: 'src/assets/profile_picture/horses',
-          publicPath: '@assets/profile_picture/horses/',
+          directory: 'src/assets/profile_pictures/horses',
+          publicPath: '@assets/profile_pictures/horses/',
           validation: {
             isRequired: true
           },

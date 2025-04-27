@@ -1,16 +1,18 @@
 ---
 import {getCollection, getEntry} from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
-import coverImageImporter from "../../composables/imageImporter";
 import Image from 'astro/components/Image.astro';
 import Lightbox from '../../components/Lightbox.astro';
+import imageImporter from "../../composables/imageImporter";
 
 const {slug} = Astro.params;
 if (!slug) throw new Error('Slug not found');
 const article = await getEntry('articles', slug);
-
 if (!article) throw new Error('No article found for this slug');
+
 const {Content} = await article.render();
+
+const imageImport = imageImporter(article.data.cover_image)
 
 // Generate static pages
 export async function getStaticPaths() {
@@ -18,7 +20,6 @@ export async function getStaticPaths() {
   return articles.map(article => ({params: {slug: article.slug}}));
 }
 
-const imageImport = coverImageImporter('articles', slug)
 ---
 
 <Layout title={article.data.title}>

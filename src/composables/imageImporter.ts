@@ -1,9 +1,10 @@
 import type {ImageMetadata} from 'astro';
 
-export default function coverImageImporter(collectionName: string, slug: string) {
-  const allCoverImages = import.meta.glob<{
+export default function imageImporter(path: string) {
+  path = path.replace('@', '/src/')
+  const allImages = import.meta.glob<{
     default: ImageMetadata
-  }>('/src/assets/cover_images/*/*/*.{jpeg,jpg,png,gif,webp}');
-  const imagePathKey = `/src/assets/cover_images/${collectionName}/${slug}/cover_image.jpg`;
-  return  allCoverImages[imagePathKey];
+  }>('/src/assets/*/*/*/*.{jpeg,jpg,png,gif,webp}');
+
+  return allImages[path];
 }
