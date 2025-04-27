@@ -4,10 +4,15 @@ import imageImporter from "../../composables/imageImporter";
 const {horse} = Astro.props
 const imageImport = imageImporter(horse.data.profile_picture)
 ---
-<div class="space-y-2">
-    <Image src={imageImport()} alt={`Cover image for ${horse.slug}`} width={1024} class="aspect-square object-cover rounded-2xl"/>
-    <div>
-        <h1 class="font-semibold text-xl">{horse.data.full_name}</h1>
-        <p>{horse.data.birth_year}</p>
+<a href={`/horses/${horse.slug}`}>
+    <div class="space-y-2">
+        <Image src={imageImport()}
+               alt={`Cover image for ${horse.slug}`}
+               width={1024}
+               class="aspect-square object-cover rounded-2xl"/>
+        <div>
+            <h1 class="font-semibold text-xl">{horse.data.full_name}</h1>
+            <p>{horse.data.birth_year}</p>
+        </div>
     </div>
-</div>
+</a>

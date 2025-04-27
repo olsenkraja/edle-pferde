@@ -1,0 +1,109 @@
+---
+import {getCollection, getEntry} from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Image from 'astro/components/Image.astro';
+import Lightbox from '../../components/Lightbox.astro';
+import imageImporter from "../../composables/imageImporter";
+import {IconCalendar, IconColorPicker, IconFaceId, IconRuler} from "@tabler/icons-react";
+
+const {slug} = Astro.params;
+if (!slug) throw new Error('Slug not found');
+const horse = await getEntry('horses', slug);
+if (!horse) throw new Error('No horse found for this slug');
+
+const {Content} = await horse.render();
+
+const imageImport = imageImporter(horse.data.profile_picture)
+
+// Generate static pages
+export async function getStaticPaths() {
+  const horses = await getCollection('horses');
+  return horses.map(horse => ({params: {slug: horse.slug}}));
+}
+---
+<Layout title={horse.data.full_name}>
+    <div class="max-w-5xl mx-auto space-y-16">
+        <div class="flex space-x-16 items-start">
+            <div class=" flex flex-col space-y-8 flex-1">
+                <div>
+                    <h1 class="text-brand text-3xl font-semibold">
+                      {horse.data.full_name}
+                    </h1>
+                    <p>
+                      {horse.data.family}
+                    </p>
+                </div>
+
+                <div class="flex flex-col space-y-4">
+                    <div class="flex items-center space-x-4">
+                        <IconCalendar className='text-brand'/>
+                        <div class="relative flex-1 font-normal text-[#1e1e1e] text-base tracking-[0] leading-4">
+                          {horse.data.birth_year}
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <IconFaceId className='text-brand'/>
+                        <div class="relative flex-1 font-normal text-[#1e1e1e] text-base tracking-[0] leading-4">
+                          {horse.data.breed}
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <IconRuler className='text-brand'/>
+                        <div class="relative flex-1 font-normal text-[#1e1e1e] text-base tracking-[0] leading-4">
+                          {horse.data.size}
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <IconColorPicker className='text-brand'/>
+                        <div class="relative flex-1 font-normal text-[#1e1e1e] text-base tracking-[0] leading-4">
+                          {horse.data.color}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="flex flex-col w-[512px] items-center justify-center relative">
+                <Image src={imageImport()} alt={`Cover image for ${slug}`} width={1024}
+                       class="aspect-square object-cover rounded-2xl"/>
+            </div>
+        </div>
+        <p>
+          {horse.data.bio}
+        </p>
+        <div class="space-y-4">
+            <h2 class="text-brand uppercase tracking-widest font-semibold">
+                Stammbaum
+            </h2>
+            <div class="flex flex-1 bg-primary-50 border border-primary-600 text-primary-600">
+                <div class="flex-1 flex flex-col items-center justify-center border-r">
+                  {horse.data.full_name}
+                </div>
+                <div class="flex-1 flex flex-col items-center justify-center border-r">
+                    <div class="flex-1 w-full flex justify-center items-center border-b">
+                      {horse.data.father.value}
+                    </div>
+                    <div class="flex-1 w-full flex justify-center items-center">
+                      {horse.data.mother.value}
+                    </div>
+                </div>
+                <div class="flex-1 flex flex-col items-center justify-center">
+                    <div class="flex-1 w-full text-center py-4 border-b">
+                      {horse.data.fathers_father.value}
+                    </div>
+                    <div class="flex-1 w-full text-center py-4 border-b">
+                      {horse.data.fathers_mother.value}
+                    </div>
+                    <div class="flex-1 w-full text-center py-4 border-b">
+                      {horse.data.mothers_father.value}
+                    </div>
+                    <div class="flex-1 w-full text-center py-4">
+                      {horse.data.mothers_mother.value}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="prose">
+            <Content/>
+        </div>
+    </div>
+</Layout>
