@@ -45,12 +45,13 @@ const imageImport = imageImporter(horse.data.profile_picture)
         </div>
     </div>
 
-    <div class="flex flex-col flex-1">
+    <div class="flex flex-col flex-1 relative">
         <Image
                 class="object-cover aspect-4/3"
                 src={imageImport()}
                 alt={`Cover image for ${horse.slug}`}
                 width={960}
         />
+        <div class="absolute inset-0 bg-gradient-to-r from-white to-25%"></div>
     </div>
 </div>

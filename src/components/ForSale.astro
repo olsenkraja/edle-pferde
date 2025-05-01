@@ -9,21 +9,21 @@ horses = horses
 ---
 <div class="max-w-5xl mx-auto">
     <div class="flex flex-col items-center justify-center gap-8">
-        <div class="flex flex-col items-center space-y-4">
-            <div class="font-normal text-brand text-3xl text-center">
-                Verkauf
+        <div class="flex flex-col space-y-8">
+            <div class="flex flex-col items-center space-y-4">
+                <div class="font-normal text-brand text-3xl text-center">
+                    Verkauf
+                </div>
+                <div class="font-bold text-brand text-sm tracking-widest text-center uppercase">
+                    Folgende Pferde stehen zum Verkauf
+                </div>
+                <div class="bg-primary-600 w-20 h-1"></div>
             </div>
-            <div class="font-bold text-brand text-sm tracking-widest text-center uppercase">
-                Folgende Pferde stehen zum Verkauf
+            <div class="flex flex-col space-y-16">
+              {horses.map(horse => (
+                      <HorseCard horse={horse}/>
+              ))}
             </div>
-            <div class="bg-primary-600 w-20 h-1"></div>
-        </div>
-        <div>
-        </div>
-        <div class="flex flex-col items-start gap-16 relative self-stretch w-full flex-[0_0_auto]">
-          {horses.map(horse => (
-                  <HorseCard horse={horse}/>
-          ))}
         </div>
     </div>
 </div>

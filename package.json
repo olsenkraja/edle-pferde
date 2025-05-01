@@ -8,23 +8,23 @@
     "directory": "templates/astro"
   },
   "dependencies": {
-    "@astrojs/markdoc": "^0.14.0",
-    "@astrojs/mdx": "^4.2.5",
-    "@astrojs/react": "^4.2.4",
-    "@astrojs/vercel": "^8.1.3",
+    "@astrojs/markdoc": "^0.14.2",
+    "@astrojs/mdx": "^4.2.6",
+    "@astrojs/react": "^4.2.7",
+    "@astrojs/vercel": "^8.1.4",
     "@keystatic/astro": "^5.0.6",
     "@keystatic/core": "^0.5.47",
     "@tabler/icons-react": "^3.31.0",
     "@tailwindcss/typography": "^0.5.16",
-    "@tailwindcss/vite": "^4.1.4",
+    "@tailwindcss/vite": "^4.1.5",
     "@types/react": "^19.1.2",
-    "@types/react-dom": "^19.1.2",
-    "astro": "^5.7.4",
+    "@types/react-dom": "^19.1.3",
+    "astro": "^5.7.10",
     "photoswipe": "^5.4.4",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "sharp": "^0.34.1",
-    "tailwindcss": "^4.1.4"
+    "tailwindcss": "^4.1.5"
   },
   "scripts": {
     "dev": "astro dev",

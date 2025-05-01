@@ -2,6 +2,7 @@
 import {getCollection} from "astro:content";
 import NewsArticleBig from "./homepage/news/NewsArticleBig.astro";
 import NewsArticleSmall from "./homepage/news/NewsArticleSmall.astro";
+import {IconChevronDown} from '@tabler/icons-react';
 
 let articles = await getCollection('articles');
 articles = articles.sort((a, b) => (a.data.created_at < b.data.created_at) ? 1 : ((b.data.created_at < a.data.created_at) ? -1 : 0))
@@ -9,19 +10,20 @@ articles = articles.sort((a, b) => (a.data.created_at < b.data.created_at) ? 1 :
 <div class="max-w-5xl mx-auto">
     <div class="flex flex-col items-center justify-center gap-8">
         <div class="flex flex-col space-y-8">
-            <div class="space-y-2">
+            <div class="flex flex-col items-center space-y-4">
                 <div class="font-normal text-brand text-3xl text-center">
                     News
                 </div>
                 <div class="font-bold text-brand text-sm tracking-widest text-center uppercase">
                     Neues aus Pichl
                 </div>
+                <div class="bg-primary-600 w-20 h-1"></div>
             </div>
 
 
             <NewsArticleBig article={articles[0]}/>
             <div class="pt-80 px-8 -mt-80 bg-white rounded-2xl shadow-2xl">
-                <div class="flex gap-8">
+                <div class="flex gap-8 lg:grid-cols-4 grid-cols-2">
                     {articles.slice(1, 5).map(article => (
                       <NewsArticleSmall article={article}/>
                     ))}
@@ -29,11 +31,7 @@ articles = articles.sort((a, b) => (a.data.created_at < b.data.created_at) ? 1 :
                 <div class="flex justify-center py-8">
                     <a href="#" class="flex flex-col items-center">
                         <span class="tracking-widest uppercase text-sm">Mehr lesen</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                             class="lucide lucide-chevron-down-icon lucide-chevron-down">
-                            <path d="m6 9 6 6 6-6"/>
-                        </svg>
+                        <IconChevronDown />
                     </>
                 </div>
             </div>
