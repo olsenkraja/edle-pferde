@@ -5,7 +5,6 @@ import Cover from "../components/Cover.astro";
 import News from "../components/News.astro";
 import ForSale from "../components/ForSale.astro";
 import AboutUs from "../components/AboutUs.astro";
-import Footer from "../components/Footer.astro";
 
 let articles = await getCollection('articles');
 articles = articles.sort((a, b) => (a.data.created_at < b.data.created_at) ? 1 : ((b.data.created_at < a.data.created_at) ? -1 : 0))
@@ -19,6 +18,5 @@ articles = articles.sort((a, b) => (a.data.created_at < b.data.created_at) ? 1 :
         <News articles={articles}/>
         <ForSale/>
         <AboutUs/>
-        <Footer/>
     </div>
 </Layout>
