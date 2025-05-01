@@ -1,5 +1,5 @@
 // @ts-ignore
-import { defineCollection, z } from 'astro:content';
+import { defineCollection, z } from 'astro:content'
 
 const articles = defineCollection({
   // Type-check frontmatter using a schema
@@ -8,7 +8,7 @@ const articles = defineCollection({
     created_at: z.date(),
     cover_image: z.string(),
   }),
-});
+})
 
 const horses = defineCollection({
   // Type-check frontmatter using a schema
@@ -48,6 +48,6 @@ const horses = defineCollection({
     }).nullable().optional(),
     children: z.array(z.string()),
   }),
-});
+})
 
-export const collections = { articles, horses };
+export const collections = { articles, horses }

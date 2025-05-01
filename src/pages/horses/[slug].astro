@@ -1,24 +1,24 @@
 ---
-import {getCollection, getEntry} from 'astro:content';
-import Layout from '../../layouts/Layout.astro';
-import Image from 'astro/components/Image.astro';
-import Lightbox from '../../components/Lightbox.astro';
-import imageImporter from "../../composables/imageImporter";
-import {IconCalendar, IconColorPicker, IconFaceId, IconRuler} from "@tabler/icons-react";
+import {getCollection, getEntry} from 'astro:content'
+import Layout from '../../layouts/Layout.astro'
+import Image from 'astro/components/Image.astro'
+import Lightbox from '../../components/Lightbox.astro'
+import imageImporter from "../../composables/imageImporter"
+import {IconCalendar, IconColorPicker, IconFaceId, IconRuler} from "@tabler/icons-react"
 
-const {slug} = Astro.params;
-if (!slug) throw new Error('Slug not found');
-const horse = await getEntry('horses', slug);
-if (!horse) throw new Error('No horse found for this slug');
+const {slug} = Astro.params
+if (!slug) throw new Error('Slug not found')
+const horse = await getEntry('horses', slug)
+if (!horse) throw new Error('No horse found for this slug')
 
-const {Content} = await horse.render();
+const {Content} = await horse.render()
 
 const imageImport = imageImporter(horse.data.profile_picture)
 
 // Generate static pages
 export async function getStaticPaths() {
-  const horses = await getCollection('horses');
-  return horses.map(horse => ({params: {slug: horse.slug}}));
+  const horses = await getCollection('horses')
+  return horses.map(horse => ({params: {slug: horse.slug}}))
 }
 ---
 <Layout title={horse.data.full_name}>

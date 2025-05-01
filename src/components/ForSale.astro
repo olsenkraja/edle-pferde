@@ -1,8 +1,8 @@
 ---
-import {getCollection} from "astro:content";
-import HorseCard from "./homepage/for-sale/HorseCard.astro";
+import {getCollection} from "astro:content"
+import HorseCard from "./homepage/for-sale/HorseCard.astro"
 
-let horses = await getCollection('horses');
+let horses = await getCollection('horses')
 horses = horses
   .filter(horse => horse.data.status === 'for-sale')
   .sort((a, b) => (a.data.birth_year < b.data.birth_year) ? 1 : ((b.data.birth_year < a.data.birth_year) ? -1 : 0))
