@@ -70,7 +70,7 @@ export default config({
           options: [
             { label: 'Active', value: 'active' },
             { label: 'Inactive', value: 'inactive' },
-            { label: 'Fro sale', value: 'for-sale' },
+            { label: 'For sale', value: 'for-sale' },
           ],
           defaultValue: 'active'
         }),

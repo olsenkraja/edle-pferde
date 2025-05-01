@@ -1,8 +1,10 @@
 ---
+import {getCollection} from "astro:content";
 import NewsArticleBig from "./homepage/news/NewsArticleBig.astro";
 import NewsArticleSmall from "./homepage/news/NewsArticleSmall.astro";
 
-const {articles} = Astro.props
+let articles = await getCollection('articles');
+articles = articles.sort((a, b) => (a.data.created_at < b.data.created_at) ? 1 : ((b.data.created_at < a.data.created_at) ? -1 : 0))
 ---
 <div class="max-w-5xl mx-auto">
     <div class="flex flex-col items-center justify-center gap-8">

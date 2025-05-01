@@ -1,53 +1,56 @@
 ---
 import {IconColorPicker, IconFaceId, IconRuler, IconCalendar} from '@tabler/icons-react'
+import Image from 'astro/components/Image.astro';
+import imageImporter from "../../../composables/imageImporter";
+const {horse} = Astro.props
+const imageImport = imageImporter(horse.data.profile_picture)
 ---
 
-<div class="flex items-start justify-center gap-16 relative self-stretch w-full flex-[0_0_auto] bg-white rounded-2xl overflow-hidden shadow-[0px_7px_15px_#0000001a,0px_27px_27px_#00000017,0px_60px_36px_#0000000d,0px_108px_43px_#00000003,0px_168px_47px_transparent]">
+<div class="flex bg-white rounded-2xl overflow-hidden shadow-2xl">
     <div class="flex flex-col items-start justify-between relative flex-1 self-stretch grow">
         <div class="px-16 py-12 flex flex-col justify-between flex-1">
             <div class="text-brand text-3xl text-balance">
-                Schöne Schwalbe v. Connery
+                {horse.data.full_name}
             </div>
 
             <div class="flex flex-col space-y-8">
                 <div class="flex items-center space-x-4">
-                    <IconCalendar className='text-brand'/>
+                    <IconCalendar className="text-brand"/>
                     <div class="relative flex-1 font-normal text-[#1e1e1e] text-base tracking-[0] leading-4">
-                        YYYY, X Jahre alt
+                        {horse.data.birth_year}
                     </div>
                 </div>
 
                 <div class="flex items-center space-x-4">
-                    <IconFaceId className='text-brand'/>
+                    <IconFaceId className="text-brand"/>
                     <div class="relative flex-1 font-normal text-[#1e1e1e] text-base tracking-[0] leading-4">
-                        Trakehner
+                        {horse.data.breed}
                     </div>
                 </div>
 
                 <div class="flex items-center space-x-4">
-                    <IconRuler className='text-brand'/>
+                    <IconRuler className="text-brand"/>
                     <div class="relative flex-1 font-normal text-[#1e1e1e] text-base tracking-[0] leading-4">
-                        170 cm
+                        {horse.data.size}
                     </div>
                 </div>
 
                 <div class="flex items-center space-x-4">
-                    <IconColorPicker className='text-brand'/>
+                    <IconColorPicker className="text-brand"/>
                     <div class="relative flex-1 font-normal text-[#1e1e1e] text-base tracking-[0] leading-4">
-                        Fuchs
+                        {horse.data.color}
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="flex flex-col w-[512px] items-center justify-center relative">
-        <div class="w-96 h-96 bg-[#ffe2b0] rounded-full m-8"/>
-
-        <img
-                class="absolute inset-x-0 top-8 object-cover"
-                alt="Element"
-                src="/millie.png"
+    <div class="flex flex-col flex-1">
+        <Image
+                class="object-cover aspect-4/3"
+                src={imageImport()}
+                alt={`Cover image for ${horse.slug}`}
+                width={960}
         />
     </div>
 </div>
