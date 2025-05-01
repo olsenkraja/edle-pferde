@@ -62,9 +62,13 @@ export async function getStaticPaths() {
                 </div>
 
             </div>
-            <div class="flex flex-col w-[512px] items-center justify-center relative">
-                <Image src={imageImport()} alt={`Cover image for ${slug}`} width={1024}
-                       class="aspect-square object-cover rounded-2xl"/>
+            <div class="flex flex-col w-1/2 items-center justify-center relative relative">
+                <div class="inset-0 bg-primary-100 shadow-2xl rounded-full m-8 absolute"/>
+                <Image src={imageImport()}
+                       alt={`Cover image for ${slug}`}
+                       width={512}
+                       class="aspect-square object-cover rounded-2xl z-10"
+                />
             </div>
         </div>
         <p>

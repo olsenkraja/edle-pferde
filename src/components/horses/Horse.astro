@@ -8,7 +8,7 @@ const imageImport = imageImporter(horse.data.profile_picture)
     <div class="space-y-2">
         <Image src={imageImport()}
                alt={`Cover image for ${horse.slug}`}
-               width={1024}
+               width={320}
                class="aspect-square object-cover rounded-2xl"/>
         <div>
             <h1 class="font-semibold text-xl">{horse.data.full_name}</h1>
