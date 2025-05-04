@@ -1,5 +1,6 @@
 // @ts-ignore
 import { defineCollection, z } from 'astro:content'
+import { glob } from 'astro/loaders'
 
 const articles = defineCollection({
   // Type-check frontmatter using a schema
@@ -50,4 +51,11 @@ const horses = defineCollection({
   }),
 })
 
-export const collections = { articles, horses }
+const contact = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: 'src/content' }),
+  schema: z.object({
+    email_address: z.string().email(),
+  })
+})
+
+export const collections = { articles, horses, contact }

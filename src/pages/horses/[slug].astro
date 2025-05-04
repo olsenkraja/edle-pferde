@@ -1,10 +1,8 @@
 ---
-import {getCollection, getEntry} from 'astro:content'
+import {getEntry} from 'astro:content'
 import Layout from '../../layouts/Layout.astro'
 import Image from 'astro/components/Image.astro'
-import Lightbox from '../../components/Lightbox.astro'
-import imageImporter from "../../composables/imageImporter"
-import {IconCalendar, IconColorPicker, IconFaceId, IconRuler} from "@tabler/icons-react"
+import {IconCalendar, IconColorPicker, IconHorseshoe, IconRuler} from "@tabler/icons-react"
 
 const {slug} = Astro.params
 if (!slug) throw new Error('Slug not found')
@@ -17,7 +15,7 @@ const imageImport = imageImporter(horse.data.profile_picture)
 
 // Generate static pages
 export async function getStaticPaths() {
-  const horses = await getCollection('horses')
+  const horses = await reader.collections.horses.all()
   return horses.map(horse => ({params: {slug: horse.slug}}))
 }
 ---
@@ -42,7 +40,7 @@ export async function getStaticPaths() {
                         </div>
                     </div>
                     <div class="flex items-center space-x-4">
-                        <IconFaceId className='text-brand'/>
+                        <IconHorseshoe className='text-brand'/>
                         <div class="relative flex-1 font-normal text-[#1e1e1e] text-base tracking-[0] leading-4">
                           {horse.data.breed}
                         </div>

@@ -1,44 +1,43 @@
 ---
-import {IconColorPicker, IconFaceId, IconRuler, IconCalendar} from '@tabler/icons-react'
+import {IconColorPicker, IconHorseshoe, IconRuler, IconCalendar} from '@tabler/icons-react'
 import Image from 'astro/components/Image.astro'
-import imageImporter from "../../../composables/imageImporter"
 const {horse} = Astro.props
-const imageImport = imageImporter(horse.data.profile_picture)
+const imageImport = imageImporter(horse.entry.profile_picture)
 ---
 
 <div class="flex bg-white rounded-2xl overflow-hidden shadow-2xl">
     <div class="flex flex-col items-start justify-between relative flex-1 self-stretch grow">
         <div class="px-16 py-12 flex flex-col justify-between flex-1">
             <div class="text-brand text-3xl text-balance">
-                {horse.data.full_name}
+                {horse.entry.full_name}
             </div>
 
             <div class="flex flex-col space-y-8">
                 <div class="flex items-center space-x-4">
                     <IconCalendar className="text-brand"/>
                     <div class="relative flex-1 font-normal text-[#1e1e1e] text-base tracking-[0] leading-4">
-                        {horse.data.birth_year}
+                        {horse.entry.birth_year}
                     </div>
                 </div>
 
                 <div class="flex items-center space-x-4">
-                    <IconFaceId className="text-brand"/>
+                    <IconHorseshoe className="text-brand"/>
                     <div class="relative flex-1 font-normal text-[#1e1e1e] text-base tracking-[0] leading-4">
-                        {horse.data.breed}
+                        {horse.entry.breed}
                     </div>
                 </div>
 
                 <div class="flex items-center space-x-4">
                     <IconRuler className="text-brand"/>
                     <div class="relative flex-1 font-normal text-[#1e1e1e] text-base tracking-[0] leading-4">
-                        {horse.data.size}
+                        {horse.entry.size}
                     </div>
                 </div>
 
                 <div class="flex items-center space-x-4">
                     <IconColorPicker className="text-brand"/>
                     <div class="relative flex-1 font-normal text-[#1e1e1e] text-base tracking-[0] leading-4">
-                        {horse.data.color}
+                        {horse.entry.color}
                     </div>
                 </div>
             </div>

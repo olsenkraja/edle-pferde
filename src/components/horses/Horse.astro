@@ -1,18 +1,35 @@
 ---
 import Image from 'astro/components/Image.astro'
-import imageImporter from "../../composables/imageImporter"
+import {IconCalendar, IconHorseshoe} from "@tabler/icons-react"
+
 const {horse} = Astro.props
-const imageImport = imageImporter(horse.data.profile_picture)
+const imageImport = imageImporter(horse.entry.profile_picture)
 ---
 <a href={`/horses/${horse.slug}`}>
-    <div class="space-y-2">
+    <div class="bg-white overflow-auto rounded-2xl shadow">
         <Image src={imageImport()}
                alt={`Cover image for ${horse.slug}`}
-               width={320}
-               class="aspect-square object-cover rounded-2xl"/>
-        <div>
-            <h1 class="font-semibold text-xl">{horse.data.full_name}</h1>
-            <p>{horse.data.birth_year}</p>
+               width={460}
+               class="w-full object-cover sm:aspect-square"/>
+        <div class="px-4 py-2 space-y-1">
+            <h1 class="font-semibold text-xl line-clamp-1">
+                {horse.entry.full_name}
+            </h1>
+            <div>
+                <div class="text-gray-500 text-sm line-clamp-1">
+                    {horse.entry.father.value} – {horse.entry.mothers_father.value}
+                </div>
+                <div class="flex space-x-4 text-gray-500">
+                    <div class="flex items-center space-x-1">
+                        <IconCalendar className="size-4" />
+                        <div class="text-sm">{horse.entry.birth_year}</div>
+                    </div>
+                    <div class="flex items-center space-x-1">
+                        <IconHorseshoe className="size-4" />
+                        <div class="text-sm">{horse.entry.breed}</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </a>

@@ -1,4 +1,4 @@
-import { config, fields, collection } from '@keystatic/core';
+import { config, singleton, fields, collection } from '@keystatic/core';
 
 export default config({
   storage: {
@@ -172,6 +172,74 @@ export default config({
             itemLabel: (item) => item.value || 'Please select an horse',
           }
         ),
+      },
+    }),
+  },
+  singletons: {
+    homepage: singleton({
+      label: 'Homepage',
+      path: 'src/content/texts',
+      schema: {
+        about_text: fields.text({
+          label: 'About text',
+          multiline: true,
+        }),
+        horses_headline: fields.text({
+          label: 'Horses headline',
+        }),
+        horses_description: fields.text({
+          label: 'Horses description',
+          multiline: true,
+        }),
+        about_headline: fields.text({
+          label: 'About headline',
+        }),
+        about_description: fields.text({
+          label: 'About description',
+          multiline: true,
+        }),
+        gallery_headline: fields.text({
+          label: 'Gallery headline',
+        }),
+        gallery_description: fields.text({
+          label: 'Gallery description',
+          multiline: true,
+        }),
+        footer: fields.text({
+          label: 'Footer',
+          multiline: true,
+        }),
+      }
+    }),
+    social_media: singleton({
+      label: 'Social media',
+      path: 'src/content/social_media',
+      format: {data: 'json'},
+      schema: {
+        facebook: fields.text({
+          label: 'Facebook',
+          description: 'The Facebook handle (not full URL!)',
+        }),
+        instagram: fields.text({
+          label: 'Instagram',
+          description: 'The Instagram username (not full URL!)',
+        }),
+      },
+    }),
+    contact: singleton({
+      label: 'Contact',
+      path: 'src/content/contact',
+      format: {data: 'json'},
+      schema: {
+        email_address: fields.text({
+          label: 'Email address',
+        }),
+        phone_number: fields.text({
+          label: 'Phone number',
+        }),
+        mobile_phone_number: fields.text({
+          label: 'Mobile phone number',
+        }),
       },
     }),
   },
