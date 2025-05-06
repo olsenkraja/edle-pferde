@@ -179,6 +179,7 @@ export default config({
       label: 'Photos',
       slugField: 'id',
       path: 'src/content/photos/*',
+      format: {contentField: 'alt_description'},
       schema: {
         id: fields.slug({
           name: {
@@ -187,7 +188,9 @@ export default config({
           }
         }),
         photo: fields.image({label: 'Photo'}),
-        alt_description: fields.text({label: 'Alt. description'}),
+        alt_description: fields.mdx({
+          label: 'Alt description',
+        }),
         created_at: fields.date({
           label: 'Created at',
           defaultValue: new Date().toISOString().split('T')[0],

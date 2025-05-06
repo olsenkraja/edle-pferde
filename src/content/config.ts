@@ -50,8 +50,8 @@ const horses = defineCollection({
 
 const photos = defineCollection({
   schema: z.object({
+    id: z.string(),
     photo: z.string(),
-    alt_description: z.string(),
     created_at: z.date(),
   }),
 })

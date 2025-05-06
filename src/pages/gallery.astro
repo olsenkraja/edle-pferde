@@ -1,0 +1,13 @@
+---
+import Layout from "../layouts/Layout.astro";
+import {getCollection} from 'astro:content'
+
+const photos = await getCollection('photos')
+---
+<Layout title="Gallerie">
+    <main class="max-w-5xl mx-auto">
+        <div>
+            {JSON.stringify(photos)}
+        </div>
+    </main>
+</Layout>

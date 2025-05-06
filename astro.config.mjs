@@ -5,6 +5,7 @@ import keystatic from '@keystatic/astro';
 import AutoImport from 'unplugin-auto-import/vite';
 import tailwindcss from '@tailwindcss/vite';
 import mdx from '@astrojs/mdx';
+import yaml from '@rollup/plugin-yaml';
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,6 +14,7 @@ export default defineConfig({
   vite: {
     plugins: [
       tailwindcss(),
+      yaml(),
       AutoImport({
         dirs: ['./src/composables'],
         dts: './auto-imports.d.ts',
