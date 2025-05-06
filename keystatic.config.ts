@@ -1,4 +1,4 @@
-import { config, singleton, fields, collection } from '@keystatic/core';
+import {config, singleton, fields, collection} from '@keystatic/core';
 
 export default config({
   storage: {
@@ -9,9 +9,9 @@ export default config({
       label: 'Articles',
       slugField: 'title',
       path: 'src/content/articles/*',
-      format: { contentField: 'content' },
+      format: {contentField: 'content'},
       schema: {
-        title: fields.slug({ name: { label: 'Title' } }),
+        title: fields.slug({name: {label: 'Title'}}),
         created_at: fields.date({
           label: 'Created at',
           defaultValue: new Date().toISOString().split('T')[0],
@@ -50,9 +50,9 @@ export default config({
         gender: fields.select({
           label: 'Gender',
           options: [
-            { label: 'Hengst', value: 'Hengst' },
-            { label: 'Wallach', value: 'Wallach' },
-            { label: 'Stute', value: 'Stute' },
+            {label: 'Hengst', value: 'Hengst'},
+            {label: 'Wallach', value: 'Wallach'},
+            {label: 'Stute', value: 'Stute'},
           ],
           defaultValue: 'Hengst'
         }),
@@ -68,9 +68,9 @@ export default config({
         status: fields.select({
           label: 'Status',
           options: [
-            { label: 'Active', value: 'active' },
-            { label: 'Inactive', value: 'inactive' },
-            { label: 'For sale', value: 'for-sale' },
+            {label: 'Active', value: 'active'},
+            {label: 'Inactive', value: 'inactive'},
+            {label: 'For sale', value: 'for-sale'},
           ],
           defaultValue: 'active'
         }),
@@ -91,7 +91,7 @@ export default config({
           },
         }),
         father: fields.conditional(
-          fields.checkbox({ label: 'Is the father our horse?' }),
+          fields.checkbox({label: 'Is the father our horse?'}),
           {
             true: fields.relationship({
               label: 'Father',
@@ -103,7 +103,7 @@ export default config({
           }
         ),
         mother: fields.conditional(
-          fields.checkbox({ label: 'Is the mother our horse?' }),
+          fields.checkbox({label: 'Is the mother our horse?'}),
           {
             true: fields.relationship({
               label: 'Mother',
@@ -115,7 +115,7 @@ export default config({
           }
         ),
         fathers_father: fields.conditional(
-          fields.checkbox({ label: 'Is the father\'s father our horse?' }),
+          fields.checkbox({label: 'Is the father\'s father our horse?'}),
           {
             true: fields.relationship({
               label: 'Father\'s father',
@@ -127,7 +127,7 @@ export default config({
           }
         ),
         fathers_mother: fields.conditional(
-          fields.checkbox({ label: 'Is the father\'s mother our horse?' }),
+          fields.checkbox({label: 'Is the father\'s mother our horse?'}),
           {
             true: fields.relationship({
               label: 'Father\'s mother',
@@ -139,7 +139,7 @@ export default config({
           }
         ),
         mothers_father: fields.conditional(
-          fields.checkbox({ label: 'Is the mother\'s father our horse?' }),
+          fields.checkbox({label: 'Is the mother\'s father our horse?'}),
           {
             true: fields.relationship({
               label: 'Mother\'s father',
@@ -151,7 +151,7 @@ export default config({
           }
         ),
         mothers_mother: fields.conditional(
-          fields.checkbox({ label: 'Is the mother\'s mother our horse?' }),
+          fields.checkbox({label: 'Is the mother\'s mother our horse?'}),
           {
             true: fields.relationship({
               label: 'Mother\'s mother',
@@ -172,6 +172,42 @@ export default config({
             itemLabel: (item) => item.value || 'Please select an horse',
           }
         ),
+      },
+    }),
+    photos: collection({
+      columns: ['alt_description', 'created_at'],
+      label: 'Photos',
+      slugField: 'id',
+      path: 'src/content/photos/*',
+      schema: {
+        id: fields.slug({
+          name: {
+            label: 'ID',
+            defaultValue: Math.random().toString(36).slice(2)
+          }
+        }),
+        photo: fields.image({label: 'Photo'}),
+        alt_description: fields.text({label: 'Alt. description'}),
+        created_at: fields.date({
+          label: 'Created at',
+          defaultValue: new Date().toISOString().split('T')[0],
+          validation: {
+            isRequired: true,
+          },
+        }),
+      },
+    }),
+    pages: collection({
+      columns: ['title'],
+      label: 'Pages',
+      slugField: 'title',
+      path: 'src/content/pages/*',
+      format: {contentField: 'content'},
+      schema: {
+        title: fields.slug({name: {label: 'Title'}}),
+        content: fields.mdx({
+          label: 'Content',
+        }),
       },
     }),
   },
@@ -231,6 +267,10 @@ export default config({
       path: 'src/content/contact',
       format: {data: 'json'},
       schema: {
+        address: fields.text({
+          label: 'Address',
+          multiline: true
+        }),
         email_address: fields.text({
           label: 'Email address',
         }),

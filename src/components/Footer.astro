@@ -1,6 +1,6 @@
 ---
 import {IconMail, IconPhone, IconDeviceMobile} from '@tabler/icons-react'
-const {email_address, phone_number, mobile_phone_number} = await reader.singletons.contact.read();
+const {address, email_address, phone_number, mobile_phone_number} = await reader.singletons.contact.read();
 ---
 <footer class="mt-16 bg-[#f9f6ef]">
     <div class="flex flex-col items-center justify-center w-full mt-32 pb-8 space-y-8 border-t border-primary-200 bg-white">
@@ -11,12 +11,8 @@ const {email_address, phone_number, mobile_phone_number} = await reader.singleto
 
         <div class="text-center space-y-4">
             <div class="text-3xl font-semibold text-brand">Familie Pramendorfer</div>
-            <div class="text-sm">
-                Pichl 11
-                <br>
-                Hofkirchen an der Trattnach
-                <br>
-                Österreich
+            <div class="text-sm whitespace-pre-line">
+                {address}
             </div>
             <p class="text-sm text-brand">
                 Auf unserem Hof züchten wir Trakehnerpferde für höchste reiterliche Ansprüche.
@@ -38,14 +34,13 @@ const {email_address, phone_number, mobile_phone_number} = await reader.singleto
                         <div class="text-brand text-sm">{mobile_phone_number}</div>
                     </div>
                 </div>
-
             </div>
         </div>
 
         <div class="grid grid-cols-3 items-center justify-center">
-            <div class="text-center text-nowrap text-sm text-primary-600">Über uns</div>
+            <a href="/about-us" class="text-center text-nowrap text-sm text-primary-600 hover:underline">Über uns</a>
             <div class="text-center text-nowrap text-sm">© 2025 Edle Pferde</div>
-            <div class="text-center text-nowrap text-sm text-primary-600">Impressum</div>
+            <a href="/impressum" class="text-center text-nowrap text-sm text-primary-600 hover:underline">Impressum</a>
         </div>
     </div>
 </footer>

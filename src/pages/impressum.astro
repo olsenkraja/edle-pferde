@@ -2,13 +2,13 @@
 import Layout from "../layouts/Layout.astro";
 import {getEntry} from 'astro:content'
 
-const aboutUs = await getEntry('pages', 'about-us')
-const {Content} = await aboutUs.render()
+const impressum = await getEntry('pages', 'impressum')
+const {Content} = await impressum.render()
 ---
 <Layout title="Über uns">
     <main class="max-w-5xl mx-auto">
         <div class="prose-lg">
-            <h1>{aboutUs.data.title}</h1>
+            <h1>{impressum.data.title}</h1>
             <Content/>
         </div>
     </main>

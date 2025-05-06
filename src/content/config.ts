@@ -1,9 +1,7 @@
 // @ts-ignore
 import { defineCollection, z } from 'astro:content'
-import { glob } from 'astro/loaders'
 
 const articles = defineCollection({
-  // Type-check frontmatter using a schema
   schema: z.object({
     title: z.string(),
     created_at: z.date(),
@@ -12,7 +10,6 @@ const articles = defineCollection({
 })
 
 const horses = defineCollection({
-  // Type-check frontmatter using a schema
   schema: z.object({
     full_name: z.string(),
     family: z.string().nullable().optional(),
@@ -51,11 +48,18 @@ const horses = defineCollection({
   }),
 })
 
-const contact = defineCollection({
-  loader: glob({ pattern: '**/*.json', base: 'src/content' }),
+const photos = defineCollection({
   schema: z.object({
-    email_address: z.string().email(),
-  })
+    photo: z.string(),
+    alt_description: z.string(),
+    created_at: z.date(),
+  }),
 })
 
-export const collections = { articles, horses, contact }
+const pages = defineCollection({
+  schema: z.object({
+    title: z.string(),
+  }),
+})
+
+export const collections = { articles, horses, photos, pages }
