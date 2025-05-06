@@ -3,44 +3,41 @@ import {IconMail, IconPhone, IconDeviceMobile} from '@tabler/icons-react'
 const {address, email_address, phone_number, mobile_phone_number} = await reader.singletons.contact.read();
 ---
 <footer class="mt-16 bg-[#f9f6ef]">
-    <div class="flex flex-col items-center justify-center w-full mt-32 pb-8 space-y-8 border-t border-primary-200 bg-white">
-
-        <div class="z-50 -mt-16">
-            <img src="/logo.svg" alt="Logo" height="160px"/>
-        </div>
-
-        <div class="text-center space-y-4">
-            <div class="text-3xl font-semibold text-brand">Familie Pramendorfer</div>
-            <div class="text-sm whitespace-pre-line">
-                {address}
-            </div>
-            <p class="text-sm text-brand">
-                Auf unserem Hof züchten wir Trakehnerpferde für höchste reiterliche Ansprüche.
-                <br/>
-                Wenn wir mit unserer Webseite Ihr Interesse geweckt haben, freuen wir uns nach Voranmeldung über Ihren Besuch.
-            </p>
-            <div class="flex flex-col items-center gap-6">
-                <div class="flex flex-col space-y-2">
-                    <div class="flex items-center space-x-2">
-                        <IconMail className='text-primary-600'/>
-                        <div class="text-brand text-sm">{email_address}</div>
-                    </div>
-                    <div class="flex items-center space-x-2">
-                        <IconPhone className='text-primary-600'/>
-                        <div class="text-brand text-sm">{phone_number}</div>
-                    </div>
-                    <div class="flex items-center space-x-2">
-                        <IconDeviceMobile className='text-primary-600'/>
-                        <div class="text-brand text-sm">{mobile_phone_number}</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-3 items-center justify-center">
-            <a href="/about-us" class="text-center text-nowrap text-sm text-primary-600 hover:underline">Über uns</a>
-            <div class="text-center text-nowrap text-sm">© 2025 Edle Pferde</div>
-            <a href="/impressum" class="text-center text-nowrap text-sm text-primary-600 hover:underline">Impressum</a>
-        </div>
+  <div class="flex flex-col items-center justify-center w-full mt-32 pb-8 space-y-8 border-t border-primary-200 bg-white">
+    <div class="z-50 -mt-16">
+      <img src="/logo.svg" alt="Logo" height="160px" />
     </div>
+    <div class="text-center space-y-4">
+      <div class="text-3xl font-semibold text-brand">Familie Pramendorfer</div>
+      <div class="text-sm whitespace-pre-line">
+        {address}
+      </div>
+      <p class="text-sm text-brand">
+        Auf unserem Hof züchten wir Trakehnerpferde für höchste reiterliche Ansprüche.
+        <br />
+        Wenn wir mit unserer Webseite Ihr Interesse geweckt haben, freuen wir uns nach Voranmeldung über Ihren Besuch.
+      </p>
+      <div class="flex flex-col items-center gap-6">
+        <div class="flex flex-col space-y-2">
+          <div class="flex items-center space-x-2">
+            <IconMail className='text-primary-600' />
+            <div class="text-brand text-sm">{email_address}</div>
+          </div>
+          <div class="flex items-center space-x-2">
+            <IconPhone className='text-primary-600' />
+            <div class="text-brand text-sm">{phone_number}</div>
+          </div>
+          <div class="flex items-center space-x-2">
+            <IconDeviceMobile className='text-primary-600' />
+            <div class="text-brand text-sm">{mobile_phone_number}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="grid grid-cols-3 items-center justify-center">
+      <a href="/about-us" class="text-center text-nowrap text-sm text-primary-600 hover:underline">Über uns</a>
+      <div class="text-center text-nowrap text-sm">© 2025 Edle Pferde</div>
+      <a href="/impressum" class="text-center text-nowrap text-sm text-primary-600 hover:underline">Impressum</a>
+    </div>
+  </div>
 </footer>

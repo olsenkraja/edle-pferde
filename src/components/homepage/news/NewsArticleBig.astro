@@ -1,19 +1,18 @@
 ---
 import Image from 'astro/components/Image.astro'
 const {article} = Astro.props
-const imageImport = imageImporter(article.entry.cover_image)
 ---
 <a href={`/articles/${article.slug}`} class="px-8 w-full">
-    <div class="relative">
-        <Image src={imageImport()}
-               alt={`Cover image for ${article.slug}`}
-               width={960}
-               class="aspect-video object-cover z-50 rounded-2xl"
-        />
-        <div class="absolute inset-0 bg-gradient-to-t from from-black via-transparent z-20 rounded-b-2xl"/>
-        <div class="absolute bottom-8 inset-x-8 text-white z-30 space-y-4">
-            <h1 class="text-3xl font-semibold line-clamp-1">{article.entry.title}</h1>
-            <p class="line-clamp-2">{article.body}</p>
-        </div>
+  <div class="relative">
+    <Image
+      src={article.data.cover_image}
+      alt={`Cover image for ${article.slug}`}
+      class="aspect-video object-cover z-50 rounded-2xl"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from from-black via-transparent z-20 rounded-b-2xl" />
+    <div class="absolute bottom-8 inset-x-8 text-white z-30 space-y-4">
+      <h1 class="text-3xl font-semibold line-clamp-1">{article.data.title}</h1>
+      <p class="line-clamp-2">{article.body}</p>
     </div>
+  </div>
 </a>

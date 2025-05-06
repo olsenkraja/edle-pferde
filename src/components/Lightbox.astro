@@ -14,26 +14,24 @@ const optimizedImages = await Promise.all([
   getImage({src: image3, width: 1920}),
 ])
 ---
-
 <div id="gallery" class="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
   {optimizedImages.map((img, index) => (
-          <a
-                  href={img.src}
-                  data-pswp-width={img.attributes.width}
-                  data-pswp-height={img.attributes.height}
-                  class="contents"
-                  target="_blank"
-          >
-              <Image
-                      src={[image1, image2, image3][index]}
-                      alt={`Gallery image ${index + 1}`}
-                      class="w-full h-auto rounded-md"
-                      height={350}
-              />
-          </a>
+    <a
+      href={img.src}
+      data-pswp-width={img.attributes.width}
+      data-pswp-height={img.attributes.height}
+      class="contents"
+      target="_blank"
+    >
+      <Image
+        src={[image1, image2, image3][index]}
+        alt={`Gallery image ${index + 1}`}
+        class="w-full h-auto rounded-md"
+        height={350}
+      />
+    </a>
   ))}
 </div>
-
 <script>
   import PhotoSwipeLightbox from 'photoswipe/lightbox'
   import 'photoswipe/style.css'

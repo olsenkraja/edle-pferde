@@ -11,8 +11,6 @@ if (!horse) throw new Error('No horse found for this slug')
 
 const {Content} = await horse.render()
 
-const imageImport = imageImporter(horse.data.profile_picture)
-
 // Generate static pages
 export async function getStaticPaths() {
   const horses = await reader.collections.horses.all()
@@ -62,7 +60,7 @@ export async function getStaticPaths() {
             </div>
             <div class="flex flex-col w-1/2 items-center justify-center relative relative">
                 <div class="inset-0 bg-primary-100 shadow-2xl rounded-full m-8 absolute"/>
-                <Image src={imageImport()}
+                <Image src={horse.data.profile_picture}
                        alt={`Cover image for ${slug}`}
                        width={512}
                        class="aspect-square object-cover rounded-2xl z-10"

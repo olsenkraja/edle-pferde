@@ -1,12 +1,13 @@
 ---
 import Layout from '../../layouts/Layout.astro'
 import Horse from "../../components/horses/Horse.astro"
+import { getCollection } from 'astro:content'
 
-let horses = await reader.collections.horses.all()
-horses = horses.sort((a, b) => (a.entry.birth_year < b.entry.birth_year) ? 1 : ((b.entry.birth_year < a.entry.birth_year) ? -1 : 0))
-const horsesForSale = horses.filter(horse => horse.entry.status === 'for-sale')
-const activeHorses = horses.filter(horse => horse.entry.status === 'active')
-const inactiveHorses = horses.filter(horse => horse.entry.status === 'inactive')
+let horses = await getCollection('horses')
+horses = horses.sort((a, b) => (a.data.birth_year < b.data.birth_year) ? 1 : ((b.data.birth_year < a.data.birth_year) ? -1 : 0))
+const horsesForSale = horses.filter(horse => horse.data.status === 'for-sale')
+const activeHorses = horses.filter(horse => horse.data.status === 'active')
+const inactiveHorses = horses.filter(horse => horse.data.status === 'inactive')
 ---
 
 <Layout title="Keystatic & Astro's Content Collections">

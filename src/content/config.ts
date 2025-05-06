@@ -2,20 +2,20 @@
 import { defineCollection, z } from 'astro:content'
 
 const articles = defineCollection({
-  schema: z.object({
+  schema: ({ image }) => z.object({
     title: z.string(),
     created_at: z.date(),
-    cover_image: z.string(),
+    cover_image: image(),
   }),
 })
 
 const horses = defineCollection({
-  schema: z.object({
+  schema: ({ image }) => z.object({
     full_name: z.string(),
     family: z.string().nullable().optional(),
     status: z.string(),
     birth_year: z.string(),
-    profile_picture: z.string(),
+    profile_picture: image(),
     breed: z.string(),
     size: z.string(),
     color: z.string(),
@@ -49,9 +49,9 @@ const horses = defineCollection({
 })
 
 const photos = defineCollection({
-  schema: z.object({
+  schema: ({ image }) => z.object({
     id: z.string(),
-    photo: z.string(),
+    photo: image(),
     created_at: z.date(),
   }),
 })

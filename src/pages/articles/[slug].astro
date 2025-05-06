@@ -11,30 +11,28 @@ if (!article) throw new Error('No article found for this slug')
 
 const {Content} = await article.render()
 
-const imageImport = imageImporter(article.data.cover_image)
-
 // Generate static pages
 export async function getStaticPaths() {
   const articles = await reader.collections.articles.all()
   return articles.map(article => ({params: {slug: article.slug}}))
 }
-
 ---
-
 <Layout title={article.data.title}>
-    <div class="max-w-5xl mx-auto space-y-16">
-        <Image src={imageImport()} alt={`Cover image for ${slug}`} width={1024} class="rounded-2xl aspect-video object-cover"/>
-        <div class="flex flex-col lg:flex-row px-4 lg:px-0 space-x-16">
-            <div class="prose">
-                <h1>{article.data.title}</h1>
-                <Content/>
-            </div>
-            <div class="bg-white h-fit">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto commodi, consequuntur, cumque
-                debitis deserunt dolores eos exercitationem labore laboriosam minus molestiae nobis obcaecati, officia
-                quam tempora ut vitae. Iste, totam.
-            </div>
-        </div>
-        <Lightbox images={[imageImport]}/>
+  <div class="max-w-5xl mx-auto space-y-16">
+    <Image src={article.data.cover_image}
+           alt={`Cover image for ${slug}`}
+           width={1024}
+           class="rounded-2xl aspect-video object-cover" />
+    <div class="flex flex-col lg:flex-row px-4 lg:px-0 space-x-16">
+      <div class="prose">
+        <h1>{article.data.title}</h1>
+        <Content />
+      </div>
+      <div class="bg-white h-fit">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto commodi, consequuntur, cumque
+        debitis deserunt dolores eos exercitationem labore laboriosam minus molestiae nobis obcaecati, officia
+        quam tempora ut vitae. Iste, totam.
+      </div>
     </div>
+  </div>
 </Layout>

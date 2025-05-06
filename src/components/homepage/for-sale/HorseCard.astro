@@ -2,55 +2,48 @@
 import {IconColorPicker, IconHorseshoe, IconRuler, IconCalendar} from '@tabler/icons-react'
 import Image from 'astro/components/Image.astro'
 const {horse} = Astro.props
-const imageImport = imageImporter(horse.entry.profile_picture)
 ---
-
 <div class="flex bg-white rounded-2xl overflow-hidden shadow-2xl">
-    <div class="flex flex-col items-start justify-between relative flex-1 self-stretch grow">
-        <div class="px-16 py-12 flex flex-col justify-between flex-1">
-            <div class="text-brand text-3xl text-balance">
-                {horse.entry.full_name}
-            </div>
-
-            <div class="flex flex-col space-y-8">
-                <div class="flex items-center space-x-4">
-                    <IconCalendar className="text-brand"/>
-                    <div class="relative flex-1 font-normal text-[#1e1e1e] text-base tracking-[0] leading-4">
-                        {horse.entry.birth_year}
-                    </div>
-                </div>
-
-                <div class="flex items-center space-x-4">
-                    <IconHorseshoe className="text-brand"/>
-                    <div class="relative flex-1 font-normal text-[#1e1e1e] text-base tracking-[0] leading-4">
-                        {horse.entry.breed}
-                    </div>
-                </div>
-
-                <div class="flex items-center space-x-4">
-                    <IconRuler className="text-brand"/>
-                    <div class="relative flex-1 font-normal text-[#1e1e1e] text-base tracking-[0] leading-4">
-                        {horse.entry.size}
-                    </div>
-                </div>
-
-                <div class="flex items-center space-x-4">
-                    <IconColorPicker className="text-brand"/>
-                    <div class="relative flex-1 font-normal text-[#1e1e1e] text-base tracking-[0] leading-4">
-                        {horse.entry.color}
-                    </div>
-                </div>
-            </div>
+  <div class="flex flex-col items-start justify-between relative flex-1 self-stretch grow">
+    <div class="px-16 py-12 flex flex-col justify-between flex-1">
+      <div class="text-brand text-3xl text-balance">
+        {horse.data.full_name}
+      </div>
+      <div class="flex flex-col space-y-8">
+        <div class="flex items-center space-x-4">
+          <IconCalendar className="text-brand" />
+          <div class="relative flex-1 font-normal text-[#1e1e1e] text-base tracking-[0] leading-4">
+            {horse.data.birth_year}
+          </div>
         </div>
+        <div class="flex items-center space-x-4">
+          <IconHorseshoe className="text-brand" />
+          <div class="relative flex-1 font-normal text-[#1e1e1e] text-base tracking-[0] leading-4">
+            {horse.data.breed}
+          </div>
+        </div>
+        <div class="flex items-center space-x-4">
+          <IconRuler className="text-brand" />
+          <div class="relative flex-1 font-normal text-[#1e1e1e] text-base tracking-[0] leading-4">
+            {horse.data.size}
+          </div>
+        </div>
+        <div class="flex items-center space-x-4">
+          <IconColorPicker className="text-brand" />
+          <div class="relative flex-1 font-normal text-[#1e1e1e] text-base tracking-[0] leading-4">
+            {horse.data.color}
+          </div>
+        </div>
+      </div>
     </div>
-
-    <div class="flex flex-col flex-1 relative">
-        <Image
-                class="object-cover aspect-4/3"
-                src={imageImport()}
-                alt={`Cover image for ${horse.slug}`}
-                width={960}
-        />
-        <div class="absolute inset-0 bg-gradient-to-r from-white to-25%"></div>
-    </div>
+  </div>
+  <div class="flex flex-col flex-1 relative">
+    <Image
+      class="object-cover aspect-4/3"
+      src={horse.data.profile_picture}
+      alt={`Cover image for ${horse.slug}`}
+      width={960}
+    />
+    <div class="absolute inset-0 bg-gradient-to-r from-white to-25%"></div>
+  </div>
 </div>

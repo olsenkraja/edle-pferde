@@ -21,8 +21,8 @@ export default config({
         }),
         cover_image: fields.image({
           label: 'Cover image',
-          directory: 'src/assets/cover_images/articles',
-          publicPath: '@assets/cover_images/articles/',
+          directory: '/src/assets/cover_images/articles/',
+          publicPath: '/src/assets/cover_images/articles/',
           validation: {
             isRequired: true,
           },
@@ -31,7 +31,7 @@ export default config({
           label: 'Content',
           options: {
             image: {
-              directory: 'src/assets/images/articles',
+              directory: 'src/assets/images/articles/',
               publicPath: '../../assets/images/articles/',
             },
           },
@@ -58,8 +58,8 @@ export default config({
         }),
         profile_picture: fields.image({
           label: 'Profile picture',
-          directory: 'src/assets/profile_pictures/horses',
-          publicPath: '@assets/profile_pictures/horses/',
+          directory: '/src/assets/profile_pictures/horses',
+          publicPath: '/src/assets/profile_pictures/horses/',
           validation: {
             isRequired: true
           },
@@ -175,7 +175,7 @@ export default config({
       },
     }),
     photos: collection({
-      columns: ['alt_description', 'created_at'],
+      columns: ['created_at'],
       label: 'Photos',
       slugField: 'id',
       path: 'src/content/photos/*',
@@ -187,7 +187,14 @@ export default config({
             defaultValue: Math.random().toString(36).slice(2)
           }
         }),
-        photo: fields.image({label: 'Photo'}),
+        photo: fields.image({
+          label: 'Photo',
+          directory: '/src/assets/gallery/photos/',
+          publicPath: '/src/assets/gallery/photos/',
+          validation: {
+            isRequired: true,
+          },
+        }),
         alt_description: fields.mdx({
           label: 'Alt description',
         }),

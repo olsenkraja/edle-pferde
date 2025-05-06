@@ -1,13 +1,16 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import {Image} from "astro:assets";
 import {getCollection} from 'astro:content'
 
 const photos = await getCollection('photos')
 ---
 <Layout title="Gallerie">
-    <main class="max-w-5xl mx-auto">
-        <div>
-            {JSON.stringify(photos)}
-        </div>
-    </main>
+  <main class="max-w-5xl mx-auto">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {photos.map(photo => (
+        <Image src={photo.data.photo} alt={photo.body || 'Image'} class="aspect-square object-cover rounded-2xl" />
+      ))}
+    </div>
+  </main>
 </Layout>
