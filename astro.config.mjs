@@ -7,6 +7,8 @@ import tailwindcss from '@tailwindcss/vite';
 import mdx from '@astrojs/mdx';
 import yaml from '@rollup/plugin-yaml';
 
+import vercel from '@astrojs/vercel';
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [react(), markdoc(), keystatic(), mdx()],
@@ -21,4 +23,6 @@ export default defineConfig({
       }),
     ],
   },
+
+  adapter: vercel(),
 });
