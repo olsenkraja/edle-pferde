@@ -1,21 +1,24 @@
 @import url(https://fonts.bunny.net/css?family=montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i);
 @import 'tailwindcss';
+
 @plugin '@tailwindcss/typography';
 
 @theme {
     --font-sans: "montserrat", sans-serif;
 
-    --color-brand: #04482c;
+    --color-brand-light: #40534E;
+    --color-brand: #40534D;
 
-    --color-primary-50: #fcfaea;
-    --color-primary-100: #f9f3c8;
-    --color-primary-200: #f5e593;
-    --color-primary-300: #efcf55;
-    --color-primary-400: #e8b927;
-    --color-primary-500: #d8a21a;
-    --color-primary-600: #b47913;
-    --color-primary-700: #955a13;
-    --color-primary-800: #7c4817;
-    --color-primary-900: #693c1a;
-    --color-primary-950: #3d1f0b;
+    --color-primary: oklch(80.859% 0.05564 75.066);
+    --color-primary-50: oklch(99.425% 0.00285 84.559);
+    --color-primary-100: oklch(98.032% 0.0062 75.407);
+    --color-primary-200: oklch(93.152% 0.01992 77.313);
+    --color-primary-300: oklch(89.208% 0.03152 75.197);
+    --color-primary-400: oklch(84.942% 0.04332 74.087);
+    --color-primary-500: oklch(80.859% 0.05564 75.066);
+    --color-primary-600: oklch(76.765% 0.0679 75.532);
+    --color-primary-700: oklch(72.467% 0.07955 74.366);
+    --color-primary-800: oklch(68.495% 0.09072 73.134);
+    --color-primary-900: oklch(63.712% 0.09451 73.221);
+    --color-primary-950: oklch(60.924% 0.09002 72.642);
 }
