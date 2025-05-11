@@ -2,8 +2,8 @@
 import Image from 'astro/components/Image.astro'
 ---
 <div class="max-w-5xl mx-auto">
-  <div class="flex lg:flex-row flex-col items-center lg:space-x-32">
-    <div class="flex -space-x-8 mx-8">
+  <div class="flex lg:flex-row flex-col items-center">
+    <div class="flex -space-x-48 md:-space-x-8 mx-8">
       <div>
         <Image
           class="size-[300px] object-cover rounded-xl shadow-2xl -rotate-6"
@@ -37,11 +37,11 @@ import Image from 'astro/components/Image.astro'
         feinen Trakehnerzucht, perfekte Partner für Sport und Freizeit
         zu züchten.
       </p>
-      <div class="inline-flex items-center justify-center gap-[13px] px-[33px] py-[15px] relative bg-brand rounded-[100px]">
-        <div class="mt-[-1.00px] [font-family:'Montserrat-SemiBold',Helvetica] font-semibold text-white text-xs tracking-[1.56px] leading-[12.8px] relative w-fit whitespace-nowrap">
-          MEHR ERFAHREN
-        </div>
+      <a href="/about-us">
+      <div class="w-fit px-8 py-4 bg-brand rounded-full font-semibold text-white text-sm">
+        MEHR ERFAHREN
       </div>
+      </a>
     </div>
   </div>
 </div>
