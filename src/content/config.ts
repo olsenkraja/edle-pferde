@@ -52,6 +52,7 @@ const photos = defineCollection({
   schema: ({ image }) => z.object({
     id: z.string(),
     photo: image(),
+    horses: z.array(z.string()),
     created_at: z.date(),
   }),
 })

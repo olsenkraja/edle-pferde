@@ -6,9 +6,11 @@ export default config({
   },
   collections: {
     articles: collection({
+      columns: ['created_at'],
       label: 'Articles',
       slugField: 'title',
       path: 'src/content/articles/*',
+      entryLayout: 'content',
       format: {contentField: 'content'},
       schema: {
         title: fields.slug({name: {label: 'Title'}}),
@@ -198,6 +200,16 @@ export default config({
         alt_description: fields.mdx({
           label: 'Alt description',
         }),
+        horses: fields.array(
+          fields.relationship({
+            label: 'Select a horse in this photo',
+            collection: 'horses'
+          }), {
+            label: 'Horses in this photo',
+            // @ts-ignore
+            itemLabel: props => props.value
+          }
+        ),
         created_at: fields.date({
           label: 'Created at',
           defaultValue: new Date().toISOString().split('T')[0],
