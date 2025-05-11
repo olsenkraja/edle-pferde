@@ -1,8 +1,8 @@
 ---
-import {getEntry} from 'astro:content'
+import {getCollection, getEntry} from 'astro:content'
 import Layout from '../../layouts/Layout.astro'
 import Image from 'astro/components/Image.astro'
-import Lightbox from '../../components/Lightbox.astro'
+import MiniHorseCard from "../../components/horses/MiniHorseCard.astro";
 
 const {slug} = Astro.params
 if (!slug) throw new Error('Slug not found')
@@ -10,6 +10,14 @@ const article = await getEntry('articles', slug)
 if (!article) throw new Error('No article found for this slug')
 
 const {Content} = await article.render()
+
+const horses = await getCollection('horses')
+if (article.data.horses?.length) {
+  article.data.horsesData = []
+  article.data.horses.forEach((horseSlug, i) => {
+    article.data.horsesData[i] = horses.find(h => h.slug === horseSlug)
+  })
+}
 
 // Generate static pages
 export async function getStaticPaths() {
@@ -22,16 +30,21 @@ export async function getStaticPaths() {
     <Image src={article.data.cover_image}
            alt={`Cover image for ${slug}`}
            width={1024}
-           class="rounded-2xl aspect-video object-cover" />
-    <div class="flex flex-col lg:flex-row px-4 lg:px-0 space-x-16">
-      <div class="prose">
+           class="md:rounded-2xl aspect-video object-cover" />
+    <div class="px-4 lg:px-0 space-y-16">
+      <div class="prose-lg">
         <h1>{article.data.title}</h1>
         <Content />
       </div>
-      <div class="bg-white h-fit">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto commodi, consequuntur, cumque
-        debitis deserunt dolores eos exercitationem labore laboriosam minus molestiae nobis obcaecati, officia
-        quam tempora ut vitae. Iste, totam.
+      <div class="space-y-4">
+        <div class="text-xl text-gray-500 font-semibold">
+          In diesem Artikel erwähnte Pferde
+        </div>
+        <div class="grid md:grid-cols-4 grid-cols-2 gap-4">
+          {article.data.horsesData.map(horse => (
+            <MiniHorseCard horse={horse} />
+          ))}
+        </div>
       </div>
     </div>
   </div>

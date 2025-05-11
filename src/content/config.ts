@@ -6,6 +6,7 @@ const articles = defineCollection({
     title: z.string(),
     created_at: z.date(),
     cover_image: image(),
+    horses: z.array(z.string()).nullable().optional(),
   }),
 })
 
@@ -52,7 +53,7 @@ const photos = defineCollection({
   schema: ({ image }) => z.object({
     id: z.string(),
     photo: image(),
-    horses: z.array(z.string()),
+    horses: z.array(z.string()).nullable().optional(),
     created_at: z.date(),
   }),
 })

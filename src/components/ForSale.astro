@@ -1,7 +1,6 @@
 ---
-import HorseCard from "./homepage/for-sale/HorseCard.astro"
-import Horse from "./horses/Horse.astro";
 import {getCollection} from "astro:content"
+import HorseCard from "./horses/HorseCard.astro";
 
 let horses = await getCollection('horses')
 horses = horses
@@ -20,9 +19,9 @@ horses = horses
         </div>
         <div class="bg-primary-600 w-20 h-1"></div>
       </div>
-      <div class="flex flex-col space-y-16 px-4">
+      <div class="flex justify-center gap-4 flex-wrap">
         {horses.map(horse => (
-          <Horse horse={horse} />
+          <HorseCard horse={horse} />
         ))}
       </div>
     </div>

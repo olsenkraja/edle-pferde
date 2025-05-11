@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro'
-import Horse from "../../components/horses/Horse.astro"
+import Horse from "../../components/horses/HorseCard.astro"
 import { getCollection } from 'astro:content'
 
 let horses = await getCollection('horses')
@@ -16,7 +16,7 @@ const inactiveHorses = horses.filter(horse => horse.data.status === 'inactive')
             <h1 class="text-brand font-semibold">Pferde zu verkaufen</h1>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {horsesForSale.map(horse => (
-                      <Horse horse={horse}/>
+                      <HorseCard horse={horse}/>
               ))}
             </div>
         </div>
@@ -24,7 +24,7 @@ const inactiveHorses = horses.filter(horse => horse.data.status === 'inactive')
             <h1 class="text-brand font-semibold">Aktive Pferde</h1>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {activeHorses.map(horse => (
-                      <Horse horse={horse}/>
+                      <HorseCard horse={horse}/>
               ))}
             </div>
         </div>
@@ -32,7 +32,7 @@ const inactiveHorses = horses.filter(horse => horse.data.status === 'inactive')
             <h1 class="text-brand font-semibold">Inaktive Pferde</h1>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {inactiveHorses.map(horse => (
-                      <Horse horse={horse}/>
+                      <HorseCard horse={horse}/>
               ))}
             </div>
         </div>

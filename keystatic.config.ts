@@ -29,6 +29,16 @@ export default config({
             isRequired: true,
           },
         }),
+        horses: fields.array(
+          fields.relationship({
+            label: 'Select a horse in this article',
+            collection: 'horses'
+          }), {
+            label: 'Horses in this article',
+            // @ts-ignore
+            itemLabel: props => props.value
+          }
+        ),
         content: fields.markdoc({
           label: 'Content',
           options: {
