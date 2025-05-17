@@ -36,6 +36,8 @@
     "astro": "astro"
   },
   "devDependencies": {
+    "prettier": "^3.5.3",
+    "prettier-plugin-tailwindcss": "^0.6.11",
     "unplugin-auto-import": "^19.2.0"
   }
 }
