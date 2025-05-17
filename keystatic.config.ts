@@ -1,9 +1,19 @@
-import {config, singleton, fields, collection} from '@keystatic/core';
+import {config, collection, singleton, fields, type GitHubConfig, type LocalConfig} from '@keystatic/core';
+
+const isProd = process.env.NODE_ENV === 'production'
+
+const localMode: LocalConfig['storage'] = {
+  kind: 'local',
+}
+
+const remoteMode: GitHubConfig['storage'] = {
+  kind: 'github',
+  repo: 'olsenkraja/edle-pferde'
+}
+
 
 export default config({
-  storage: {
-    kind: 'local',
-  },
+  storage: isProd ? localMode : remoteMode,
   collections: {
     articles: collection({
       columns: ['created_at'],
