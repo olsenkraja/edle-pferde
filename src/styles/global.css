@@ -6,19 +6,19 @@
 @theme {
     --font-sans: "montserrat", sans-serif;
 
-    --color-brand-light: #40534E;
-    --color-brand: #40534D;
+    --color-brand-light: #5D6E50;
+    --color-brand: #4B5945;
 
-    --color-primary: oklch(80.859% 0.05564 75.066);
-    --color-primary-50: oklch(99.425% 0.00285 84.559);
-    --color-primary-100: oklch(98.032% 0.0062 75.407);
-    --color-primary-200: oklch(93.152% 0.01992 77.313);
-    --color-primary-300: oklch(89.208% 0.03152 75.197);
-    --color-primary-400: oklch(84.942% 0.04332 74.087);
-    --color-primary-500: oklch(80.859% 0.05564 75.066);
-    --color-primary-600: oklch(76.765% 0.0679 75.532);
-    --color-primary-700: oklch(72.467% 0.07955 74.366);
-    --color-primary-800: oklch(68.495% 0.09072 73.134);
-    --color-primary-900: oklch(63.712% 0.09451 73.221);
-    --color-primary-950: oklch(60.924% 0.09002 72.642);
+    --color-primary: oklch(89.89% 0.10142 91.688);
+    --color-primary-50: oklch(99.343% 0.00667 97.349);
+    --color-primary-100: oklch(98.246% 0.01792 89.355);
+    --color-primary-200: oklch(96.149% 0.0394 91.199);
+    --color-primary-300: oklch(94.072% 0.06166 92.132);
+    --color-primary-400: oklch(91.866% 0.08112 91.296);
+    --color-primary-500: oklch(89.89% 0.10142 91.688);
+    --color-primary-600: oklch(86.715% 0.12904 90.946);
+    --color-primary-700: oklch(83.897% 0.15006 90.056);
+    --color-primary-800: oklch(81.051% 0.16037 87.313);
+    --color-primary-900: oklch(73.049% 0.14644 86.427);
+    --color-primary-950: oklch(68.186% 0.1365 86.987);
 }
