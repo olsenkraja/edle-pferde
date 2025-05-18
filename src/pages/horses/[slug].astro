@@ -25,9 +25,12 @@ export async function getStaticPaths() {
                     <h1 class="text-brand text-3xl font-semibold">
                       {horse.data.full_name}
                     </h1>
-                    <p>
+                    <div>
                       {horse.data.family}
-                    </p>
+                    </div>
+                    <div class="italic">
+                      {horse.data.current_owner}
+                    </div>
                 </div>
 
                 <div class="flex flex-col space-y-4">

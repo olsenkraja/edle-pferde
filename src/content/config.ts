@@ -14,6 +14,7 @@ const horses = defineCollection({
   schema: ({ image }) => z.object({
     full_name: z.string(),
     family: z.string().nullable().optional(),
+    current_owner: z.string().nullable().optional(),
     status: z.string(),
     birth_year: z.string(),
     profile_picture: image(),

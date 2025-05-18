@@ -69,6 +69,7 @@ export default config({
       schema: {
         full_name: fields.slug({name: {label: 'Full name'}}),
         family: fields.text({label: 'Family'}),
+        current_owner: fields.text({label: 'Current owner'}),
         gender: fields.select({
           label: 'Gender',
           options: [
