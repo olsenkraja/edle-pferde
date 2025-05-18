@@ -17,9 +17,10 @@ const horses = defineCollection({
     current_owner: z.string().nullable().optional(),
     status: z.string(),
     birth_year: z.string(),
+    lived_until: z.string().nullable().optional(),
     profile_picture: image(),
     breed: z.string(),
-    size: z.string(),
+    size: z.string().nullable().optional(),
     color: z.string(),
     bio: z.string(),
     father: z.object({

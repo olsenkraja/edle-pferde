@@ -37,7 +37,7 @@ export async function getStaticPaths() {
                     <div class="flex items-center space-x-4">
                         <IconCalendar className='text-brand'/>
                         <div class="relative flex-1 font-normal text-[#1e1e1e] text-base tracking-[0] leading-4">
-                          {horse.data.birth_year}
+                          {horse.data.birth_year}{horse.data.lived_until && (', ' + horse.data.lived_until + ' verstorben')}
                         </div>
                     </div>
                     <div class="flex items-center space-x-4">

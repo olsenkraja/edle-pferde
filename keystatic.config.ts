@@ -61,7 +61,7 @@ export default config({
       },
     }),
     horses: collection({
-      columns: ['full_name', 'birth_year'],
+      columns: ['full_name', 'birth_year', 'lived_until', 'status'],
       label: 'Horses',
       slugField: 'full_name',
       path: 'src/content/horses/*',
@@ -99,6 +99,9 @@ export default config({
         }),
         birth_year: fields.text({
           label: 'Birth year',
+        }),
+        lived_until: fields.text({
+          label: 'Lived until',
         }),
         breed: fields.text({label: 'Breed'}),
         size: fields.text({label: 'Size'}),
