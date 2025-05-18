@@ -87,6 +87,15 @@ export default config({
             isRequired: true
           },
         }),
+        gallery: fields.array(
+          fields.image({
+            label: 'Image for gallery',
+            directory: '/src/assets/gallery/horses',
+            publicPath: '/src/assets/gallery/horses/',
+          }), {
+            label: 'Gallery',
+          }
+        ),
         profile_picture_alt_text: fields.text({label: 'Profile picture / Alt text'}),
         status: fields.select({
           label: 'Status',

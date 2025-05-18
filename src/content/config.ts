@@ -1,8 +1,9 @@
 // @ts-ignore
-import { defineCollection, z } from 'astro:content'
+import {defineCollection, z} from 'astro:content'
 
 const articles = defineCollection({
-  schema: ({ image }) => z.object({
+  // @ts-ignore
+  schema: ({image}) => z.object({
     title: z.string(),
     created_at: z.date(),
     cover_image: image(),
@@ -11,7 +12,8 @@ const articles = defineCollection({
 })
 
 const horses = defineCollection({
-  schema: ({ image }) => z.object({
+  // @ts-ignore
+  schema: ({image}) => z.object({
     full_name: z.string(),
     family: z.string().nullable().optional(),
     current_owner: z.string().nullable().optional(),
@@ -19,6 +21,7 @@ const horses = defineCollection({
     birth_year: z.string(),
     lived_until: z.string().nullable().optional(),
     profile_picture: image(),
+    gallery: z.array(image()).nullable().optional(),
     breed: z.string(),
     size: z.string().nullable().optional(),
     color: z.string(),
@@ -52,7 +55,8 @@ const horses = defineCollection({
 })
 
 const photos = defineCollection({
-  schema: ({ image }) => z.object({
+  // @ts-ignore
+  schema: ({image}) => z.object({
     id: z.string(),
     photo: image(),
     horses: z.array(z.string()).nullable().optional(),
@@ -66,4 +70,4 @@ const pages = defineCollection({
   }),
 })
 
-export const collections = { articles, horses, photos, pages }
+export const collections = {articles, horses, photos, pages}
