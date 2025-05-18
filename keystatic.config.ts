@@ -65,7 +65,7 @@ export default config({
       label: 'Horses',
       slugField: 'full_name',
       path: 'src/content/horses/*',
-      format: {contentField: 'content'},
+      format: {contentField: 'achievements'},
       schema: {
         full_name: fields.slug({name: {label: 'Full name'}}),
         family: fields.text({label: 'Family'}),
@@ -103,8 +103,8 @@ export default config({
         size: fields.text({label: 'Size'}),
         color: fields.text({label: 'Color'}),
         bio: fields.text({label: 'Bio', multiline: true}),
-        content: fields.mdx({
-          label: 'Content',
+        achievements: fields.mdx({
+          label: 'Achievements',
           options: {
             image: {
               directory: 'src/assets/images/horses',
