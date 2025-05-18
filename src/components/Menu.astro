@@ -1,52 +1,59 @@
 ---
-import {IconMenu2, IconBrandFacebookFilled, IconBrandInstagramFilled} from "@tabler/icons-react"
+import {IconMenu2} from "@tabler/icons-react"
+const {facebook, instagram} = await reader.singletons.social_media.read();
+import Instagram from "./socials/instagram.astro";
+import Facebook from "./socials/facebook.astro";
 ---
 <header class="shadow top-0 sticky z-50 bg-white">
-  <div class="hidden lg:flex items-center justify-evenly h-20 z-10 w-[1024px] mx-auto mb-16">
-    <div class="flex-1" />
-    <a href="/"
-       class="flex-1 text-center py-7 hover:bg-brand hover:text-white transition font-electrolize uppercase">
-      Home
-    </a>
-    <a href="/articles"
-       class="flex-1 text-center py-7 hover:bg-brand hover:text-white transition font-electrolize uppercase">
-      News
-    </a>
-    <a href="/horses"
-       class="flex-1 text-center py-7 hover:bg-brand hover:text-white transition font-electrolize uppercase">
-      Pferde
-    </a>
-    <div class="mt-16 w-[200px] px-4 z-50">
-      <img src="/logo.svg" alt="Logo" height="160px" />
-    </div>
-    <a href="/about-us"
-       class="flex-1 text-center py-7 hover:bg-brand hover:text-white transition font-electrolize uppercase">
-      Über uns
-    </a>
-    <a href="/gallery"
-       class="flex-1 text-center py-7 hover:bg-brand hover:text-white transition font-electrolize uppercase">
-      Galerie
-    </a>
-    <div class="flex-1" />
-    <div class="flex-1 text-center py-7 flex">
-      <IconBrandFacebookFilled className="text-brand" />
-      <IconBrandInstagramFilled className="text-brand" />
-    </div>
-  </div>
-  <div class="lg:hidden flex flex-col z-10 relative w-full shadow mb-16">
-    <label class="p-7 w-fit cursor-pointer">
-      <input
-        type="checkbox"
-        class="hidden"
-        id="menu-toggle"
-        onchange="document.getElementById('menu').dataset.checked = this.checked"
-      />
-      <span class="flex items-center gap-2 cursor-pointer">
+	<div class="hidden lg:flex items-center justify-evenly h-20 z-10 w-[1024px] mx-auto mb-16">
+		<div class="flex-1" />
+		<a href="/"
+		   class="flex-1 text-center py-7 hover:bg-brand hover:text-white transition font-electrolize uppercase">
+			Home
+		</a>
+		<a href="/articles"
+		   class="flex-1 text-center py-7 hover:bg-brand hover:text-white transition font-electrolize uppercase">
+			News
+		</a>
+		<a href="/horses"
+		   class="flex-1 text-center py-7 hover:bg-brand hover:text-white transition font-electrolize uppercase">
+			Pferde
+		</a>
+		<div class="mt-16 w-[200px] px-4 z-50">
+			<img src="/logo.svg" alt="Logo" height="160px" />
+		</div>
+		<a href="/about-us"
+		   class="flex-1 text-center py-7 hover:bg-brand hover:text-white transition font-electrolize uppercase">
+			Über uns
+		</a>
+		<a href="/gallery"
+		   class="flex-1 text-center py-7 hover:bg-brand hover:text-white transition font-electrolize uppercase">
+			Galerie
+		</a>
+		<div class="flex-1" />
+		<div class="flex-1 text-center py-7 flex space-x-2">
+			<a href={'https://facebook.com/' + facebook} target="_blank">
+				<Facebook />
+			</a>
+			<a href={'https://instagram.com/' + instagram} target="_blank">
+				<Instagram />
+			</a>
+		</div>
+	</div>
+	<div class="lg:hidden flex flex-col z-10 relative w-full shadow mb-16">
+		<label class="p-7 w-fit cursor-pointer">
+			<input
+				type="checkbox"
+				class="hidden"
+				id="menu-toggle"
+				onchange="document.getElementById('menu').dataset.checked = this.checked"
+			/>
+			<span class="flex items-center gap-2 cursor-pointer">
                 <IconMenu2 />
             </span>
-    </label>
-    <div id="menu"
-         class="
+		</label>
+		<div id="menu"
+		     class="
              absolute bg-white inset-x-0 top-20
                 shadow transition-all duration-100 ease-in-out
                 data-[checked=true]:opacity-100
@@ -55,26 +62,38 @@ import {IconMenu2, IconBrandFacebookFilled, IconBrandInstagramFilled} from "@tab
                 data-[checked=false]:h-0
                 data-[checked=false]:overflow-hidden
             "
-         data-checked="false"
-    >
-      <a href="/">
-        <div class="p-7 border-t border-gray-200">Home</div>
-      </a>
-      <a href="/articles">
-        <div class="p-7 border-t border-gray-200">News</div>
-      </a>
-      <a href="/horses">
-        <div class="p-7 border-t border-gray-200">Pferde</div>
-      </a>
-      <a href="/about-us">
-        <div class="p-7 border-t border-gray-200">Über uns</div>
-      </a>
-      <a href="/gallery">
-        <div class="p-7 border-t border-gray-200">Galerie</div>
-      </a>
-    </div>
-    <div class="mt-2 w-[120px] z-50 top-0 absolute m-auto inset-x-0">
-      <img src="/logo.svg" alt="Logo" height="160px" />
-    </div>
-  </div>
+		     data-checked="false"
+		>
+			<a href="/">
+				<div class="p-7 border-t border-gray-200">Home</div>
+			</a>
+			<a href="/articles">
+				<div class="p-7 border-t border-gray-200">News</div>
+			</a>
+			<a href="/horses">
+				<div class="p-7 border-t border-gray-200">Pferde</div>
+			</a>
+			<a href="/about-us">
+				<div class="p-7 border-t border-gray-200">Über uns</div>
+			</a>
+			<a href="/gallery">
+				<div class="p-7 border-t border-gray-200">Galerie</div>
+			</a>
+			<a href={'https://facebook.com/' + facebook} target="_blank">
+				<div class="p-7 border-t border-gray-200 flex space-x-4">
+					<Facebook />
+					<span>Facebook</span>
+				</div>
+			</a>
+			<a href={'https://instagram.com/' + instagram} target="_blank">
+				<div class="p-7 border-t border-gray-200 flex space-x-4">
+					<Instagram />
+					<span>Instagram</span>
+				</div>
+			</a>
+		</div>
+		<div class="mt-2 w-[120px] z-50 top-0 absolute m-auto inset-x-0">
+			<img src="/logo.svg" alt="Logo" height="160px" />
+		</div>
+	</div>
 </header>
