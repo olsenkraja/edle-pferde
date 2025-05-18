@@ -7,7 +7,7 @@ const {article} = Astro.props
     <Image
       src={article.data.cover_image}
       alt={`Cover image for ${article.slug}`}
-      class="aspect-square md:aspect-[4/3] object-cover z-50 rounded-2xl"
+      class="aspect-square md:aspect-[4/3] object-cover z-50 rounded-2xl w-full"
     />
     <div class="absolute inset-0 bg-gradient-to-t from from-black via-transparent z-20 rounded-b-2xl" />
     <div class="absolute bottom-8 inset-x-8 text-white z-30 space-y-4">
