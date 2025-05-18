@@ -13,7 +13,7 @@ const remoteMode: GitHubConfig['storage'] = {
 
 
 export default config({
-  storage: isProd ? localMode : remoteMode,
+  storage: isProd ? remoteMode : localMode,
   collections: {
     articles: collection({
       columns: ['created_at'],
