@@ -6,18 +6,18 @@ const { images } = Astro.props;
 <div id="gallery" class="hidden">
   <button
     id="left"
-    class="absolute insey-y-0 z-50 left-16 bg-white rounded-full p-4 cursor-pointer shadow-lg"
+    class="fixed top-1/2 -translate-y-1/2 z-50 left-1 bg-white rounded-full p-4 cursor-pointer shadow-lg"
   >
     <IconChevronLeft />
   </button>
   <button
     id="right"
-    class="absolute insey-y-0 z-50 right-16 bg-white rounded-full p-4 cursor-pointer shadow-lg"
+    class="fixed top-1/2 -translate-y-1/2 z-50 right-1 bg-white rounded-full p-4 cursor-pointer shadow-lg"
   >
     <IconChevronRight />
   </button>
-  <div class="absolute bg-black/50 inset-0 z-40 backdrop-blur-sm" id="overlay">
-    <div class="flex w-full items-center h-full snap-x snap-mandatory scroll-smooth overflow-x-hidden" id="images">
+  <div class="fixed bg-black/50 inset-0 z-40 backdrop-blur-sm" id="overlay">
+    <div class="flex w-full items-center h-full snap-x snap-mandatory scroll-smooth overflow-x-auto" id="images">
       {images?.map((image, i) => (
         <img
           src={image.src}
