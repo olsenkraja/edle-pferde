@@ -3,31 +3,27 @@ import Image from "astro/components/Image.astro";
 
 const { ...props } = Astro.props;
 ---
-<div class="cursor-pointer hover:brightness-110">
-  <Image
-    id={"thumbnail-" + props.index}
-    data-image={props.index}
-    src={props.src}
-    alt={props.alt}
-    width={props.width}
-    height={props.height}
-    class={props.class + ' gallery-image'}
-  />
-</div>
+<Image
+  id={"thumbnail-" + props.index}
+  data-image={props.index}
+  src={props.src}
+  alt={props.alt}
+  width={props.width}
+  height={props.height}
+  class={props.class + " gallery-image"}
+/>
 <script>
-  const gallery = document.getElementById('gallery')
-  const galleryImages = document.getElementsByClassName('gallery-image')
-  console.log(galleryImages);
+  const gallery = document.getElementById("gallery");
+  const galleryImages = document.getElementsByClassName("gallery-image");
   Array.from(galleryImages).forEach((galleryImage, index) => {
-    galleryImage.addEventListener('click', () => open(index))
-  })
+    galleryImage.addEventListener("click", () => open(index));
+  });
 
   function open(index) {
-    console.log(index);
-    gallery.classList.remove('hidden')
-    const images = document.getElementById('images')
-    images.style.scrollBehavior = 'auto'
-    images.scrollLeft = index * images.clientWidth
-    images.style.scrollBehavior = ''
+    gallery.classList.remove("hidden");
+    const images = document.getElementById("images");
+    images.style.scrollBehavior = "auto";
+    images.scrollLeft = index * images.clientWidth;
+    images.style.scrollBehavior = "";
   }
 </script>

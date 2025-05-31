@@ -13,6 +13,8 @@ if (!horse) throw new Error("No horse found for this slug");
 
 const { Content } = await horse.render();
 
+const allImages = [horse.data.profile_picture, ...horse.data.gallery || []];
+
 // Generate static pages
 export async function getStaticPaths() {
   const horses = await reader.collections.horses.all();
@@ -22,29 +24,22 @@ export async function getStaticPaths() {
 <Layout title={horse.data.full_name}>
   <div class="max-w-5xl mx-auto space-y-16 px-4 lg:px-0">
     <div class="flex lg:flex-row flex-col-reverse lg:space-x-16 items-start">
-      <div class="flex flex-col space-y-2 lg:w-1/2 items-center justify-center ">
-        <Image src={horse.data.profile_picture}
-               alt={`Cover image for ${slug}`}
-               width={512}
-               class="aspect-[4/3] object-cover rounded z-10"
-        />
-        <div class="flex w-full space-x-2">
-          {horse.data.gallery?.slice(0, 5)?.map((image, i) => (
-            <GalleryImage
-              src={image}
-              image={image}
-              alt={`Cover image for ${slug}`}
-              width={200}
-              class="rounded aspect-square object-cover rounded z-10 size-24"
-              index={i}
-              gallery={horse.data.gallery}
-            />
-          ))}
-        </div>
-        <Gallery images={horse.data.gallery} />
+      <div class="grid grid-rows-5 grid-cols-5 gap-2">
+        {allImages?.slice(0, 6)?.map((image, i) => (
+          <GalleryImage
+            src={image}
+            image={image}
+            alt={`Cover image for ${slug}`}
+            width={i === 0 ? 480 : 150}
+            class="rounded aspect-square object-cover rounded z-10 not-first:size-24 h-full w-full first:row-span-4 first:col-span-5 first:aspect-[5/4] cursor-pointer hover:brightness-110"
+            index={i}
+            gallery={allImages}
+          />
+        ))}
+        <Gallery images={allImages} />
       </div>
-      <div class=" flex flex-col space-y-8 flex-1">
-        <div>
+      <div class="flex flex-col space-y-8 flex-1">
+        <div class="space-y-1">
           <h1 class="text-brand text-5xl font-semibold">
             {horse.data.full_name}
           </h1>
@@ -55,29 +50,29 @@ export async function getStaticPaths() {
             {horse.data.current_owner}
           </div>
         </div>
-        <hr class="border-brand-light">
-        <div class="flex flex-col space-y-4">
-          <div class="flex items-center space-x-4">
+        <hr class="border-brand-light/25">
+        <div class="grid grid-cols-2 gap-1">
+          <div class="flex items-center space-x-4 shadow p-4 rounded border border-brand/25">
             <IconCalendar className="text-brand" />
-            <div class=" flex-1 font-normal text-[#1e1e1e] text-base tracking-[0] leading-4">
+            <div class="font-semibold text-lg text-brand leading-4">
               {horse.data.birth_year}{horse.data.lived_until && (", " + horse.data.lived_until + " verstorben")}
             </div>
           </div>
-          <div class="flex items-center space-x-4">
+          <div class="flex items-center space-x-4 shadow p-4 rounded border border-brand/25">
             <IconHorseshoe className="text-brand" />
-            <div class=" flex-1 font-normal text-[#1e1e1e] text-base tracking-[0] leading-4">
+            <div class="font-semibold text-lg text-brand leading-4">
               {horse.data.breed}
             </div>
           </div>
-          <div class="flex items-center space-x-4">
+          <div class="flex items-center space-x-4 shadow p-4 rounded border border-brand/25">
             <IconRuler className="text-brand" />
-            <div class=" flex-1 font-normal text-[#1e1e1e] text-base tracking-[0] leading-4">
+            <div class="font-semibold text-lg text-brand leading-4">
               {horse.data.size}
             </div>
           </div>
-          <div class="flex items-center space-x-4">
+          <div class="flex items-center space-x-4 shadow p-4 rounded border border-brand/25">
             <IconColorPicker className="text-brand" />
-            <div class=" flex-1 font-normal text-[#1e1e1e] text-base tracking-[0] leading-4">
+            <div class="font-semibold text-lg text-brand leading-4">
               {horse.data.color}
             </div>
           </div>
@@ -91,12 +86,12 @@ export async function getStaticPaths() {
       <h2 class="text-brand uppercase tracking-widest font-semibold">
         Stammbaum
       </h2>
-      <div class="flex flex-1 bg-primary-50 border border-brand text-brand bg-white">
-        <div class="flex-1 flex flex-col items-center justify-center border-r">
+      <div class="flex flex-1 bg-primary-50 border border-brand/25 text-brand bg-white shadow rounded">
+        <div class="flex-1 flex flex-col items-center justify-center border-r border-brand/25">
           {horse.data.full_name}
         </div>
-        <div class="flex-1 flex flex-col items-center justify-center border-r">
-          <div class="flex-1 w-full flex justify-center items-center border-b">
+        <div class="flex-1 flex flex-col items-center justify-center border-r border-brand/25">
+          <div class="flex-1 w-full flex justify-center items-center border-b border-brand/25">
             {horse.data.father.value}
           </div>
           <div class="flex-1 w-full flex justify-center items-center">
@@ -104,13 +99,13 @@ export async function getStaticPaths() {
           </div>
         </div>
         <div class="flex-1 flex flex-col items-center justify-center">
-          <div class="flex-1 w-full text-center py-4 border-b">
+          <div class="flex-1 w-full text-center py-4 border-b border-brand/25">
             {horse.data.fathers_father.value}
           </div>
-          <div class="flex-1 w-full text-center py-4 border-b">
+          <div class="flex-1 w-full text-center py-4 border-b border-brand/25">
             {horse.data.fathers_mother.value}
           </div>
-          <div class="flex-1 w-full text-center py-4 border-b">
+          <div class="flex-1 w-full text-center py-4 border-b border-brand/25">
             {horse.data.mothers_father.value}
           </div>
           <div class="flex-1 w-full text-center py-4">

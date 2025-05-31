@@ -6,23 +6,23 @@ const { images } = Astro.props;
 <div id="gallery" class="hidden">
   <button
     id="left"
-    class="fixed top-1/2 -translate-y-1/2 z-50 left-1 bg-white rounded-full p-4 cursor-pointer shadow-lg"
+    class="fixed top-1/2 -translate-y-1/2 z-50 left-1 bg-white/25 rounded-full p-4 cursor-pointer shadow-lg"
   >
     <IconChevronLeft />
   </button>
   <button
     id="right"
-    class="fixed top-1/2 -translate-y-1/2 z-50 right-1 bg-white rounded-full p-4 cursor-pointer shadow-lg"
+    class="fixed top-1/2 -translate-y-1/2 z-50 right-1 bg-white/25 rounded-full p-4 cursor-pointer shadow-lg"
   >
     <IconChevronRight />
   </button>
   <div class="fixed bg-black/50 inset-0 z-40 backdrop-blur-sm" id="overlay">
-    <div class="flex w-full items-center h-full snap-x snap-mandatory scroll-smooth overflow-x-auto" id="images">
+    <div class="flex w-full items-center h-full snap-x snap-mandatory scroll-smooth overflow-x-auto z-50" id="images">
       {images?.map((image, i) => (
         <img
           src={image.src}
           alt={image.alt}
-          class="max-h-full max-w-full object-contain flex justify-center items-center h-full w-full shrink-0 p-4 snap-center"
+          class="full-image max-h-full max-w-full object-contain flex justify-center items-center h-full w-full shrink-0 p-4 snap-center"
         />
       ))}
     </div>
@@ -34,10 +34,17 @@ const { images } = Astro.props;
   const left = document.getElementById("left");
   const right = document.getElementById("right");
   const overlay = document.getElementById("overlay");
+  const fullImages = document.getElementsByClassName("full-image");
 
   left.addEventListener("click", () => scrollLeft());
   right.addEventListener("click", () => scrollRight());
-  overlay.addEventListener("click", () => close());
+  images.addEventListener("click", () => scrollRight());
+  overlay.addEventListener("click", (e) => close(e));
+  Array.from(fullImages).forEach((fullImage, index) => {
+    fullImage.addEventListener("click", () => {
+      console.log('fullImage', index);
+    });
+  });
 
   function scrollLeft() {
     images.scrollLeft -= images.clientWidth;
@@ -51,16 +58,35 @@ const { images } = Astro.props;
     gallery.classList.add("hidden");
   }
 
-  document.onkeydown = function(evt) {
-    evt = evt || window.event;
-    var isEscape = false;
-    if ("key" in evt) {
-      isEscape = (evt.key === "Escape" || evt.key === "Esc");
-    } else {
-      isEscape = (evt.keyCode === 27);
-    }
-    if (isEscape) {
-      close();
+  document.onkeydown = function(event) {
+    const key = event.key || event.keyCode; // Fallback for older browsers
+
+    switch (true) {
+      case key === 'Escape' || key === 27:
+        close();
+        break;
+      case key === 'ArrowLeft' || key === 37:
+        scrollLeft()
+        break;
+      case key === 'ArrowRight' || key === 39:
+        scrollRight()
+        break;
+      default:
+        break;
     }
   };
+
+
+  // document.onkeydown = function(evt) {
+  //   evt = evt || window.event;
+  //   var isEscape = false;
+  //   if ("key" in evt) {
+  //     isEscape = (evt.key === "Escape" || evt.key === "Esc");
+  //   } else {
+  //     isEscape = (evt.keyCode === 27);
+  //   }
+  //   if (isEscape) {
+  //     close();
+  //   }
+  // };
 </script>
