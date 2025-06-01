@@ -2,16 +2,16 @@
 import Image from 'astro/components/Image.astro'
 const {article} = Astro.props
 ---
-<a href={`/articles/${article.slug}`} class="col-span-2 md:col-span-4">
-  <div class="relative">
+<a href={`/articles/${article.slug}`} class="row-span-2 md:row-span-3 col-span-4">
+  <div class="relative h-full w-full">
     <Image
       src={article.data.cover_image}
       alt={`Cover image for ${article.slug}`}
-      class="aspect-square md:aspect-[4/3] object-cover z-50 rounded-2xl w-full"
+      class="object-cover z-10 rounded-lg w-full h-full"
     />
-    <div class="absolute inset-0 bg-gradient-to-t from from-black via-transparent z-20 rounded-b-2xl" />
-    <div class="absolute bottom-8 inset-x-8 text-white z-30 space-y-4">
-      <h1 class="text-3xl font-semibold line-clamp-1">{article.data.title}</h1>
+    <div class="absolute inset-0 bg-gradient-to-t from from-black via-transparent z-10 rounded-b-lg" />
+    <div class="absolute bottom-4 md:bottom-8 inset-x-4 md:inset-x-8 text-white z-10 space-y-4">
+      <h1 class="text-xl md:text-3xl font-semibold line-clamp-2">{article.data.title}</h1>
       <p class="line-clamp-2">{article.body}</p>
     </div>
   </div>

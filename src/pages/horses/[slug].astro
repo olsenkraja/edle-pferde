@@ -1,7 +1,6 @@
 ---
 import { getEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-import Image from "astro/components/Image.astro";
 import { IconCalendar, IconColorPicker, IconHorseshoe, IconRuler } from "@tabler/icons-react";
 import Gallery from "../../components/Gallery.astro";
 import GalleryImage from "../../components/GalleryImage.astro";
@@ -22,7 +21,7 @@ export async function getStaticPaths() {
 }
 ---
 <Layout title={horse.data.full_name}>
-  <div class="max-w-5xl mx-auto space-y-16 px-4 lg:px-0">
+  <div class="page-width mx-auto space-y-16">
     <div class="flex lg:flex-row flex-col-reverse lg:space-x-16 items-start">
       <div class="grid grid-rows-5 grid-cols-5 gap-2 lg:w-auto w-full">
         {allImages?.slice(0, 6)?.map((image, i) => (

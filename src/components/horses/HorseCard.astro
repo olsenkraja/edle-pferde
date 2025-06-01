@@ -5,7 +5,7 @@ import {IconCalendar, IconHorseshoe} from "@tabler/icons-react"
 const {horse} = Astro.props
 ---
 <a href={`/horses/${horse.slug}`}>
-  <div class="bg-white overflow-auto rounded-2xl shadow">
+  <div class="bg-white overflow-auto rounded-lg shadow">
     <Image
       src={horse.data.profile_picture}
       alt={`Cover image for ${horse.slug}`}
@@ -13,22 +13,22 @@ const {horse} = Astro.props
       height={300}
       class="w-full object-cover sm:aspect-square"
     />
-    <div class="px-4 py-2 space-y-1">
-      <h1 class="font-semibold text-xl line-clamp-1">
+    <div class="lg:p-8 p-6 space-y-3">
+      <h1 class="text-3xl line-clamp-1">
         {horse.data.full_name}
       </h1>
       <div>
-        <div class="text-gray-500 text-sm line-clamp-1">
+        <div class="text-gray-500 line-clamp-1">
           {horse.data.father.value} – {horse.data.mothers_father.value}
         </div>
         <div class="flex space-x-4 text-gray-500">
           <div class="flex items-center space-x-1">
             <IconCalendar className="size-4" />
-            <div class="text-sm">{horse.data.birth_year}</div>
+            <div class="">{horse.data.birth_year}</div>
           </div>
           <div class="flex items-center space-x-1">
             <IconHorseshoe className="size-4" />
-            <div class="text-sm">{horse.data.breed}</div>
+            <div class="">{horse.data.breed}</div>
           </div>
         </div>
       </div>

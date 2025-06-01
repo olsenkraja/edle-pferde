@@ -1,35 +1,33 @@
 ---
-import {getCollection} from "astro:content"
-import NewsArticleBig from "./homepage/news/NewsArticleBig.astro"
-import NewsArticleSmall from "./homepage/news/NewsArticleSmall.astro"
-import {IconChevronDown} from '@tabler/icons-react'
+import { getCollection } from "astro:content";
+import NewsArticleBig from "./homepage/news/NewsArticleBig.astro";
+import NewsArticleSmall from "./homepage/news/NewsArticleSmall.astro";
+import { IconChevronDown } from "@tabler/icons-react";
 
-let articles = await getCollection("articles")
-articles = articles.sort((a, b) => (a.data.created_at < b.data.created_at) ? 1 : ((b.data.created_at < a.data.created_at) ? -1 : 0))
+let articles = await getCollection("articles");
+articles = articles.sort((a, b) => (a.data.created_at < b.data.created_at) ? 1 : ((b.data.created_at < a.data.created_at) ? -1 : 0));
 ---
-<div class="max-w-5xl mx-auto">
-  <div class="flex flex-col items-center justify-center gap-8">
-    <div class="flex flex-col space-y-8">
-      <div class="flex flex-col items-center space-y-4">
-        <div class="font-normal text-brand text-3xl text-center">
-          News
-        </div>
-        <div class="font-bold text-brand text-sm tracking-widest text-center uppercase">
-          Neues aus Pichl
-        </div>
-        <div class="bg-primary-600 w-20 h-1"></div>
+<div class="page-width mx-auto px-8 md:px-0">
+  <div class="flex flex-col items-center justify-center space-y-8">
+    <div class="flex flex-col items-center space-y-4">
+      <div class="font-normal text-brand text-3xl text-center">
+        News
       </div>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 p-8 relative">
-        <div class="bg-white border border-gray-100 md:rounded-2xl shadow-2xl absolute inset-x-0 top-1/3 bottom-0 z-0"></div>
-        <NewsArticleBig article={articles[0]} />
-        {articles.slice(1, 5).map(article => (
-          <NewsArticleSmall article={article} />
-        ))}
-        <a href="/articles" class="flex flex-col items-center col-span-2 md:col-span-4 z-10">
-          <span class="tracking-widest uppercase text-sm">Mehr lesen</span>
-          <IconChevronDown />
-        </>
+      <div class="font-bold text-brand text-sm tracking-widest text-center uppercase">
+        Neues aus Pichl
       </div>
+      <div class="bg-primary-600 w-20 h-1"></div>
     </div>
+    <div class="grid grid-rows-3 grid-cols-4 gap-4 relative w-full">
+      <NewsArticleBig article={articles[0]} />
+      {articles.slice(1, 5).map(article => (
+        <NewsArticleSmall article={article} />
+      ))}
+    </div>
+    <a href="/articles">
+      <div class="w-fit px-8 py-4 bg-brand rounded-full font-semibold text-white text-sm">
+        MEHR LESEN
+      </div>
+    </a>
   </div>
 </div>

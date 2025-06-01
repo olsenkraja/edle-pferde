@@ -1,7 +1,7 @@
 ---
-import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react"
+import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
 
-const { images } = Astro.props
+const { images } = Astro.props;
 ---
 <div id="gallery" class="hidden">
   <button
@@ -19,7 +19,7 @@ const { images } = Astro.props
   <div class="fixed bg-black/50 inset-0 z-40 backdrop-blur-sm" id="overlay">
     <div class="flex w-full items-center h-full snap-x snap-mandatory scroll-smooth overflow-x-auto z-50" id="images">
       {images?.map((image, i) => (
-        <div class="p-8 max-h-full h-full w-full flex justify-center items-center shrink-0 p-4 snap-center">
+        <div class="m-8 max-h-full h-full w-full flex justify-center items-center shrink-0 p-4 snap-center">
           <img
             src={image.src}
             alt={image.alt}
@@ -31,51 +31,51 @@ const { images } = Astro.props
   </div>
 </div>
 <script>
-  const gallery = document.getElementById("gallery")
-  const images = document.getElementById("images")
-  const left = document.getElementById("left")
-  const right = document.getElementById("right")
-  const overlay = document.getElementById("overlay")
-  const fullImages = document.getElementsByClassName("full-image")
+  const gallery = document.getElementById("gallery");
+  const images = document.getElementById("images");
+  const left = document.getElementById("left");
+  const right = document.getElementById("right");
+  const overlay = document.getElementById("overlay");
+  const fullImages = document.getElementsByClassName("full-image");
 
-  left.addEventListener("click", () => scrollLeft())
-  right.addEventListener("click", () => scrollRight())
-  images.addEventListener("click", () => scrollRight())
-  overlay.addEventListener("click", () => close())
+  left.addEventListener("click", () => scrollLeft());
+  right.addEventListener("click", () => scrollRight());
+  overlay.addEventListener("click", () => close());
   Array.from(fullImages).forEach((fullImage, index) => {
     fullImage.addEventListener("click", (e) => {
-      e.stopPropagation()
-      console.log("fullImage", index)
-    })
-  })
+      e.stopPropagation();
+    });
+  });
 
   function scrollLeft() {
-    images.scrollLeft -= images.clientWidth
+    images.scrollLeft -= images.clientWidth/2;
   }
 
   function scrollRight() {
-    images.scrollLeft += images.clientWidth
+    images.scrollLeft += images.clientWidth;
   }
 
   function close() {
-    gallery.classList.add("hidden")
+    gallery.classList.add("hidden");
   }
 
   document.onkeydown = function(event) {
-    const key = event.key || event.keyCode
+    const key = event.key || event.keyCode;
 
     switch (true) {
       case key === "Escape" || key === 27:
-        close()
-        break
+        close();
+        break;
       case key === "ArrowLeft" || key === 37:
-        scrollLeft()
-        break
+        console.log("ArrowLeft");
+        scrollLeft();
+        break;
       case key === "ArrowRight" || key === 39:
-        scrollRight()
-        break
+        console.log("ArrowRight");
+        scrollRight();
+        break;
       default:
-        break
+        break;
     }
-  }
+  };
 </script>
