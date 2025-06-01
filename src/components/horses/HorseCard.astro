@@ -5,13 +5,13 @@ import {IconCalendar, IconHorseshoe} from "@tabler/icons-react"
 const {horse} = Astro.props
 ---
 <a href={`/horses/${horse.slug}`}>
-  <div class="bg-white overflow-auto rounded-lg shadow">
+  <div class="bg-white overflow-auto rounded shadow">
     <Image
       src={horse.data.profile_picture}
       alt={`Cover image for ${horse.slug}`}
       width={300}
       height={300}
-      class="w-full object-cover sm:aspect-square"
+      class="w-full object-cover aspect-square"
     />
     <div class="lg:p-8 p-6 space-y-3">
       <h1 class="text-3xl line-clamp-1">

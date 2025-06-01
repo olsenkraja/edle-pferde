@@ -21,9 +21,9 @@ export async function getStaticPaths() {
 }
 ---
 <Layout title={horse.data.full_name}>
-  <div class="page-width mx-auto space-y-16">
-    <div class="flex lg:flex-row flex-col-reverse lg:space-x-16 items-start">
-      <div class="grid grid-rows-5 grid-cols-5 gap-2 lg:w-auto w-full">
+  <div class="page-width mx-auto space-y-16 px-4 md:px-0">
+    <div class="flex lg:flex-row flex-col lg:space-x-16 items-start">
+      <div class="grid grid-cols-5 gap-2 lg:w-auto w-full mb-8">
         {allImages?.slice(0, 6)?.map((image, i) => (
           <GalleryImage
             src={image}
@@ -38,7 +38,7 @@ export async function getStaticPaths() {
         <Gallery images={allImages} />
       </div>
       <div class="flex flex-col space-y-8 flex-1 w-full mb-8">
-        <div class="space-y-1">
+        <div class="space-y-1 lg:my-8">
           <h1 class="text-brand text-5xl font-semibold">
             {horse.data.full_name}
           </h1>
@@ -49,26 +49,26 @@ export async function getStaticPaths() {
             {horse.data.current_owner}
           </div>
         </div>
-        <div class="grid grid-cols-2 gap-1">
-          <div class="flex items-center space-x-4 shadow p-4 rounded border border-brand/25">
+        <div class="grid divide-y divide-brand/20">
+          <div class="flex items-center space-x-4 p-4">
             <IconCalendar className="text-brand" />
             <div class="font-semibold text-lg text-brand leading-4">
               {horse.data.birth_year}{horse.data.lived_until && (", " + horse.data.lived_until + " verstorben")}
             </div>
           </div>
-          <div class="flex items-center space-x-4 shadow p-4 rounded border border-brand/25">
+          <div class="flex items-center space-x-4 p-4">
             <IconHorseshoe className="text-brand" />
             <div class="font-semibold text-lg text-brand leading-4">
               {horse.data.breed}
             </div>
           </div>
-          <div class="flex items-center space-x-4 shadow p-4 rounded border border-brand/25">
+          <div class="flex items-center space-x-4 p-4">
             <IconRuler className="text-brand" />
             <div class="font-semibold text-lg text-brand leading-4">
               {horse.data.size}
             </div>
           </div>
-          <div class="flex items-center space-x-4 shadow p-4 rounded border border-brand/25">
+          <div class="flex items-center space-x-4 p-4">
             <IconColorPicker className="text-brand" />
             <div class="font-semibold text-lg text-brand leading-4">
               {horse.data.color}
