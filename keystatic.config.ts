@@ -87,6 +87,7 @@ export default config({
             isRequired: true
           },
         }),
+        profile_picture_alt_text: fields.text({label: 'Profile picture / Alt text'}),
         gallery: fields.array(
           fields.image({
             label: 'Image for gallery',
@@ -96,7 +97,10 @@ export default config({
             label: 'Gallery',
           }
         ),
-        profile_picture_alt_text: fields.text({label: 'Profile picture / Alt text'}),
+        youtube_video_id: fields.text({
+          label: 'Youtube Video ID',
+          description: 'e.g. only the "aqz-KE-bpKQ" from https://www.youtube.com/watch?v=aqz-KE-bpKQ'
+        }),
         status: fields.select({
           label: 'Status',
           options: [
