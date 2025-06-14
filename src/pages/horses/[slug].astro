@@ -5,6 +5,7 @@ import { IconCalendar, IconColorPicker, IconHorseshoe, IconRuler } from "@tabler
 import Gallery from "../../components/Gallery.astro";
 import GalleryImage from "../../components/GalleryImage.astro";
 import YoutubeEmbedVideo from "../../components/YoutubeEmbedVideo.astro";
+import HorseRelationLink from "../../components/HorseRelationLink.astro";
 
 const { slug } = Astro.params;
 if (!slug) throw new Error("Slug not found");
@@ -98,24 +99,24 @@ export async function getStaticPaths() {
         </div>
         <div class="flex-1 flex flex-col items-center justify-center border-r border-brand/25">
           <div class="flex-1 w-full flex justify-center items-center border-b border-brand/25">
-            {horse.data.father.value}
+            <HorseRelationLink horseName={horse.data.father} />
           </div>
           <div class="flex-1 w-full flex justify-center items-center">
-            {horse.data.mother.value}
+            <HorseRelationLink horseName={horse.data.mother} />
           </div>
         </div>
         <div class="flex-1 flex flex-col items-center justify-center">
           <div class="flex-1 w-full text-center py-4 border-b border-brand/25">
-            {horse.data.fathers_father.value}
+            <HorseRelationLink horseName={horse.data.fathers_father} />
           </div>
           <div class="flex-1 w-full text-center py-4 border-b border-brand/25">
-            {horse.data.fathers_mother.value}
+            <HorseRelationLink horseName={horse.data.fathers_mother} />
           </div>
           <div class="flex-1 w-full text-center py-4 border-b border-brand/25">
-            {horse.data.mothers_father.value}
+            <HorseRelationLink horseName={horse.data.mothers_father} />
           </div>
           <div class="flex-1 w-full text-center py-4">
-            {horse.data.mothers_mother.value}
+            <HorseRelationLink horseName={horse.data.mothers_mother} />
           </div>
         </div>
       </div>
