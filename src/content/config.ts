@@ -22,7 +22,7 @@ const horses = defineCollection({
     lived_until: z.string().nullable().optional(),
     profile_picture: image(),
     gallery: z.array(image()).nullable().optional(),
-    youtube_video_id: z.string(),
+    youtube_video_id: z.string().nullable().optional(),
     breed: z.string(),
     size: z.string().nullable().optional(),
     color: z.string(),
