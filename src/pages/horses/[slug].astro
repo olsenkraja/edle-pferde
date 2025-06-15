@@ -31,8 +31,8 @@ export async function getStaticPaths() {
             src={image}
             image={image}
             alt={`Cover image for ${slug}`}
-            width={i === 0 ? 480 : 150}
-            class="rounded aspect-square object-cover rounded z-10 not-first:h-24 h-full w-full first:row-span-4 first:col-span-5 first:aspect-[5/4] cursor-pointer hover:brightness-110"
+            width={i === 0 ? 500 : 150}
+            class="rounded aspect-square object-cover rounded z-10 not-first:h-24 h-full w-full first:row-span-4 first:col-span-5 cursor-pointer hover:brightness-110"
             index={i}
             gallery={allImages}
           />
@@ -89,7 +89,7 @@ export async function getStaticPaths() {
     <p>
       {horse.data.bio}
     </p>
-    {horse.data.father.value && horse.data.mother.value && (
+    {horse.data.father?.value && horse.data.mother?.value && (
       <div class="space-y-4">
         <h2 class="text-brand uppercase tracking-widest font-semibold">
           Stammbaum
