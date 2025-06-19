@@ -24,60 +24,58 @@ export async function getStaticPaths() {
 ---
 <Layout title={horse.data.full_name}>
   <div class="page-width mx-auto space-y-16 px-4 md:px-0">
-    <div class="flex lg:flex-row flex-col lg:space-x-16 items-start">
-      <div class="grid grid-cols-5 gap-2 lg:w-auto w-full mb-8">
-        {allImages?.slice(0, 6)?.map((image, i) => (
-          <GalleryImage
-            src={image}
-            image={image}
-            alt={`Cover image for ${slug}`}
-            width={i === 0 ? 500 : 150}
-            class="rounded aspect-square object-cover rounded z-10 not-first:h-24 h-full w-full first:row-span-4 first:col-span-5 cursor-pointer hover:brightness-110"
-            index={i}
-            gallery={allImages}
-          />
-        ))}
-        <Gallery images={allImages} />
+    <div class="space-y-4">
+      <div class="space-y-1">
+        <h1 class="text-brand text-5xl font-semibold">
+          {horse.data.full_name}
+        </h1>
+        <div>
+          {horse.data.family}
+        </div>
+        <div class="italic">
+          {horse.data.current_owner}
+        </div>
       </div>
-      <div class="flex flex-col space-y-8 flex-1 w-full mb-8">
-        <div class="space-y-1 lg:my-8">
-          <h1 class="text-brand text-5xl font-semibold">
-            {horse.data.full_name}
-          </h1>
-          <div>
-            {horse.data.family}
-          </div>
-          <div class="italic">
-            {horse.data.current_owner}
+      <div class="flex space-x-6">
+        <div class="flex items-center space-x-2">
+          <IconCalendar className="text-brand size-4" />
+          <div class="font-semibold text-brand">
+            {horse.data.birth_year}{horse.data.lived_until && (", " + horse.data.lived_until + " verstorben")}
           </div>
         </div>
-        <div class="grid divide-y divide-brand/20">
-          <div class="flex items-center space-x-4 p-4">
-            <IconCalendar className="text-brand" />
-            <div class="font-semibold text-lg text-brand leading-4">
-              {horse.data.birth_year}{horse.data.lived_until && (", " + horse.data.lived_until + " verstorben")}
-            </div>
+        <div class="flex items-center space-x-2">
+          <IconHorseshoe className="text-brand size-4" />
+          <div class="font-semibold text-brand">
+            {horse.data.breed}
           </div>
-          <div class="flex items-center space-x-4 p-4">
-            <IconHorseshoe className="text-brand" />
-            <div class="font-semibold text-lg text-brand leading-4">
-              {horse.data.breed}
-            </div>
+        </div>
+        <div class="flex items-center space-x-2">
+          <IconRuler className="text-brand size-4" />
+          <div class="font-semibold text-brand">
+            {horse.data.size}
           </div>
-          <div class="flex items-center space-x-4 p-4">
-            <IconRuler className="text-brand" />
-            <div class="font-semibold text-lg text-brand leading-4">
-              {horse.data.size}
-            </div>
-          </div>
-          <div class="flex items-center space-x-4 p-4">
-            <IconColorPicker className="text-brand" />
-            <div class="font-semibold text-lg text-brand leading-4">
-              {horse.data.color}
-            </div>
+        </div>
+        <div class="flex items-center space-x-2">
+          <IconColorPicker className="text-brand size-4" />
+          <div class="font-semibold text-brand">
+            {horse.data.color}
           </div>
         </div>
       </div>
+    </div>
+    <div class="grid grid-cols-4 gap-1">
+      {allImages?.slice(0, 5)?.map((image, i) => (
+        <GalleryImage
+          src={image}
+          image={image}
+          alt={`Cover image for ${slug}`}
+          width={i === 0 ? 800 : 500}
+          class="rounded aspect-square object-cover h-full w-full first:row-span-2 first:col-span-2 cursor-pointer hover:brightness-110"
+          index={i}
+          gallery={allImages}
+          hasMoreImages={allImages.length > 5}
+        />
+      ))}
     </div>
     {horse.data.youtube_video_id && (
       <YoutubeEmbedVideo
