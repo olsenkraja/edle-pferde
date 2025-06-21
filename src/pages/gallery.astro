@@ -2,18 +2,16 @@
 import Layout from "../layouts/Layout.astro";
 import {Image} from "astro:assets";
 import {getCollection} from 'astro:content'
+import PhotoSwipe from "../components/PhotoSwipe.astro";
 
-const photos = await getCollection('photos')
+const gallery = await getCollection('photos')
+let images = []
+gallery.forEach(image => {
+  images.push(image.data.photo)
+})
 ---
 <Layout title="Gallerie">
   <main class="page-width mx-auto px-4 md:px-0">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-      {photos.map(photo => (
-        <div>
-          {JSON.stringify(photo.data.horses)}
-          <Image src={photo.data.photo} alt={photo.body || 'Image'} class="aspect-square object-cover rounded-2xl" />
-        </div>
-      ))}
-    </div>
+    <PhotoSwipe images={images} />
   </main>
 </Layout>
