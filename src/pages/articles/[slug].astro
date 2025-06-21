@@ -3,6 +3,7 @@ import { getCollection, getEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import Image from "astro/components/Image.astro";
 import MiniHorseCard from "../../components/horses/MiniHorseCard.astro";
+import PhotoSwipe from "../../components/PhotoSwipe.astro";
 
 const { slug } = Astro.params;
 if (!slug) throw new Error("Slug not found");
@@ -38,6 +39,7 @@ export async function getStaticPaths() {
         <h1>{article.data.title}</h1>
         <Content />
       </div>
+      <PhotoSwipe images={article.data.gallery} />
       <div class="space-y-4">
         <div class="text-xl text-gray-500 font-semibold">
           In diesem Artikel erwähnte Pferde

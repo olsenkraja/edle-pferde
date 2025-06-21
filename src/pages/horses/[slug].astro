@@ -13,7 +13,10 @@ if (!horse) throw new Error("No horse found for this slug");
 
 const { Content } = await horse.render();
 
-const allImages = [horse.data.profile_picture, ...horse.data.gallery || []];
+const allImages = [
+  { ...horse.data.profile_picture, featured: true },
+  ...horse.data.gallery
+  || []];
 
 // Generate static pages
 export async function getStaticPaths() {

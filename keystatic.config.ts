@@ -39,6 +39,15 @@ export default config({
             isRequired: true,
           },
         }),
+        gallery: fields.array(
+          fields.image({
+            label: 'Image for gallery',
+            directory: '/src/assets/gallery/articles',
+            publicPath: '/src/assets/gallery/articles/',
+          }), {
+            label: 'Gallery',
+          }
+        ),
         horses: fields.array(
           fields.relationship({
             label: 'Select a horse in this article',

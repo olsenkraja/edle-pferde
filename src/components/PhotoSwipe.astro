@@ -7,7 +7,7 @@ const { images } = Astro.props;
   {images?.map((image, i) => (
     <a
       href={image.src}
-      class="h-full w-full first:row-span-2 first:col-span-2 cursor-pointer hover:brightness-110 relative"
+      class={`h-full w-full cursor-pointer hover:brightness-110 relative ${image.featured && 'row-span-2 col-span-2'}`}
       data-pswp-width={image.width}
       data-pswp-height={image.height}
       data-cropped="true"
