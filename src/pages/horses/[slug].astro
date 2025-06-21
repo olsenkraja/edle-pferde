@@ -6,6 +6,7 @@ import Gallery from "../../components/Gallery.astro";
 import GalleryImage from "../../components/GalleryImage.astro";
 import YoutubeEmbedVideo from "../../components/YoutubeEmbedVideo.astro";
 import HorseRelationLink from "../../components/HorseRelationLink.astro";
+import PhotoSwipe from "../../components/PhotoSwipe.astro";
 
 const { slug } = Astro.params;
 if (!slug) throw new Error("Slug not found");
@@ -63,30 +64,19 @@ export async function getStaticPaths() {
         </div>
       </div>
     </div>
-    <div class="grid grid-cols-4 gap-1">
-      {allImages?.slice(0, 5)?.map((image, i) => (
-        <GalleryImage
-          src={image}
-          image={image}
-          alt={`Cover image for ${slug}`}
-          width={i === 0 ? 800 : 500}
-          class="rounded aspect-square object-cover h-full w-full first:row-span-2 first:col-span-2 cursor-pointer hover:brightness-110"
-          index={i}
-          gallery={allImages}
-          hasMoreImages={allImages.length > 5}
-        />
-      ))}
-    </div>
-    {horse.data.youtube_video_id && (
-      <YoutubeEmbedVideo
-        youtubeVideoId={horse.data.youtube_video_id}
-        width="100%"
-        height="360"
-      />
-    )}
+    <PhotoSwipe images={allImages} />
     <p>
       {horse.data.bio}
     </p>
+    <div class="max-w-[640px] mx-auto">
+      {horse.data.youtube_video_id && (
+        <YoutubeEmbedVideo
+          youtubeVideoId={horse.data.youtube_video_id}
+          width="100%"
+          height="360"
+        />
+      )}
+    </div>
     {horse.data.father?.value && horse.data.mother?.value && (
       <div class="space-y-4">
         <h2 class="text-brand uppercase tracking-widest font-semibold">
