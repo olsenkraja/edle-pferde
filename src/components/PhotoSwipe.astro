@@ -35,6 +35,9 @@ const { images } = Astro.props;
   const lightbox = new PhotoSwipeLightbox({
     gallery: "#gallery",
     children: "a",
+    imageClickAction: 'next',
+    tapAction: 'next',
+    bgClickAction: 'close',
     pswpModule: () => import("photoswipe")
   });
   lightbox.init();
