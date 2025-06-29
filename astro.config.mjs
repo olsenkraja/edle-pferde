@@ -7,10 +7,13 @@ import tailwindcss from '@tailwindcss/vite';
 import mdx from '@astrojs/mdx';
 import yaml from '@rollup/plugin-yaml';
 import cloudflare from '@astrojs/cloudflare';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react(), markdoc(), keystatic(), mdx()],
+  integrations: [react(), markdoc(), keystatic(), mdx(), sitemap()],
+
+  output: 'server',
 
   vite: {
     plugins: [
@@ -21,6 +24,14 @@ export default defineConfig({
         dts: './auto-imports.d.ts',
       }),
     ],
+  },
+
+  ssr: {
+    external: ['node:path'],
+  },
+
+  optimizeDeps: {
+    exclude: ['@keystatic/core'], // Exclude problematic packages from pre-bundling
   },
 
   adapter: cloudflare({
