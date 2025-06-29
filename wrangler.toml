@@ -1,8 +1,6 @@
 # wrangler.toml
-name = "edle-pferde" # Your project name
-main = "./dist/_worker.js" # Or wherever your worker entry point is
-compatibility_date = "2023-10-26" # Use a recent date
+name = "edle-pferde"
+main = "./dist/_worker.js"
+compatibility_date = "2023-10-26"
 compatibility_flags = ["nodejs_compat"]
-
-# If you have other settings like pages_build_output_dir, keep them
-# pages_build_output_dir = "./dist"
+pages_build_output_dir = "./dist"
