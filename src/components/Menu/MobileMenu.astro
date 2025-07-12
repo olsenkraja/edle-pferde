@@ -1,0 +1,65 @@
+---
+import { IconChevronDown, IconMenu2 } from "@tabler/icons-react";
+const { facebook, instagram } = await reader.singletons.social_media.read();
+import Instagram from "./../socials/instagram.astro";
+import Facebook from "./../socials/facebook.astro";
+---
+<div class="lg:hidden flex flex-col z-10 relative w-full shadow mb-16">
+  <div class="relative group dropdown">
+    <button
+      class="flex-1 text-center p-7 text-nowrap hover:bg-brand hover:text-white transition font-electrolize uppercase flex items-center space-x-2">
+      <IconMenu2 />
+    </button>
+    <div
+      class="dropdown-content hidden absolute bg-white w-full z-40 shadow-lg group-hover:block group-focus-within:block">
+      <a href="/">
+        <div class="p-5 border-t border-gray-200">Home</div>
+      </a>
+      <a href="/articles">
+        <div class="p-5 border-t border-gray-200">News</div>
+      </a>
+      <details class="border-t border-gray-200">
+        <summary class="p-5">Pferde</summary>
+        <div class="">
+          <a href="/horses">
+            <div class="p-5 pl-14 border-t border-gray-200">Alle Pferde</div>
+          </a>
+          <a href="/horses/for-sale">
+            <div class="p-5 pl-14 border-t border-gray-200">Verkaufspferde</div>
+          </a>
+          <a href="/horses/mares">
+            <div class="p-5 pl-14 border-t border-gray-200">Zuchtstuten</div>
+          </a>
+
+        </div>
+      </details>
+      <a href="/about-us">
+        <div class="p-5 border-t border-gray-200">Über uns</div>
+      </a>
+      <a href="/gallery">
+        <div class="p-5 border-t border-gray-200">Galerie</div>
+      </a>
+      <a href={"https://facebook.com/" + facebook} target="_blank">
+        <div class="p-5 border-t border-gray-200 flex space-x-4">
+          <Facebook />
+          <span>Facebook</span>
+        </div>
+      </a>
+      <a href={"https://instagram.com/" + instagram} target="_blank">
+        <div class="p-5 border-t border-gray-200 flex space-x-4">
+          <Instagram />
+          <span>Instagram</span>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="mt-2 w-[120px] z-50 top-0 absolute m-auto inset-x-0">
+    <img src="/logo.svg" alt="Logo" height="160px" />
+  </div>
+</div>
+
+<style>
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+</style>

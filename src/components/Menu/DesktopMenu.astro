@@ -1,0 +1,61 @@
+---
+import {IconChevronDown, IconMenu2} from "@tabler/icons-react"
+const {facebook, instagram} = await reader.singletons.social_media.read();
+import Instagram from "./../socials/instagram.astro";
+import Facebook from "./../socials/facebook.astro";
+---
+<header class="shadow top-0 sticky z-30 bg-white">
+  <div class="hidden lg:flex items-center justify-evenly h-20 z-10 w-[1024px] mx-auto mb-16">
+    <div class="flex-1" />
+    <a href="/"
+       class="flex-1 text-center p-7 text-nowrap hover:bg-brand hover:text-white transition font-electrolize uppercase">
+      Home
+    </a>
+    <a href="/articles"
+       class="flex-1 text-center p-7 text-nowrap hover:bg-brand hover:text-white transition font-electrolize uppercase">
+      News
+    </a>
+    <div class="relative group dropdown">
+      <button
+        class="flex-1 text-center p-7 text-nowrap hover:bg-brand hover:text-white transition font-electrolize uppercase flex items-center space-x-2">
+        <span>Pferde</span>
+        <IconChevronDown />
+      </button>
+      <div class="dropdown-content hidden absolute bg-white min-w-48 z-[60] shadow-lg group-hover:block group-focus-within:block">
+        <a href="/horses" class="block p-4 hover:bg-brand hover:text-white">
+          Alle Pferde
+        </a>
+        <a href="/horses/for-sale" class="block p-4 hover:bg-brand hover:text-white">
+          Verkaufspferde
+        </a>
+        <a href="/horses/mares" class="block p-4 hover:bg-brand hover:text-white">
+          Zuchtstuten
+        </a>
+      </div>
+    </div>
+    <div class="mt-16 w-[200px] px-4 z-50">
+      <img src="/logo.svg" alt="Logo" height="160px" />
+    </div>
+    <a href="/about-us"
+       class="flex-1 text-center p-7 text-nowrap hover:bg-brand hover:text-white transition font-electrolize uppercase">
+      Über uns
+    </a>
+    <a href="/gallery"
+       class="flex-1 text-center p-7 text-nowrap hover:bg-brand hover:text-white transition font-electrolize uppercase">
+      Galerie
+    </a>
+    <div class="flex-1" />
+    <div class="flex-1 text-center p-7 flex space-x-2">
+      <a href={'https://facebook.com/' + facebook} target="_blank">
+        <Facebook />
+      </a>
+      <a href={'https://instagram.com/' + instagram} target="_blank">
+        <Instagram />
+      </a>
+    </div>
+  </div>
+</header>
+
+<style>
+  .dropdown:hover .dropdown-content {display: block;}
+</style>
