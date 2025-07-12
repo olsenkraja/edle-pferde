@@ -96,6 +96,21 @@ export default config({
             isRequired: true
           },
         }),
+        profile_picture_crop_position: fields.select({
+          label: 'Profile picture crop position',
+          options: [
+            {label: 'top-left', value: 'top-left'},
+            {label: 'top', value: 'top'},
+            {label: 'top-right', value: 'top-right'},
+            {label: 'left', value: 'left'},
+            {label: 'center', value: 'center'},
+            {label: 'right', value: 'right'},
+            {label: 'bottom-left', value: 'bottom-left'},
+            {label: 'bottom', value: 'bottom'},
+            {label: 'bottom-right', value: 'bottom-right'},
+          ],
+          defaultValue: 'center'
+        }),
         profile_picture_alt_text: fields.text({label: 'Profile picture / Alt text'}),
         gallery: fields.array(
           fields.image({

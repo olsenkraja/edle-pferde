@@ -22,6 +22,8 @@ const horses = defineCollection({
     birth_year: z.string(),
     lived_until: z.string().nullable().optional(),
     profile_picture: image(),
+    profile_picture_alt_text: z.string().nullable().optional(),
+    profile_picture_crop_position: z.string().nullable().optional(),
     gallery: z.array(image()).nullable().optional(),
     youtube_video_id: z.string().nullable().optional(),
     breed: z.string(),

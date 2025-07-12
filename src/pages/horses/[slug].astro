@@ -16,7 +16,8 @@ const { Content } = await horse.render();
 const allImages = [
   { ...horse.data.profile_picture, featured: true },
   ...horse.data.gallery
-  || []];
+  || []
+];
 
 // Generate static pages
 export async function getStaticPaths() {
