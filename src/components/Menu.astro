@@ -15,13 +15,13 @@ import Facebook from "./socials/facebook.astro";
 		   class="flex-1 text-center p-7 text-nowrap hover:bg-brand hover:text-white transition font-electrolize uppercase">
 			News
 		</a>
-    <div class="relative group">
+    <div class="relative group dropdown">
         <button
            class="flex-1 text-center p-7 text-nowrap hover:bg-brand hover:text-white transition font-electrolize uppercase flex items-center space-x-2">
           <span>Pferde</span>
           <IconChevronDown />
         </button>
-      <div class="hidden absolute bg-white min-w-48 z-[60] shadow-lg group-hover:block group-focus-within:block">
+      <div class="dropdown-content hidden absolute bg-white min-w-48 z-[60] shadow-lg group-hover:block group-focus-within:block">
         <a href="/horses" class="block p-4 hover:bg-brand hover:text-white">
           Alle Pferde
         </a>
@@ -111,3 +111,7 @@ import Facebook from "./socials/facebook.astro";
 		</div>
 	</div>
 </header>
+
+<style>
+  .dropdown:hover .dropdown-content {display: block;}
+</style>
