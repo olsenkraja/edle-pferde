@@ -85,7 +85,6 @@ export default config({
             {label: 'Hengst', value: 'Hengst'},
             {label: 'Wallach', value: 'Wallach'},
             {label: 'Stute', value: 'Stute'},
-            {label: 'Zuchtstute', value: 'Zuchtstute'},
           ],
           defaultValue: 'Hengst'
         }),
