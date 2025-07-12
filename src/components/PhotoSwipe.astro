@@ -1,7 +1,39 @@
 ---
 import { Image } from "astro:assets";
 
-const { images } = Astro.props;
+const { images, firstPhotoCropPosition } = Astro.props;
+
+let cropPosition = ''
+switch (firstPhotoCropPosition) {
+  case "top-left":
+    cropPosition = 'first:object-top-left'
+    break;
+  case "top":
+    cropPosition = 'first:object-top'
+    break;
+  case "top-right":
+    cropPosition = 'first:object-top-right'
+    break;
+  case "left":
+    cropPosition = 'first:object-left'
+    break;
+  case "right":
+    cropPosition = 'first:object-right'
+    break;
+  case "bottom-left":
+    cropPosition = 'first:object-bottom-left'
+    break;
+  case "bottom":
+    cropPosition = 'first:object-bottom'
+    break;
+  case "bottom-right":
+    cropPosition = 'first:object-bottom-right'
+    break;
+  case "center":
+  default:
+    cropPosition = 'first:object-center'
+    break;
+}
 ---
 <div class="pswp-gallery pswp-gallery--single-column grid grid-cols-2 lg:grid-cols-4 gap-1" id="gallery">
   {images?.map((image, i) => (
@@ -22,7 +54,7 @@ const { images } = Astro.props;
         <Image
           src={image}
           alt={image.src}
-          class="rounded aspect-square object-cover"
+          class={`rounded aspect-square object-cover ${cropPosition}`}
         />
       )}
     </a>
