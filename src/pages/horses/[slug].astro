@@ -5,6 +5,7 @@ import { IconCalendar, IconColorPicker, IconHorseshoe, IconRuler } from "@tabler
 import YoutubeEmbedVideo from "../../components/YoutubeEmbedVideo.astro";
 import HorseRelationLink from "../../components/HorseRelationLink.astro";
 import PhotoSwipe from "../../components/PhotoSwipe.astro";
+import MiniHorseCard from "../../components/horses/MiniHorseCard.astro";
 
 const { slug } = Astro.params;
 if (!slug) throw new Error("Slug not found");
@@ -18,6 +19,15 @@ const allImages = [
   ...horse.data.gallery
   || []
 ];
+
+const horses = await reader.collections.horses.all();
+let children = horses.filter(horse => horse.entry.mother.value === slug);
+children = children.map(child => {
+  return {
+    ...child,
+    data: child.entry
+  };
+});
 
 // Generate static pages
 export async function getStaticPaths() {
@@ -116,8 +126,30 @@ export async function getStaticPaths() {
         </div>
       </div>
     )}
-    <div class="prose">
-      <Content />
-    </div>
+
+
+    {horse.body && (
+      <div class="space-y-4">
+        <h2 class="text-brand uppercase tracking-widest font-semibold">
+          Erfolge
+        </h2>
+        <div class="prose">
+          <Content />
+        </div>
+      </div>
+    )}
+
+    {children.length > 0 && (
+      <div class="space-y-4">
+        <h2 class="text-brand uppercase tracking-widest font-semibold">
+          Nachkommen
+        </h2>
+        <div class="grid md:grid-cols-4 grid-cols-2 gap-4">
+          {children?.map(horse => (
+            <MiniHorseCard horse={horse} />
+          ))}
+        </div>
+      </div>
+    )}
   </div>
 </Layout>
