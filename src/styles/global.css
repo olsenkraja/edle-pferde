@@ -26,3 +26,19 @@
 .page-width {
     @apply w-full md:max-w-2xl lg:max-w-4xl xl:max-w-6xl 2xl:max-w-7xl
 }
+
+.prose {
+    @apply max-w-none
+}
+
+h1, h2, h3 {
+    @apply text-brand;
+}
+
+h1 {
+    @apply  text-5xl font-semibold;
+}
+
+h2 {
+    @apply text-2xl font-semibold;
+}

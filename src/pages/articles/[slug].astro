@@ -40,16 +40,18 @@ export async function getStaticPaths() {
         <Content />
       </div>
       <PhotoSwipe images={article.data.gallery} />
-      <div class="space-y-4">
-        <div class="text-xl text-gray-500 font-semibold">
-          In diesem Artikel erwähnte Pferde
+      {article.data?.horses?.length > 0 && (
+        <div class="space-y-4">
+          <h2>
+            In diesem Artikel erwähnte Pferde
+          </h2>
+          <div class="grid md:grid-cols-4 grid-cols-2 gap-4">
+            {article.data.horsesData?.map(horse => (
+              <MiniHorseCard horse={horse} />
+            ))}
+          </div>
         </div>
-        <div class="grid md:grid-cols-4 grid-cols-2 gap-4">
-          {article.data.horsesData?.map(horse => (
-            <MiniHorseCard horse={horse} />
-          ))}
-        </div>
-      </div>
+      )}
     </div>
   </div>
 </Layout>

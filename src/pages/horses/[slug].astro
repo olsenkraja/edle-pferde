@@ -94,7 +94,7 @@ export async function getStaticPaths() {
     </div>
     {horse.data.father?.value && horse.data.mother?.value && (
       <div class="space-y-4">
-        <h2 class="text-brand uppercase tracking-widest font-semibold">
+        <h2>
           Stammbaum
         </h2>
         <div class="flex flex-1 bg-primary-50 border border-brand/25 text-brand bg-white shadow rounded">
@@ -130,7 +130,7 @@ export async function getStaticPaths() {
 
     {horse.body && (
       <div class="space-y-4">
-        <h2 class="text-brand uppercase tracking-widest font-semibold">
+        <h2>
           Erfolge
         </h2>
         <div class="prose">
@@ -141,7 +141,7 @@ export async function getStaticPaths() {
 
     {children.length > 0 && (
       <div class="space-y-4">
-        <h2 class="text-brand uppercase tracking-widest font-semibold">
+        <h2>
           Nachkommen
         </h2>
         <div class="grid md:grid-cols-4 grid-cols-2 gap-4">
