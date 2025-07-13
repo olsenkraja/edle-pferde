@@ -55,7 +55,6 @@ const horses = defineCollection({
       discriminant: z.boolean(),
       value: z.string().nullable().optional()
     }).nullable().optional(),
-    children: z.array(z.string()),
   }),
 })
 

@@ -225,16 +225,6 @@ export default config({
             }),
           }
         ),
-        children: fields.array(
-          fields.relationship({
-            label: 'Children',
-            collection: 'horses'
-          }),
-          {
-            label: 'Children',
-            itemLabel: (item) => item.value || 'Please select an horse',
-          }
-        ),
       },
     }),
     photos: collection({
