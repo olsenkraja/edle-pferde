@@ -1,8 +1,10 @@
 ---
 import Image from 'astro/components/Image.astro'
 import {IconCalendar, IconHorseshoe} from "@tabler/icons-react"
+import { getEntry } from "astro:content";
 
-const {horse} = Astro.props
+const {horseSlug} = Astro.props
+const horse = await getEntry("horses", horseSlug);
 
 let cropPosition = ''
 switch (horse.data.profile_picture_crop_position) {

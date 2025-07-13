@@ -146,7 +146,7 @@ export async function getStaticPaths() {
         </h2>
         <div class="grid md:grid-cols-4 grid-cols-2 gap-4">
           {children?.map(horse => (
-            <MiniHorseCard horse={horse} />
+            <MiniHorseCard horseSlug={horse.slug} />
           ))}
         </div>
       </div>
