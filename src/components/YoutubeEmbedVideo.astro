@@ -1,12 +1,5 @@
 ---
-const {youtubeVideoId, width, height} = Astro.props
+import { YouTube } from 'astro-embed';
+const { youtubeVideoId } = Astro.props;
 ---
-<iframe width={width}
-        height={height}
-        src={`https://www.youtube.com/embed/${youtubeVideoId}`}
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen>
-</iframe>
+<YouTube id={youtubeVideoId} />
