@@ -36,7 +36,7 @@ export async function getStaticPaths() {
     />
     <div class="space-y-16">
       <div class="prose-lg">
-        <h1>{article.data.title}</h1>
+        <h1 class="hyphens-auto">{article.data.title}</h1>
         <Content />
       </div>
       <PhotoSwipe images={article.data.gallery} />
