@@ -27,14 +27,14 @@ export async function getStaticPaths() {
 }
 ---
 <Layout title={article.data.title}>
-  <div class="page-width mx-auto space-y-16 px-4 md:px-0">
+  <div class="page-width mx-auto space-y-16">
     <Image
       src={article.data.cover_image}
       alt={`Cover image for ${slug}`}
       width={2048}
-      class="aspect-[2/1] object-cover rounded w-full"
+      class="aspect-video object-cover md:rounded-xl w-full"
     />
-    <div class="space-y-16">
+    <div class="space-y-16 px-4 md:px-0">
       <div class="prose-lg">
         <h1>{article.data.title}</h1>
         <Content />
