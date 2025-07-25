@@ -7,9 +7,10 @@ const {article} = Astro.props
     <Image
       src={article.data.cover_image}
       alt={`Cover image for ${article.slug}`}
-      width={800}
-      height={800}
+      height={768}
+      width={1024}
       class="object-cover z-10 rounded-lg w-full h-full"
+      transition:name={`article-${article.slug}`}
     />
     <div class="absolute inset-0 bg-gradient-to-t from from-black via-transparent z-20 rounded-b-lg" />
     <div class="absolute bottom-4 inset-x-4 text-white z-20 space-y-4">
