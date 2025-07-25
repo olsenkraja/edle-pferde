@@ -24,7 +24,7 @@
 }
 
 .page-width {
-    @apply w-full md:max-w-2xl lg:max-w-4xl xl:max-w-6xl 2xl:max-w-7xl
+    @apply w-full md:max-w-2xl lg:max-w-4xl xl:max-w-6xl
 }
 
 .prose {
@@ -36,7 +36,7 @@ h1, h2, h3 {
 }
 
 h1 {
-    @apply text-4xl sm:text-5xl font-semibold;
+    @apply text-3xl sm:text-4xl font-semibold;
 }
 
 h2 {
