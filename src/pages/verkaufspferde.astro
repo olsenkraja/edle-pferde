@@ -11,7 +11,7 @@ const horsesForSale = horses.filter(horse => horse.data.status === 'for-sale')
 <Layout title="Trakehner Gestüt Pichl">
     <div class="page-width mx-auto px-4 space-y-24">
         <div class="space-y-4 text-2xl">
-            <h2>Pferde zu verkaufen</h2>
+            <h2>Verkaufspferde</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {horsesForSale.map(horse => (
                       <HorseCard horse={horse}/>
