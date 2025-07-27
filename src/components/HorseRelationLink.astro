@@ -7,7 +7,7 @@ const horse = horses.find(h => h.slug === horseName.value)
 ---
 <span class="text-center">
   {horse &&
-    <a href={`/horses/${horse?.slug}`} class="underline text-brand">
+    <a href={`/pferde/${horse?.slug}`} class="underline text-brand">
       {horse.data.full_name}
     </a>
   }

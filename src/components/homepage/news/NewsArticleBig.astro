@@ -2,7 +2,7 @@
 import Image from "astro/components/Image.astro";
 const { article } = Astro.props;
 ---
-<a href={`/articles/${article.slug}`} class="row-span-2 md:row-span-3 col-span-4">
+<a href={`/news/${article.slug}`} class="row-span-2 md:row-span-3 col-span-4">
   <div class="relative h-full w-full">
     <Image
       src={article.data.cover_image}
