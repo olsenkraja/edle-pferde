@@ -140,6 +140,9 @@ export default config({
         lived_until: fields.text({
           label: 'Lived until',
         }),
+        in_stable_until: fields.text({
+          label: 'In stable until',
+        }),
         breed: fields.text({label: 'Breed'}),
         size: fields.text({label: 'Size'}),
         color: fields.text({label: 'Color'}),
