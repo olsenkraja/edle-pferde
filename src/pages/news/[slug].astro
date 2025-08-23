@@ -28,12 +28,10 @@ export async function getStaticPaths() {
 ---
 <Layout title={article.data.title}>
   <div class="page-width mx-auto space-y-16">
-    <Image
+    <img
       src={article.data.cover_image}
-      alt={`Cover image for ${slug}`}
-      width={1024}
+      alt={`Cover image for ${slug}`
       class="aspect-4/3 object-cover md:rounded-xl w-full"
-      style={`view-transition-name: article-${slug};`}
     />
     <div class="space-y-16 px-4 md:px-0">
       <div class="prose-lg">
