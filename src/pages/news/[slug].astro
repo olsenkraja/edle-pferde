@@ -32,7 +32,7 @@ export async function getStaticPaths() {
       src={article.data.cover_image}
       alt={`Cover image for ${slug}`}
       width={0}
-      class="aspect-4/3 object-cover md:rounded-xl w-full"
+      class="aspect-4/3 object-cover md:rounded-xl w-full max-w-[768px]"
     />
     <div class="space-y-16 px-4 md:px-0">
       <div class="prose-lg">
