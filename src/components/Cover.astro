@@ -1,8 +1,16 @@
 ---
+import Image from "astro/components/Image.astro";
 import { IconHorse, IconUserHeart, IconMedal, IconMapPin } from "@tabler/icons-react";
 ---
 <div class="flex flex-col -mt-16">
-  <img src="/hero.png" class="h-[50vh] md:h-[80vh] object-cover" alt="Cover image" />
+  <Image
+    src="/hero.png"
+    alt="Cover image"
+    width={2056}
+    height={800}
+    quality={75}
+    class="h-[50vh] md:h-[80vh] 2xl:h-[800px] object-cover mx-auto"
+  />
   <div class="px-4">
     <div
       class="mx-auto -mt-20 grid gap-px md:grid-cols-4 grid-cols-2 page-width items-center bg-gray-200 overflow-auto rounded-2xl shadow-2xl">
