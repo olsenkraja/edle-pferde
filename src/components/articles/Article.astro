@@ -10,7 +10,7 @@ function formatDate(date: Date) {
   }).format(date);
 }
 ---
-<a href={`/news/${article.slug}`} class="transition hover:brightness-110">
+<a href={`/news/${article.slug}`} class="box transition hover:brightness-110">
   <div class="flex flex-col md:flex-row rounded bg-white overflow-auto shadow">
     <Image
       src={article.data.cover_image}
@@ -29,3 +29,46 @@ function formatDate(date: Date) {
     </div>
   </div>
 </a>
+
+<script type="module">
+  import { animate, press, hover } from "https://cdn.jsdelivr.net/npm/motion@12.23.12/+esm"
+
+  const gestureState = new WeakMap()
+
+  const transition = { type: "spring", stiffness: 500, damping: 25 }
+
+  const initialState = {
+    isPressed: false,
+  }
+
+  function setGesture(element, update) {
+    const state = gestureState.get(element) || { ...initialState }
+    const newState = { ...state, ...update }
+    gestureState.set(element, newState)
+
+    let scale = 1
+    if (newState.isPressed) {
+      scale = 0.95
+    }
+
+    animate(element, { scale }, transition)
+  }
+
+  press(".box", (element) => {
+    setGesture(element, { isPressed: true })
+    return () => setGesture(element, { isPressed: false })
+  })
+</script>
+
+<style>
+  .box {
+    background-color: #dd00ee;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .box:focus-visible {
+    outline: 2px solid #8df0cc;
+    outline-offset: 2px;
+  }
+</style>

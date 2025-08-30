@@ -14,7 +14,7 @@ const activeHorses = horses.filter(horse => horse.data.status === 'active' || ho
             <h2>Alle Pferde</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {activeHorses.map(horse => (
-                      <HorseCard horse={horse}/>
+                      <HorseCard horse={horse} showForSaleLabel/>
               ))}
             </div>
         </div>
