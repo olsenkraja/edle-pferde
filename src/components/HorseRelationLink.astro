@@ -7,9 +7,15 @@ const horse = horses.find(h => h.slug === horseName.value)
 ---
 <span class="text-center">
   {horse &&
-    <a href={`/pferde/${horse?.slug}`} class="underline text-brand">
-      {horse.data.full_name}
-    </a>
+    <div class="line-clamp-3">
+      <a href={`/pferde/${horse?.slug}`} class="underline text-brand font-semibold">
+        {horse.data.full_name}
+      </a>
+    </div>
   }
-  {!horse && horseName.value}
+  {!horse &&
+    <div class="line-clamp-3">
+      {horseName.value}
+    </div>
+  }
 </span>

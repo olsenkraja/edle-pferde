@@ -17,8 +17,8 @@
     "@rollup/plugin-yaml": "^4.1.2",
     "@tabler/icons-react": "^3.34.1",
     "@tailwindcss/typography": "^0.5.16",
-    "@tailwindcss/vite": "^4.1.12",
-    "@types/node": "^24.3.0",
+    "@tailwindcss/vite": "^4.1.13",
+    "@types/node": "^24.3.1",
     "@types/react": "^19.1.12",
     "@types/react-dom": "^19.1.9",
     "astro": "^5.13.5",
@@ -27,7 +27,7 @@
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "sharp": "^0.34.3",
-    "tailwindcss": "^4.1.12"
+    "tailwindcss": "^4.1.13"
   },
   "scripts": {
     "dev": "astro dev",

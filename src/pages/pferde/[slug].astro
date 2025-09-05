@@ -105,36 +105,41 @@ export async function getStaticPaths() {
         <h2>
           Stammbaum
         </h2>
-        <div class="flex flex-1 bg-primary-50 border border-brand/25 text-brand bg-white shadow rounded">
-          <div class="flex-1 flex flex-col items-center justify-center border-r border-brand/25 text-center">
-            {horse.data.full_name}
-          </div>
-          <div class="flex-1 flex flex-col items-center justify-center border-r border-brand/25">
-            <div class="flex-1 w-full flex justify-center items-center border-b border-brand/25">
+
+        <table class="bg-white table-fixed w-full border-collapse *:*:h-20">
+          <tr>
+            <td rowspan="4" class="border border-brand/25 text-center text-brand">
+              <span>{horse.data.full_name}</span>
+            </td>
+            <td rowspan="2" class="border border-brand/25 text-center text-brand">
               <HorseRelationLink horseName={horse.data.father} />
-            </div>
-            <div class="flex-1 w-full flex justify-center items-center">
-              <HorseRelationLink horseName={horse.data.mother} />
-            </div>
-          </div>
-          <div class="flex-1 flex flex-col items-center justify-center">
-            <div class="flex-1 w-full text-center py-4 border-b border-brand/25">
+            </td>
+            <td class="border border-brand/25 text-center text-brand">
               <HorseRelationLink horseName={horse.data.fathers_father} />
-            </div>
-            <div class="flex-1 w-full text-center py-4 border-b border-brand/25">
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-brand/25 text-center text-brand">
               <HorseRelationLink horseName={horse.data.fathers_mother} />
-            </div>
-            <div class="flex-1 w-full text-center py-4 border-b border-brand/25">
+            </td>
+          </tr>
+          <tr>
+            <td rowspan="2" class="border border-brand/25 text-center text-brand">
+              <HorseRelationLink horseName={horse.data.mother} />
+            </td>
+            <td class="border border-brand/25 text-center text-brand">
               <HorseRelationLink horseName={horse.data.mothers_father} />
-            </div>
-            <div class="flex-1 w-full text-center py-4">
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-brand/25 text-center text-brand">
               <HorseRelationLink horseName={horse.data.mothers_mother} />
-            </div>
-          </div>
-        </div>
+            </td>
+          </tr>
+        </table>
+
       </div>
     )}
-
 
     {horse.body && (
       <div class="space-y-4">
