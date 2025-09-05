@@ -353,9 +353,6 @@ export default config({
         phone_number: fields.text({
           label: 'Phone number',
         }),
-        mobile_phone_number: fields.text({
-          label: 'Mobile phone number',
-        }),
       },
     }),
   },
