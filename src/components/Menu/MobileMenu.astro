@@ -5,66 +5,124 @@ import Instagram from "./../socials/instagram.astro";
 import Facebook from "./../socials/facebook.astro";
 ---
 <div class="lg:hidden flex flex-col z-10 relative w-full shadow mb-16">
-  <div class="relative group peer dropdown">
-    <button
-      class="flex-1 text-center p-7 text-nowrap transition font-electrolize uppercase flex items-center space-x-2">
-      <IconMenu2 />
-    </button>
-    <div
-      class="dropdown-content hidden absolute bg-white w-full z-40 shadow-lg group-focus-within:block">
+  <div class="menu-container">
+    <input type="checkbox" id="menu-toggle" />
+    <label for="menu-toggle"
+           class="menu-label menu-button flex-1 text-center p-7 text-nowrap transition font-mono uppercase flex items-center space-x-2 bg-white w-full">
+      <span class="hamburger-icon"><IconMenu2 /></span>
+      <span class="close-icon"><IconX /></span>
+    </label>
+
+    <div class="dropdown-content bg-white w-full shadow-lg">
       <a href="/">
         <div class="p-5 border-t border-gray-200">Home</div>
       </a>
-      <a href="/articles">
+      <a href="/news">
         <div class="p-5 border-t border-gray-200">News</div>
       </a>
       <details class="border-t border-gray-200">
         <summary class="p-5">Pferde</summary>
         <div class="">
-          <a href="/horses">
+          <a href="/pferde">
             <div class="p-5 pl-14 border-t border-gray-200">Alle Pferde</div>
           </a>
-          <a href="/horses/for-sale">
+          <a href="/verkaufspferde">
             <div class="p-5 pl-14 border-t border-gray-200">Verkaufspferde</div>
           </a>
-          <a href="/horses/mares">
+          <a href="/stuten">
             <div class="p-5 pl-14 border-t border-gray-200">Stuten</div>
           </a>
-
         </div>
       </details>
-      <a href="/about-us">
+      <a href="/ueber-uns">
         <div class="p-5 border-t border-gray-200">Über uns</div>
       </a>
-      <a href="/gallery">
+      <a href="/galerie">
         <div class="p-5 border-t border-gray-200">Galerie</div>
       </a>
       <a href={"https://facebook.com/" + facebook} target="_blank">
-        <div class="p-5 border-t border-gray-200 flex space-x-4">
+        <div class="p-5 border-t border-gray-200 flex space-x-4 hover:bg-gray-50">
           <Facebook />
           <span>Facebook</span>
         </div>
       </a>
       <a href={"https://instagram.com/" + instagram} target="_blank">
-        <div class="p-5 border-t border-gray-200 flex space-x-4">
+        <div class="p-5 border-t border-gray-200 flex space-x-4 hover:bg-gray-50">
           <Instagram />
           <span>Instagram</span>
         </div>
       </a>
     </div>
+    <label
+      for="menu-toggle"
+      class="overlay absolute bg-black hidden w-screen h-screen opacity-75 top-20 cursor-pointer">
+    </label>
   </div>
-  <button
-    class="p-7 absolute bg-white hidden peer-focus-within:block">
-    <IconX />
-  </button>
-  <div class="absolute bg-black hidden w-screen h-screen peer-focus-within:block opacity-75 top-20"></div>
   <div class="mt-2 w-[120px] z-50 top-0 absolute m-auto inset-x-0">
-    <img src="/logo.svg" alt="Logo" height="160px" />
+    <img src="/logo.svg" alt="Logo" height="160px" class="drop-shadow-xl" />
   </div>
 </div>
 
 <style>
-  .dropdown:focus-within .dropdown-content {
+  #menu-toggle {
+    display: none;
+  }
+
+  .menu-button {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .dropdown-content {
+    display: none;
+  }
+
+  #menu-toggle:checked ~ .dropdown-content {
     display: block;
+  }
+
+  #menu-toggle:checked ~ .close-button {
+    display: block !important;
+  }
+
+  #menu-toggle:checked ~ .overlay {
+    display: block !important;
+  }
+
+  .hamburger-icon {
+    display: block;
+  }
+
+  .close-icon {
+    display: none;
+  }
+
+  #menu-toggle:checked ~ .menu-label .hamburger-icon {
+    display: none;
+  }
+
+  #menu-toggle:checked ~ .menu-label .close-icon {
+    display: block;
+  }
+
+  .menu-container {
+    position: relative;
+    z-index: 50;
+  }
+
+  .dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 40;
+  }
+
+  .close-button {
+    z-index: 50;
+  }
+
+  .overlay {
+    z-index: 30;
   }
 </style>

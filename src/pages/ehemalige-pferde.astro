@@ -1,0 +1,22 @@
+---
+import Layout from '../layouts/Layout.astro'
+import { getCollection } from 'astro:content'
+import HorseCard from "../components/horses/HorseCard.astro";
+
+let horses = await getCollection('horses')
+horses = horses.sort((a, b) => (a.data.in_stable_until < b.data.in_stable_until) ? 1 : ((b.data.in_stable_until < a.data.in_stable_until) ? -1 : 0))
+const inactiveHorses = horses.filter(horse => horse.data.status === 'inactive')
+---
+
+<Layout title="Trakehner Gestüt Pichl">
+    <div class="page-width mx-auto px-4 space-y-24">
+        <div class="space-y-4 text-2xl">
+            <h2>Ehemalige Pferde</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {inactiveHorses.map(horse => (
+                      <HorseCard horse={horse}/>
+              ))}
+            </div>
+        </div>
+    </div>
+</Layout>

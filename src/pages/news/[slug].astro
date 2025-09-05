@@ -1,0 +1,57 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import Image from "astro/components/Image.astro";
+import MiniHorseCard from "../../components/horses/MiniHorseCard.astro";
+import PhotoSwipe from "../../components/PhotoSwipe.astro";
+
+const { slug } = Astro.params;
+if (!slug) throw new Error("Slug not found");
+const article = await getEntry("articles", slug);
+if (!article) throw new Error("No article found for this slug");
+
+const { Content } = await article.render();
+
+const horses = await getCollection("horses");
+if (article.data.horses?.length) {
+  article.data.horsesData = [];
+  article.data.horses.forEach((horseSlug, i) => {
+    article.data.horsesData[i] = horses.find(h => h.slug === horseSlug);
+  });
+}
+
+// Generate static pages
+export async function getStaticPaths() {
+  const articles = await reader.collections.articles.all();
+  return articles.map(article => ({ params: { slug: article.slug } }));
+}
+---
+<Layout title={article.data.title}>
+  <div class="page-width mx-auto space-y-16">
+    <Image
+      src={article.data.cover_image}
+      alt={`Cover image for ${slug}`}
+      width={0}
+      class="aspect-2/1 object-cover md:rounded-xl w-full max-w-[1000px] mx-auto"
+    />
+    <div class="space-y-16 px-4 md:px-0">
+      <div class="prose-lg">
+        <h1>{article.data.title}</h1>
+        <Content />
+      </div>
+      <PhotoSwipe images={article.data.gallery} />
+      {article.data?.horses?.length > 0 && (
+        <div class="space-y-4">
+          <h2>
+            In diesem Artikel erwähnte Pferde
+          </h2>
+          <div class="grid md:grid-cols-4 grid-cols-2 gap-4">
+            {article.data.horsesData?.map(horse => (
+              <MiniHorseCard horseSlug={horse.slug} />
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  </div>
+</Layout>

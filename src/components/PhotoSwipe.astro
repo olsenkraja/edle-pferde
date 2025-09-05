@@ -67,9 +67,17 @@ switch (firstPhotoCropPosition) {
   const lightbox = new PhotoSwipeLightbox({
     gallery: "#gallery",
     children: "a",
-    imageClickAction: 'next',
+
+    mouseMovePan: true,
+
+    initialZoomLevel: 'fit',
+    secondaryZoomLevel: 1.5,
+    maxZoomLevel: 1,
+
     tapAction: 'next',
     bgClickAction: 'close',
+    doubleTapAction: false,
+
     pswpModule: () => import("photoswipe")
   });
   lightbox.init();

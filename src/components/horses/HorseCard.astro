@@ -1,42 +1,47 @@
 ---
 import Image from "astro/components/Image.astro";
 
-const { horse } = Astro.props;
+const { horse, showForSaleLabel } = Astro.props;
 
-let cropPosition = ''
+let cropPosition = "";
 switch (horse.data.profile_picture_crop_position) {
   case "top-left":
-    cropPosition = 'object-top-left'
+    cropPosition = "object-top-left";
     break;
   case "top":
-    cropPosition = 'object-top'
+    cropPosition = "object-top";
     break;
   case "top-right":
-    cropPosition = 'object-top-right'
+    cropPosition = "object-top-right";
     break;
   case "left":
-    cropPosition = 'object-left'
+    cropPosition = "object-left";
     break;
   case "right":
-    cropPosition = 'object-right'
+    cropPosition = "object-right";
     break;
   case "bottom-left":
-    cropPosition = 'object-bottom-left'
+    cropPosition = "object-bottom-left";
     break;
   case "bottom":
-    cropPosition = 'object-bottom'
+    cropPosition = "object-bottom";
     break;
   case "bottom-right":
-    cropPosition = 'object-bottom-right'
+    cropPosition = "object-bottom-right";
     break;
   case "center":
   default:
-    cropPosition = 'object-center'
+    cropPosition = "object-center";
     break;
 }
 ---
-<a href={`/horses/${horse.slug}`}>
-  <div class="bg-white overflow-auto rounded shadow">
+<a href={`/pferde/${horse.slug}`} class="box">
+  <div class="bg-white overflow-auto rounded shadow relative">
+    {showForSaleLabel && horse.data.status === "for-sale" && (
+      <div class=" bg-gradient-to-b from-brand-light to-brand absolute text-white font-semibold px-3 py-1 m-3 text-base rounded shadow-lg">
+        Verkäuflich
+      </div>
+    )}
     <Image
       src={horse.data.profile_picture}
       alt={`Cover image for ${horse.slug}`}
@@ -54,3 +59,54 @@ switch (horse.data.profile_picture_crop_position) {
     </div>
   </div>
 </a>
+
+<script type="module">
+  import { animate, press, hover } from "https://cdn.jsdelivr.net/npm/motion@12.23.12/+esm"
+
+  const gestureState = new WeakMap()
+
+  const transition = { type: "spring", stiffness: 500, damping: 25 }
+
+  const initialState = {
+    isHovered: false,
+    isPressed: false,
+  }
+
+  function setGesture(element, update) {
+    const state = gestureState.get(element) || { ...initialState }
+    const newState = { ...state, ...update }
+    gestureState.set(element, newState)
+
+    let scale = 1
+    if (newState.isPressed) {
+      scale = 0.95
+    } else if (newState.isHovered) {
+      scale = 1.05
+    }
+
+    animate(element, { scale }, transition)
+  }
+
+  hover(".box", (element) => {
+    setGesture(element, { isHovered: true })
+    return () => setGesture(element, { isHovered: false })
+  })
+
+  press(".box", (element) => {
+    setGesture(element, { isPressed: true })
+    return () => setGesture(element, { isPressed: false })
+  })
+</script>
+
+<style>
+  .box {
+    background-color: #dd00ee;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .box:focus-visible {
+    outline: 2px solid #8df0cc;
+    outline-offset: 2px;
+  }
+</style>
