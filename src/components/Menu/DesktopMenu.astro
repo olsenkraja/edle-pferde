@@ -3,6 +3,7 @@ import { IconChevronDown } from "@tabler/icons-react";
 const { facebook, instagram } = await reader.singletons.social_media.read();
 import Instagram from "./../socials/instagram.astro";
 import Facebook from "./../socials/facebook.astro";
+import Logo from "../Logo.astro";
 ---
 <div class="hidden lg:flex items-center justify-evenly h-20 z-10 w-[1024px] mx-auto mb-16">
   <div class="flex-1" />
@@ -33,9 +34,9 @@ import Facebook from "./../socials/facebook.astro";
       </a>
     </div>
   </div>
-  <div class="mt-16 w-[200px] px-4 z-50">
-    <img src="/logo.svg" alt="Logo" height="160px" />
-  </div>
+  <a href="/" class="mt-16 w-[200px] px-4 z-50">
+    <Logo />
+  </a>
   <a href="/ueber-uns"
      class="flex-1 text-center p-7 text-nowrap hover:bg-brand hover:text-white transition font-electrolize uppercase">
     Über uns
@@ -47,9 +48,11 @@ import Facebook from "./../socials/facebook.astro";
   <div class="flex-1" />
   <div class="flex-1 text-center p-7 flex space-x-2">
     <a href={"https://facebook.com/" + facebook} target="_blank">
+      <span class="sr-only">Facebook</span>
       <Facebook />
     </a>
     <a href={"https://instagram.com/" + instagram} target="_blank">
+      <span class="sr-only">Instagram</span>
       <Instagram />
     </a>
   </div>

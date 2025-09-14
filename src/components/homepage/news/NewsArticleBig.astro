@@ -6,7 +6,7 @@ const { article } = Astro.props;
   <div class="relative h-full w-full">
     <Image
       src={article.data.cover_image}
-      alt={`Cover image for ${article.slug}`}
+      alt={`${article.slug}`}
       height={768}
       width={1024}
       class="object-cover z-10 rounded-lg w-full h-full"
