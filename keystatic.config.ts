@@ -284,6 +284,15 @@ export default config({
         content: fields.mdx({
           label: 'Content',
         }),
+        gallery: fields.array(
+          fields.image({
+            label: 'Image for gallery',
+            directory: '/src/assets/gallery/pages',
+            publicPath: '/src/assets/gallery/pages/',
+          }), {
+            label: 'Gallery',
+          }
+        ),
       },
     }),
   },

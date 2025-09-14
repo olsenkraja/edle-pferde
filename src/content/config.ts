@@ -70,8 +70,9 @@ const photos = defineCollection({
 })
 
 const pages = defineCollection({
-  schema: z.object({
+  schema: ({image}) => z.object({
     title: z.string(),
+    gallery: z.array(image()).nullable().optional(),
   }),
 })
 

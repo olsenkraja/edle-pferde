@@ -1,17 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import {Image} from "astro:assets";
-import {getCollection} from 'astro:content'
-import PhotoSwipe from "../components/PhotoSwipe.astro";
+import {getEntry} from 'astro:content'
 
-const gallery = await getCollection('photos')
-let images = []
-gallery.forEach(image => {
-  images.push(image.data.photo)
-})
+const gallery = await getEntry('pages', 'galerie')
 ---
 <Layout title="Gallerie">
   <main class="page-width mx-auto px-4 md:px-0">
-    <PhotoSwipe images={images} />
+    <pre class="text-xs">
+    {JSON.stringify(gallery, null, 2)}
+    </pre>
+    <!--<PhotoSwipe images={images} />-->
   </main>
 </Layout>
