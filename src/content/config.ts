@@ -59,16 +59,6 @@ const horses = defineCollection({
   }),
 })
 
-const photos = defineCollection({
-  // @ts-ignore
-  schema: ({image}) => z.object({
-    id: z.string(),
-    photo: image(),
-    horses: z.array(z.string()).nullable().optional(),
-    created_at: z.date(),
-  }),
-})
-
 const pages = defineCollection({
   schema: ({image}) => z.object({
     title: z.string(),
@@ -76,4 +66,4 @@ const pages = defineCollection({
   }),
 })
 
-export const collections = {articles, horses, photos, pages}
+export const collections = {articles, horses, pages}

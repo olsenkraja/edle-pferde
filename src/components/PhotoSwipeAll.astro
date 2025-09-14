@@ -1,0 +1,77 @@
+---
+import { Image } from "astro:assets";
+
+const { images, firstPhotoCropPosition } = Astro.props;
+
+let cropPosition = ''
+switch (firstPhotoCropPosition) {
+  case "top-left":
+    cropPosition = 'first:object-top-left'
+    break;
+  case "top":
+    cropPosition = 'first:object-top'
+    break;
+  case "top-right":
+    cropPosition = 'first:object-top-right'
+    break;
+  case "left":
+    cropPosition = 'first:object-left'
+    break;
+  case "right":
+    cropPosition = 'first:object-right'
+    break;
+  case "bottom-left":
+    cropPosition = 'first:object-bottom-left'
+    break;
+  case "bottom":
+    cropPosition = 'first:object-bottom'
+    break;
+  case "bottom-right":
+    cropPosition = 'first:object-bottom-right'
+    break;
+  case "center":
+  default:
+    cropPosition = 'first:object-center'
+    break;
+}
+---
+<div class="pswp-gallery pswp-gallery--single-column grid grid-cols-2 lg:grid-cols-4 gap-1" id="gallery">
+  {images?.map((image, i) => (
+    <a
+      href={image.src}
+      class={`h-full w-full cursor-pointer hover:brightness-110 relative ${image.featured && 'row-span-2 col-span-2'}`}
+      data-pswp-width={image.width}
+      data-pswp-height={image.height}
+      data-cropped="true"
+      target="_blank"
+    >
+      <Image
+        src={image}
+        alt={image.src}
+        class={`rounded aspect-square object-cover ${cropPosition}`}
+      />
+    </a>
+  ))}
+</div>
+<script>
+  import PhotoSwipeLightbox from "photoswipe/lightbox";
+  import "photoswipe/style.css";
+
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: "#gallery",
+    children: "a",
+
+    mouseMovePan: true,
+
+    initialZoomLevel: 'fit',
+    secondaryZoomLevel: 1.5,
+    maxZoomLevel: 1,
+
+    tapAction: 'next',
+    bgClickAction: 'close',
+    doubleTapAction: false,
+
+    pswpModule: () => import("photoswipe")
+  });
+  lightbox.init();
+</script>

@@ -230,49 +230,6 @@ export default config({
         ),
       },
     }),
-    photos: collection({
-      columns: ['created_at'],
-      label: 'Photos',
-      slugField: 'id',
-      path: 'src/content/photos/*',
-      format: {contentField: 'alt_description'},
-      schema: {
-        id: fields.slug({
-          name: {
-            label: 'ID',
-            defaultValue: Math.random().toString(36).slice(2)
-          }
-        }),
-        photo: fields.image({
-          label: 'Photo',
-          directory: '/src/assets/gallery/photos/',
-          publicPath: '/src/assets/gallery/photos/',
-          validation: {
-            isRequired: true,
-          },
-        }),
-        alt_description: fields.mdx({
-          label: 'Alt description',
-        }),
-        horses: fields.array(
-          fields.relationship({
-            label: 'Select a horse in this photo',
-            collection: 'horses'
-          }), {
-            label: 'Horses in this photo',
-            // @ts-ignore
-            itemLabel: props => props.value
-          }
-        ),
-        created_at: fields.date({
-          label: 'Created at',
-          defaultValue: new Date().toISOString().split('T')[0],
-          validation: {
-            isRequired: true,
-          },
-        }),
-      },
-    }),
     pages: collection({
       columns: ['title'],
       label: 'Pages',
