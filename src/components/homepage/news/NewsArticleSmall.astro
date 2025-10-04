@@ -1,20 +1,53 @@
 ---
 import Image from 'astro/components/Image.astro'
-const {article} = Astro.props
+const { article } = Astro.props
+
+let cropPosition = "";
+switch (article.data.cover_image_crop_position) {
+  case "top-left":
+    cropPosition = "object-top-left";
+    break;
+  case "top":
+    cropPosition = "object-top";
+    break;
+  case "top-right":
+    cropPosition = "object-top-right";
+    break;
+  case "left":
+    cropPosition = "object-left";
+    break;
+  case "right":
+    cropPosition = "object-right";
+    break;
+  case "bottom-left":
+    cropPosition = "object-bottom-left";
+    break;
+  case "bottom":
+    cropPosition = "object-bottom";
+    break;
+  case "bottom-right":
+    cropPosition = "object-bottom-right";
+    break;
+  case "center":
+  default:
+    cropPosition = "object-center";
+    break;
+}
 ---
-<a href={`/news/${article.slug}`} class="col-span-4 md:col-span-2 lg:col-span-1">
-  <div class="relative aspect-4/3">
+<a href={`/news/${article.slug}`} class="md:row-span-2 col-span-4 md:col-span-2 lg:col-span-1">
+  <div class="relative md:h-full aspect-square">
     <Image
       src={article.data.cover_image}
       alt={`${article.slug}`}
-      height={768}
-      width={1024}
-      class="object-cover z-10 rounded-lg w-full h-full"
+      height={0}
+      width={0}
+      class={`object-cover z-10 rounded-lg w-full h-full ${cropPosition}`}
       transition:name={`article-${article.slug}`}
     />
-    <div class="absolute inset-0 bg-gradient-to-t from from-black via-transparent z-20 rounded-b-lg" />
-    <div class="absolute bottom-4 inset-x-4 text-white z-20 space-y-4">
-      <div class="font-semibold line-clamp-3">{article.data.title}</div>
+    <div class="absolute inset-0 bg-gradient-to-t from from-black to-50%  z-20 rounded-b-lg" />
+    <div class="absolute bottom-4 inset-x-4 text-white z-20">
+      <div class="font-semibold line-clamp-3 md:text-balance">{article.data.title}</div>
+      <p class="line-clamp-2 md:hidden mt-4">{article.body}</p>
     </div>
   </div>
 </a>

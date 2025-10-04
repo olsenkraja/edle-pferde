@@ -8,6 +8,7 @@ const articles = defineCollection({
     created_at: z.date(),
     cover_image: image(),
     gallery: z.array(image()).nullable().optional(),
+    cover_image_crop_position: z.string().nullable().optional(),
     horses: z.array(z.string()).nullable().optional(),
   }),
 })

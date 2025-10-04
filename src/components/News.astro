@@ -2,7 +2,6 @@
 import { getCollection } from "astro:content";
 import NewsArticleBig from "./homepage/news/NewsArticleBig.astro";
 import NewsArticleSmall from "./homepage/news/NewsArticleSmall.astro";
-import { IconChevronDown } from "@tabler/icons-react";
 
 let articles = await getCollection("articles");
 articles = articles.sort((a, b) => (a.data.created_at < b.data.created_at) ? 1 : ((b.data.created_at < a.data.created_at) ? -1 : 0));
@@ -18,7 +17,7 @@ articles = articles.sort((a, b) => (a.data.created_at < b.data.created_at) ? 1 :
       </div>
       <div class="bg-primary-600 w-20 h-1"></div>
     </div>
-    <div class="grid grid-rows-3 grid-cols-4 gap-4 relative w-full">
+    <div class="grid grid-rows-5 md:grid-rows-6 grid-cols-4 gap-4 relative w-full">
       <NewsArticleBig article={articles[0]} />
       {articles.slice(1, 5).map(article => (
         <NewsArticleSmall article={article} />
