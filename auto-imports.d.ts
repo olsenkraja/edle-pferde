@@ -7,5 +7,5 @@
 export {}
 declare global {
   const imageImporter: typeof import('./src/composables/imageImporter')['default']
-  const reader: typeof import('./src/composables/reader')['reader']
+  const reader: typeof import('./src/composables/reader').reader
 }
