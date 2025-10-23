@@ -9,6 +9,7 @@ const { article } = Astro.props;
       alt={`${article.slug}`}
       height={0}
       width={0}
+      loading="eager"
       class="object-cover z-10 rounded-lg w-full h-full"
       transition:name={`article-${article.slug}`}
     />

@@ -43,6 +43,7 @@ const {horse} = Astro.props
       src={horse.data.profile_picture}
       alt={`${horse.slug}`}
       width={960}
+      loading="eager"
     />
     <div class="absolute inset-0 bg-gradient-to-r from-white to-25%"></div>
   </div>

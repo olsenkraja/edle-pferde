@@ -49,6 +49,7 @@ function formatDate(date: Date) {
       alt={`${article.slug}`}
       height={768}
       width={1024}
+      loading="eager"
       class={`aspect-4/3 w-full md:w-72 object-cover ${cropPosition}`}
       transition:name={`article-${article.slug}`}
     />

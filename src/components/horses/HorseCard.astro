@@ -47,6 +47,7 @@ switch (horse.data.profile_picture_crop_position) {
       alt={`${horse.slug}`}
       width={800}
       class={`w-full object-cover aspect-square ${cropPosition}`}
+      loading="eager"
     />
     <div class="p-6">
       <div class="flex space-x-4 text-gray-500 text-sm">{horse.data.birth_year}, {horse.data.breed}</div>

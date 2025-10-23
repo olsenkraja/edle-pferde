@@ -54,6 +54,7 @@ switch (firstPhotoCropPosition) {
         <Image
           src={image}
           alt={image.src}
+          loading="eager"
           class={`rounded aspect-square object-cover ${cropPosition}`}
         />
       )}
