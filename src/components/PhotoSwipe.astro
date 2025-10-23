@@ -44,6 +44,7 @@ switch (firstPhotoCropPosition) {
       data-pswp-height={image.height}
       data-cropped="true"
       target="_blank"
+      tabindex={i < 5 ? '0' : '-1'}
     >
       {i === 4 && images.length > 5 && (
         <div class="absolute inset-0 bg-black/50 backdrop-blur rounded flex justify-center items-center text-white">
