@@ -8,7 +8,7 @@ const localMode: LocalConfig['storage'] = {
 
 const remoteMode: GitHubConfig['storage'] = {
   kind: 'github',
-  repo: 'olsenkraja/edle-pferde'
+  repo: 'edle-pferde/edle-pferde'
 }
 
 
