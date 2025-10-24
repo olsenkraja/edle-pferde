@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://edle-pferde.com/sitemap-index.xml

@@ -9,9 +9,12 @@ import yaml from '@rollup/plugin-yaml';
 
 import vercel from '@astrojs/vercel';
 
+import sitemap from '@astrojs/sitemap';
+
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react(), markdoc(), keystatic(), mdx()],
+  site: 'https://edle-pferde.com',
+  integrations: [react(), markdoc(), keystatic(), mdx(), sitemap()],
 
   vite: {
     plugins: [
