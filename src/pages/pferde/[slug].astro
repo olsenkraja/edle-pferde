@@ -1,7 +1,7 @@
 ---
 import { getEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-import { IconCalendar, IconColorPicker, IconHorseshoe, IconRuler } from "@tabler/icons-react";
+import { IconCalendar, IconColorPicker, IconGenderFemale, IconGenderMale, IconHorseshoe, IconRuler } from "@tabler/icons-react";
 import YoutubeEmbedVideo from "../../components/YoutubeEmbedVideo.astro";
 import HorseRelationLink from "../../components/HorseRelationLink.astro";
 import PhotoSwipe from "../../components/PhotoSwipe.astro";
@@ -63,6 +63,19 @@ export async function getStaticPaths() {
             <IconHorseshoe className="text-brand size-4" />
             <div class="font-semibold text-brand">
               {horse.data.breed}
+            </div>
+          </div>
+        )}
+        {horse.data.gender && (
+          <div class="flex items-center space-x-2">
+            {horse.data.gender === "Stute" && (
+              <IconGenderFemale className="text-brand size-4" />
+            )}
+            {horse.data.gender !== "Stute" && (
+              <IconGenderMale className="text-brand size-4" />
+            )}
+            <div class="font-semibold text-brand">
+              {horse.data.gender}
             </div>
           </div>
         )}
