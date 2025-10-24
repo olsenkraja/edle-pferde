@@ -17,16 +17,22 @@ articles = articles.sort((a, b) => (a.data.created_at < b.data.created_at) ? 1 :
       </div>
       <div class="bg-primary-600 w-20 h-1"></div>
     </div>
-    <div class="grid grid-rows-5 md:grid-rows-6 grid-cols-4 gap-4 relative w-full">
-      <NewsArticleBig article={articles[0]} />
-      {articles.slice(1, 5).map(article => (
-        <NewsArticleSmall article={article} />
-      ))}
-    </div>
-    <a href="/news">
-      <div class="w-fit px-8 py-4 bg-brand rounded-full font-semibold text-white text-sm">
-        MEHR LESEN
+    <div class="relative">
+      <div class="absolute bg-white shadow-2xl border border-gray-200 rounded-2xl inset-x-0 bottom-0 top-64"></div>
+      <div class="grid grid-rows-5 md:grid-rows-6 grid-cols-4 gap-4 w-full px-8">
+        <NewsArticleBig article={articles[0]} />
+        {articles.slice(1, 5).map(article => (
+          <NewsArticleSmall article={article} />
+        ))}
       </div>
-    </a>
+
+      <div class="flex items-center justify-center relative py-4">
+        <a href="/news" class="row-span col-span-4">
+          <div class="w-fit px-8 py-4 bg-brand rounded-full font-semibold text-white text-sm">
+            MEHR LESEN
+          </div>
+        </a>
+      </div>
+    </div>
   </div>
 </div>
