@@ -317,6 +317,10 @@ export default config({
           label: 'Instagram',
           description: 'The Instagram username (not full URL!)',
         }),
+        youtube: fields.text({
+          label: 'YouTube',
+          description: 'The YouTube channel username (not full URL!)',
+        }),
       },
     }),
     contact: singleton({

@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import {getEntry} from 'astro:content'
+import PhotoSwipeAll from "../components/PhotoSwipeAll.astro";
 
 const aboutUs = await getEntry('pages', 'about-us')
 const {Content} = await aboutUs.render()
@@ -10,6 +11,7 @@ const {Content} = await aboutUs.render()
         <div class="prose">
             <h1>{aboutUs.data.title}</h1>
             <Content/>
+            <PhotoSwipeAll images={aboutUs.data.gallery} />
         </div>
     </main>
 </Layout>

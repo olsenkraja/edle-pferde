@@ -1,8 +1,9 @@
 ---
 import { IconX, IconMenu2 } from "@tabler/icons-react";
-const { facebook, instagram } = await reader.singletons.social_media.read();
+const { facebook, instagram, youtube } = await reader.singletons.social_media.read();
 import Instagram from "./../socials/instagram.astro";
 import Facebook from "./../socials/facebook.astro";
+import YouTube from "./../socials/youtube.astro";
 import Logo from "../Logo.astro";
 ---
 <div class="lg:hidden flex flex-col z-10 relative w-full shadow mb-16">
@@ -51,6 +52,12 @@ import Logo from "../Logo.astro";
         <div class="p-5 border-t border-gray-200 flex space-x-4 hover:bg-gray-50">
           <Instagram />
           <span>Instagram</span>
+        </div>
+      </a>
+      <a href={"https://youtube.com/" + youtube} target="_blank">
+        <div class="p-5 border-t border-gray-200 flex space-x-4 hover:bg-gray-50">
+          <YouTube />
+          <span>YouTube</span>
         </div>
       </a>
     </div>

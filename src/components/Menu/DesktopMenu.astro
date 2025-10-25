@@ -1,8 +1,9 @@
 ---
 import { IconChevronDown } from "@tabler/icons-react";
-const { facebook, instagram } = await reader.singletons.social_media.read();
+const { facebook, instagram, youtube } = await reader.singletons.social_media.read();
 import Instagram from "./../socials/instagram.astro";
 import Facebook from "./../socials/facebook.astro";
+import YouTube from "./../socials/youtube.astro";
 import Logo from "../Logo.astro";
 ---
 <div class="hidden lg:flex items-center justify-evenly h-20 z-10 w-[1024px] mx-auto mb-16">
@@ -54,6 +55,10 @@ import Logo from "../Logo.astro";
     <a href={"https://instagram.com/" + instagram} target="_blank">
       <span class="sr-only">Instagram</span>
       <Instagram />
+    </a>
+    <a href={"https://youtube.com/@" + youtube} target="_blank">
+      <span class="sr-only">YouTube</span>
+      <YouTube />
     </a>
   </div>
 </div>
